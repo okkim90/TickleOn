@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TickleOn</title>
+    <link rel="stylesheet" href="../assets/css/common.min.css">
+    <script type="text/javascript" src="../assets/js/common.js"></script>
+</head>
+<body>
+    <div id="wrap" class="grid_wrap">
+        <header id="header" class="header">
+            <div class="breadcrumb">
+                <div class="breadcrumb_item">시설관리</div>
+                <div class="breadcrumb_item">정기작업시설</div>
+            </div>
+            <div class="hd_company">
+                <div class="hd_company_item dep1">회사명</div>
+                <div class="hd_company_item select-box ty_mid ">
+                    <input type="text" class="select-input" value="서울지점" placeholder="매체를 선택해주세요" readonly>
+                    <div class="options">
+                        <ul>
+                            <li data-value="1" class="option">서울지점</li>
+                            <li data-value="2" class="option">경기지점</li>
+                            <li data-value="3" class="option">강원지점</li>
+                        </ul>
+                        <button type="button" class="f_btn ty_mid _key2 w100">지점 관리</button>
+                    </div>
+                </div>
+            </div>
+            <div class="hd_user">
+                <button type="button" class="hd_user_btn"></button>
+                <div class="hd_user_menu"></div>
+            </div>
+        </header>
+        <aside class="nav">
+            <div class="nav_top">
+                <a href="" class="nav_top_logo"></a>
+                <button type="button" class="nav_close" aria-label="close nav"></button>
+            </div>
+            <nav class="nav_wrap">
+                <ul class="nav_list dep1">
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1"><i class="nav_ico ty_monitoring"></i>모니터링</a>
+                    </li>
+                    <li class="nav_dep1 has_dep on"> <!--[DEV] 활성화 : 'on' class-->
+                        <a href="" class="nav_btn dep1 "><i class="nav_ico ty_facility"></i>시설관리</a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2 on">정기작업시설</a><!--[DEV] 활성화 : 'on' class-->
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">고객이용시설</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 "><i class="nav_ico ty_work"></i>수행작업관리</a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">정기작업관리</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">고객작업관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 "><i class="nav_ico ty_emergency"></i>긴급관리<span class="tag_new">10 New</span></a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">정기작업시설<span class="tag_new">10 New</span></a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">고객이용시설</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 "><i class="nav_ico ty_account"></i>계정관리</a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">작업자 계정</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">지점 관리자 계정</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 "><i class="nav_ico ty_material"></i>소모품/장비관리</a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">소모품 관리</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">장비 관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 "><i class="nav_ico ty_statistic"></i>통계</a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">현황통계</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">근태관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1"><i class="nav_ico ty_notification"></i>안내사항</a>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1"><i class="nav_ico ty_setting"></i>설정</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <main id="container" class="container">
+            <h1 class="title1 mb20">모니터링</h1>
+            <div class="contents">
+                
+                <div class="monitoring_sec1">
+                    <div class="d_flex fw_w ai_c w100">
+                        <span class="fz_3">현재일시 2024.09.10(화) 23:00:00</span>
+                        <div class="ml_auto d_flex ai_c _gap8">
+                            <span class="fz_3">새로고침</span>
+                            <div class="select-box ty_mid2 w_80">
+                                <input type="text" class="select-input" value="10초" readonly>
+                                <div class="options">
+                                    <ul>
+                                        <li data-value="1" class="option">10초</li>
+                                        <li data-value="2" class="option">30초</li>
+                                        <li data-value="3" class="option">60초</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button type="button" class="btn_reset"></button>
+                        </div>
+                    </div>
+                    <div class="bd_box ty_small d_flex ai_c fw_w _gapX32 w100">
+                        <div class="date_box d_flex _gapX8 ai_c">
+                            <label>일자</label>
+                            <input type="date" class="f_input ty_mid bd_key w_150" data-placeholder='날짜를 선택해주세요.' value="2024-09-23">
+                            <button type="button" class="f_btn ty_mid _key_ol">오늘</button>
+                        </div>
+                        <div class="d_flex _gapX8 ai_c">
+                            <label>시설선택</label>
+                            <div class="select-box ty_mid2 w_180">
+                                <input type="text" class="select-input" placeholder="선택" readonly>
+                                <div class="options ty2">
+                                    <div class="category">
+                                        <ul class="category_item ">
+                                            <li><label class="category_option cate1"><input type="radio" name="cate1"><span>전체 시설</span></label></li>
+                                            <li><label class="category_option cate1"><input type="radio" name="cate1"><span>정기작업시설</span></label></li>
+                                            <li><label class="category_option cate1"><input type="radio" name="cate1"><span>고객이용시설</span></label></li>
+                                        </ul>
+                                        <ul class="category_item">
+                                            <li><label class="category_option"><input type="radio" name="cate2"><span>전체 층</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate2"><span>1층</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate2"><span>2층</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate2"><span>3층</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate2"><span>4층</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate2"><span>5층</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate2"><span>6층</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate2"><span>7층</span></label></li>
+                                        </ul>
+                                        <ul class="category_item">
+                                            <li><label class="category_option"><input type="radio" name="cate3"><span>전체 공간</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate3"><span>화장실</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate3"><span>로비</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate3"><span>창고</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate3"><span>엘리베이터</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate3"><span>수유실</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate3"><span>창고3</span></label></li>
+                                            <li><label class="category_option"><input type="radio" name="cate3"><span>창고4</span></label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bd_box ty_mid q_box q_box1">
+                        <h2 class="title2">[시설관리] 정기작업시설</h2>
+                       
+                        <svg viewBox="0 0 100 100" class="chart_donut" data-value="[14, 35]" data-keyValue="35"></svg>
+                        <svg viewBox="0 0 100 100" class="chart_donut" data-value="[52, 25]" data-keyValue="35"></svg>
+                        <script>
+                            const chart_donut = document.querySelectorAll('.chart_donut')
+                            chart_donut.forEach(e=>{
+                                const radius = 40; // 차트의 반지름
+                                const diameter = 2 * Math.PI * radius; // 차트의 둘레
+                                const colors = ['#FF5B5B','#0C59D8'];
+                                const dataset = JSON.parse(e.dataset.value);
+                                console.log(dataset);
+                                // 전체 데이터셋의 총 합
+                                const total = dataset.reduce((r, v) => r + v, 0);
+                                // 데이터셋의 누적 값
+                                const acc = dataset.reduce((arr, v, i) => {
+                                const last = arr[arr.length - 1];
+                                return [...arr, last + v];
+                                }, [0]);
+                                // 프로퍼티 할당 노가다 시작...
+                                
+                                dataset.forEach((data, i) => {
+                                    const ratio = data / total;
+                                    const fillSpace = diameter * ratio;
+                                    const emptySpace = diameter - fillSpace;
+                                    const offset = (acc[i] / total) * diameter;
+                                    
+                                    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                                    circle.setAttribute('cx', '50');
+                                    circle.setAttribute('cy', '50');
+                                    circle.setAttribute('r', String(radius));
+                                    circle.setAttribute('fill', 'transparent');
+                                    circle.setAttribute('stroke', colors[i]);
+                                    circle.setAttribute('stroke-width', '15');
+                                    circle.setAttribute('stroke-dasharray', `${fillSpace} ${emptySpace}`);
+                                    circle.setAttribute('stroke-dashoffset', String(-offset));
+                                    
+                                    e.appendChild(circle);
+                                });
+                            });
+                            
+
+                            
+
+                            
+                        </script>
+                    </div>
+                    <div class="bd_box ty_mid q_box">
+                        <h2 class="title2">[긴급관리] 정기작업시설</h2>
+                        
+                    </div>
+                    <div class="bd_box ty_mid q_box">
+                        <h2 class="title2">[긴급관리] 고객이용시설</h2>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
