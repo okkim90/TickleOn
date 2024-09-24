@@ -83,4 +83,12 @@
     &[type='date']:valid::before {
         display: none;
     }
+
+    &.datepicker {
+        text-align: right;
+        padding-left: 24px;
+        background-color: #fff;
+        background: url(../images/ico_date.svg) no-repeat left 8px center / 24px auto;
+        font-size: 14px;
+    }
 }

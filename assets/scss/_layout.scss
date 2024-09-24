@@ -1,12 +1,16 @@
 .grid_wrap {
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 70px 1fr;
     grid-template-areas:
       "nav header"
       "nav main"
     ;
     min-height: 100dvh;
+
+    @include tablet {
+        display: block;
+    }
 }
 
 
@@ -17,14 +21,66 @@
     left: 0;
     top: 0;
     z-index: 999;
-    height: 70px;
-    display: flex;
-    align-items: center;
     background-color: $c_key2;
-    padding: 0 20px;
+    @include tablet { 
+        position: static;
+        padding-top: 80px;
+    }
+    &_cont {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        height: 70px;
+        flex-wrap: wrap;
+        @include tablet {  
+            height: auto;
+            padding: 15px 20px;
+            row-gap: 15px;
+        }
+    }
+    .m_header {
+        display: none;
+        @include tablet {
+            display: flex;
+            background-color: $c_key;
+            height: 80px;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            h1 {
+                height: 100%;
+                a {
+                    display: flex;
+                    height: 100%;
+                    align-items: center;
+                    img {
+                        height: 30px;
+                    }
+                }
+            }
+        }
+        .btn_nav {
+            width: 80px;
+            height: 80px;
+            background-image: url(../images/btn_nav.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
     .breadcrumb {
         display: flex;
         align-items: center;
+        @include tablet {
+            order: 3;
+            width: 100%;
+        }
         &_item {
             font-size: $fz_4;
             color: $c_key3;
@@ -45,6 +101,9 @@
         display: flex;
         column-gap: 12px;
         margin-left: auto;
+        @include tablet {
+            flex: 1;
+        }
         &_item {
             width: 197px;
             height: 40px;
@@ -74,10 +133,17 @@
 
                 }
             }
+            @include tablet { 
+                flex: 1;
+                width: auto;
+            }
         }
     }
     .hd_user {
         margin-left: 60px;
+        @include tablet {
+            margin-left: 16px;
+        }
         &_btn {
             display: block;
             width: 40px;
@@ -100,6 +166,17 @@
     height: 100dvh;
     display: flex;
     flex-direction: column;
+    z-index: 9999;
+    @include tablet {
+        position: fixed;
+        left: auto;
+        right: -250px;
+        transition: right 0.3s ease-in-out;
+        &.on {
+            right: 0;
+        }
+    }
+
     &_top {
         height: 80px;
         flex-shrink: 0;
@@ -108,7 +185,7 @@
         align-items: center;
         padding-right: 20px;
         position: relative;
-        background: linear-gradient(90deg, lighten($c_key, 12%) 0%, $c_key 100%);
+        background: linear-gradient(90deg, lighten($c_key, 15%) 0%, darken($c_key, 5%) 100%);
         &_logo {
             width: 80px;
             height: 80px;
@@ -118,20 +195,24 @@
         .nav_close {
             width: 40px;
             height: 40px;
-            background-color: $c_key4;
-            border-radius: 50%;
-            background-image: url(../images/ico_close.svg);
+            //background-color: $c_key4;
+            //border-radius: 50%;
+            background-image: url(../images/close_nav.svg);
             background-repeat: no-repeat;
             background-position: center center;
-           
+            @include tablet {
+                background-image: url(../images/ico_close.svg);
+                background-color: darken($c_key, 12%);
+                border-radius: 50%;
+            }
         }
     }
     &_wrap {
         flex: 1;
-        overflow-y: overlay; 
+        overflow-y: auto; 
         //scrollbar-gutter: stable;  
         &::-webkit-scrollbar {
-            width: 10px;
+            width: 16px;
             
         }
         &::-webkit-scrollbar-thumb {
@@ -140,11 +221,11 @@
             background-clip: padding-box;
             width: 100%;
             box-sizing: border-box;
-            border: 3px solid transparent;
-            border-radius: 5px;
+            border: 5px solid transparent;
+            border-radius: 10px;
         }
         &::-webkit-scrollbar-track {
-            background-color: $c_key;
+            background-color: rgba(#fff, .1);
             
         }      
     }
@@ -198,8 +279,10 @@
         &.on {
             .nav_btn.dep1 {
                 background-color: #011FB7;
-                &:hover {
-                    background-color: #000B9B;
+                @include hover_true {
+                    &:hover {
+                        background-color: #000B9B;
+                    }
                 }
             }
             .nav_list.dep2 {
@@ -251,8 +334,10 @@
             font-size: 15px;
             font-weight: 600;
             column-gap: 8px;
-            &:hover {
-                background-color: #0536C5;
+            @include hover_true {
+                &:hover {
+                    background-color: #0536C5;
+                }
             }
 
             
@@ -275,11 +360,13 @@
                 background-color: rgba(#fff,.6);
                 margin-right: 18px;
             }
-            &:hover {
-                background-color: #0A4DD1;
-                color: #fff;
-                &::before {
-                    background-color: #fff;
+            @include hover_true {
+                &:hover {
+                    background-color: #0A4DD1;
+                    color: #fff;
+                    &::before {
+                        background-color: #fff;
+                    }
                 }
             }
             &.on {
@@ -300,6 +387,35 @@
             }
         }
     }
+
+    @include only_pc {
+        &.closed {
+            width: 80px;
+            .nav_top {
+                justify-content: center;
+                padding-right: 0;
+                .nav_close {
+                    display: none;
+                }
+            }
+            .nav_list .tag_new {
+                display: none;
+            }
+            .nav_btn.dep1 {
+                justify-content: center;
+                .txt {
+                    display: none;
+                }
+            }
+            .nav_dep1.has_dep .nav_btn.dep1::after {
+                display: none;
+            }
+            .nav_dep1.has_dep.on .nav_list.dep2 {
+                display: none;
+            }
+        }
+    }
+    
 }
 
 .container {
@@ -333,8 +449,74 @@
     .q_box {
         background-color: #fff;
         flex: 1;
+        display: flex;
+        flex-direction: column;
+        .title2 {
+            margin-bottom: 16px;
+            font-size: 23px;
+        }
+        &_cont {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
         &1 {
-            flex: 1.3;
+            flex: 1.4;
+            .q_box_cont {
+                display: flex;
+                align-items: center;
+                .chart_box {
+                    width: 40%;
+                    max-width: 140px;
+                    flex-shrink: 0;
+                    margin-right: 8%;
+                    display: flex;
+                    align-items: center;
+                    .chart_donut {
+                        width: 100%;
+                    }
+                }
+            }
+            @include tablet2 {
+                flex: none;
+                width: 100%;
+            }
+            
+        }
+        .data_list {
+            flex: 1;
+            &_item {
+                display: flex;
+                align-items: center;
+                & + .data_list_item {
+                    margin-top: 8px;
+                }
+                dt {
+                    font-size: 18px;
+                    font-weight: 500;
+                    display: flex;
+                    align-items: center;
+                    .color_chip {
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        margin-right: 8px;
+                        &.ty_total {
+                            background-color: #F1F1F1;
+                        }
+                        &.ty_blue {
+                            background-color: $c_key;
+                        }
+                        &.ty_red {
+                            background-color: $c_red2;
+                        }
+                    }
+                }
+                dd {
+                    font-size: 14px;
+                    margin-left: auto;
+                }
+            }
         }
     }
 }
@@ -343,4 +525,8 @@
 .chart_donut {
     transform: rotate(-90deg);
     width: 100px;
+    font-size: 15px;
+    text {
+        font-family: $font;
+    }
 }

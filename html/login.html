@@ -5,36 +5,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TickleOn</title>
+    <!--[D] datepicker js&css-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            // datepicker
+            $.datepicker.regional['ko'] = {
+                closeText: '닫기',
+                prevText: '이전달',
+                nextText: '다음달',
+                currentText: '오늘',
+                monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                dayNames: ['일','월','화','수','목','금','토'],
+                dayNamesShort: ['일','월','화','수','목','금','토'],
+                dayNamesMin: ['일','월','화','수','목','금','토'],
+                weekHeader: 'Wk',
+                dateFormat: 'yy-mm-dd(D)',
+                firstDay: 0,
+                isRTL: false,
+                showMonthAfterYear: true,
+                changeMonth: true,
+                changeYear: true
+            };
+            $.datepicker.setDefaults($.datepicker.regional['ko']);
+            $(".datepicker").datepicker();
+        });
+        //오늘 선택
+        function set_today(target){
+            let date_set = $(target).parents('.date_set');
+            let datepicker = date_set.find('.datepicker'); 
+            datepicker.datepicker('setDate', 'today');
+        }
+    </script>
+    <!--//[D] datepicker js&css-->
+
+    <!--[D] 공통척용 js&css-->
     <link rel="stylesheet" href="../assets/css/common.min.css">
     <script type="text/javascript" src="../assets/js/common.js"></script>
 </head>
 <body>
     <div id="wrap" class="grid_wrap">
         <header id="header" class="header">
-            <div class="breadcrumb">
-                <div class="breadcrumb_item">시설관리</div>
-                <div class="breadcrumb_item">정기작업시설</div>
+            <div class="m_header">
+                <h1><a href=""><img src="../assets/images/logo.svg" alt="TickleOn"></a> </h1>
+                <button type="button" class="btn_nav"></button>
             </div>
-            <div class="hd_company">
-                <div class="hd_company_item dep1">회사명</div>
-                <div class="hd_company_item select-box ty_mid ">
-                    <input type="text" class="select-input" value="서울지점" placeholder="매체를 선택해주세요" readonly>
-                    <div class="options">
-                        <ul>
-                            <li data-value="1" class="option">서울지점</li>
-                            <li data-value="2" class="option">경기지점</li>
-                            <li data-value="3" class="option">강원지점</li>
-                        </ul>
-                        <button type="button" class="f_btn ty_mid _key2 w100">지점 관리</button>
+            <div class="header_cont">
+                <div class="breadcrumb">
+                    <div class="breadcrumb_item">시설관리</div>
+                    <div class="breadcrumb_item">정기작업시설</div>
+                </div>
+                <div class="hd_company">
+                    <div class="hd_company_item dep1">회사명</div>
+                    <div class="hd_company_item select-box ty_mid ">
+                        <input type="text" class="select-input" value="서울지점" placeholder="매체를 선택해주세요" readonly>
+                        <div class="options">
+                            <ul>
+                                <li data-value="1" class="option">서울지점</li>
+                                <li data-value="2" class="option">경기지점</li>
+                                <li data-value="3" class="option">강원지점</li>
+                            </ul>
+                            <button type="button" class="f_btn ty_mid _key2 w100" onclick="event.stopPropagation();">지점 관리</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="hd_user">
-                <button type="button" class="hd_user_btn"></button>
-                <div class="hd_user_menu"></div>
+                <div class="hd_user">
+                    <button type="button" class="hd_user_btn"></button>
+                    <div class="hd_user_menu"></div>
+                </div>
             </div>
         </header>
-        <aside class="nav">
+        <aside class="nav closed">
             <div class="nav_top">
                 <a href="" class="nav_top_logo"></a>
                 <button type="button" class="nav_close" aria-label="close nav"></button>
@@ -42,10 +86,16 @@
             <nav class="nav_wrap">
                 <ul class="nav_list dep1">
                     <li class="nav_dep1">
-                        <a href="" class="nav_btn dep1"><i class="nav_ico ty_monitoring"></i>모니터링</a>
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_monitoring"></i>
+                            <span class="txt">모니터링</span>
+                        </a>
                     </li>
                     <li class="nav_dep1 has_dep on"> <!--[DEV] 활성화 : 'on' class-->
-                        <a href="" class="nav_btn dep1 "><i class="nav_ico ty_facility"></i>시설관리</a>
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_facility"></i>
+                            <span class="txt">시설관리</span>
+                        </a>
                         <ul class="nav_list dep2">
                             <li class="nav_dep2">
                                 <a href="" class="nav_btn dep2 on">정기작업시설</a><!--[DEV] 활성화 : 'on' class-->
@@ -56,7 +106,10 @@
                         </ul>
                     </li>
                     <li class="nav_dep1 has_dep">
-                        <a href="" class="nav_btn dep1 "><i class="nav_ico ty_work"></i>수행작업관리</a>
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_work"></i>
+                            <span class="txt">수행작업관리</span>
+                        </a>
                         <ul class="nav_list dep2">
                             <li class="nav_dep2">
                                 <a href="" class="nav_btn dep2">정기작업관리</a>
@@ -67,7 +120,11 @@
                         </ul>
                     </li>
                     <li class="nav_dep1 has_dep">
-                        <a href="" class="nav_btn dep1 "><i class="nav_ico ty_emergency"></i>긴급관리<span class="tag_new">10 New</span></a>
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_emergency"></i>
+                            <span class="txt">긴급관리</span>
+                            <span class="tag_new">N</span>
+                        </a>
                         <ul class="nav_list dep2">
                             <li class="nav_dep2">
                                 <a href="" class="nav_btn dep2">정기작업시설<span class="tag_new">10 New</span></a>
@@ -78,7 +135,10 @@
                         </ul>
                     </li>
                     <li class="nav_dep1 has_dep">
-                        <a href="" class="nav_btn dep1 "><i class="nav_ico ty_account"></i>계정관리</a>
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_account"></i>
+                            <span class="txt">계정관리</span>
+                        </a>
                         <ul class="nav_list dep2">
                             <li class="nav_dep2">
                                 <a href="" class="nav_btn dep2">작업자 계정</a>
@@ -89,7 +149,10 @@
                         </ul>
                     </li>
                     <li class="nav_dep1 has_dep">
-                        <a href="" class="nav_btn dep1 "><i class="nav_ico ty_material"></i>소모품/장비관리</a>
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_material"></i>
+                            <span class="txt">소모품/장비관리</span>
+                        </a>
                         <ul class="nav_list dep2">
                             <li class="nav_dep2">
                                 <a href="" class="nav_btn dep2">소모품 관리</a>
@@ -100,7 +163,10 @@
                         </ul>
                     </li>
                     <li class="nav_dep1 has_dep">
-                        <a href="" class="nav_btn dep1 "><i class="nav_ico ty_statistic"></i>통계</a>
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_statistic"></i>
+                            <span class="txt">통계</span>
+                        </a>
                         <ul class="nav_list dep2">
                             <li class="nav_dep2">
                                 <a href="" class="nav_btn dep2">현황통계</a>
@@ -111,10 +177,16 @@
                         </ul>
                     </li>
                     <li class="nav_dep1">
-                        <a href="" class="nav_btn dep1"><i class="nav_ico ty_notification"></i>안내사항</a>
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_notification"></i>
+                            <span class="txt">안내사항</span>
+                        </a>
                     </li>
                     <li class="nav_dep1">
-                        <a href="" class="nav_btn dep1"><i class="nav_ico ty_setting"></i>설정</a>
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_setting"></i>
+                            <span class="txt">설정</span>  
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -144,8 +216,11 @@
                     <div class="bd_box ty_small d_flex ai_c fw_w _gapX32 w100">
                         <div class="date_box d_flex _gapX8 ai_c">
                             <label>일자</label>
-                            <input type="date" class="f_input ty_mid bd_key w_150" data-placeholder='날짜를 선택해주세요.' value="2024-09-23">
-                            <button type="button" class="f_btn ty_mid _key_ol">오늘</button>
+                            <!-- <input type="date" class="f_input ty_mid bd_key w_150" data-placeholder='날짜를 선택해주세요.' value="2024-09-23"> -->
+                            <div class="date_set d_flex _gapX8 ai_c">
+                                <input type="text" class="f_input ty_mid datepicker w_150" value="2024-09-24(화)">
+                                <button type="button" class="f_btn ty_mid _key_ol" onclick="set_today(this)">오늘</button>
+                            </div>
                         </div>
                         <div class="d_flex _gapX8 ai_c">
                             <label>시설선택</label>
@@ -183,11 +258,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bd_box ty_mid q_box q_box1">
-                        <h2 class="title2">[시설관리] 정기작업시설</h2>
-                       
-                        <svg viewBox="0 0 100 100" class="chart_donut" data-value="[14, 35]" data-keyValue="35"></svg>
-                        <svg viewBox="0 0 100 100" class="chart_donut" data-value="[52, 25]" data-keyValue="35"></svg>
+                    <div class="bd_box ty_big q_box q_box1">
+                        <h2 class="title2">[시설관리] 정기작업시설</h2>                    
+                        <div class="q_box_cont">
+                            <div class="chart_box">
+                                <svg viewBox="0 0 100 100" class="chart_donut" data-value="[19, 40]" data-keyvalue="40"></svg>
+                                <!--[D]도넛그래프 생성 참고해주세요, [미수행, 수행] , 수행값(퍼센트 노출될 값) : data-keyvalue -->
+                            </div>
+                            <div class="data_list">
+                                <dl class="data_list_item">
+                                    <dt><i class="color_chip ty_total"></i>전체</dt>
+                                    <dd><b>59건</b></dd>
+                                </dl>
+                                <dl class="data_list_item">
+                                    <dt><i class="color_chip ty_blue"></i>수행</dt>
+                                    <dd><b class="fc_key">40건</b> <span class="fc_grey">(68%)</span></dd>
+                                </dl>
+                                <dl class="data_list_item">
+                                    <dt><i class="color_chip ty_red"></i>미수행</dt>
+                                    <dd><b class="fc_red2">19건</b> <span class="fc_grey">(32%)</span></dd>
+                                </dl>
+                            </div>
+                        </div>
                         <script>
                             const chart_donut = document.querySelectorAll('.chart_donut')
                             chart_donut.forEach(e=>{
@@ -195,13 +287,14 @@
                                 const diameter = 2 * Math.PI * radius; // 차트의 둘레
                                 const colors = ['#FF5B5B','#0C59D8'];
                                 const dataset = JSON.parse(e.dataset.value);
-                                console.log(dataset);
+                                const keyvalue = e.dataset.keyvalue;
                                 // 전체 데이터셋의 총 합
                                 const total = dataset.reduce((r, v) => r + v, 0);
+
                                 // 데이터셋의 누적 값
                                 const acc = dataset.reduce((arr, v, i) => {
-                                const last = arr[arr.length - 1];
-                                return [...arr, last + v];
+                                    const last = arr[arr.length - 1];
+                                    return [...arr, last + v];
                                 }, [0]);
                                 // 프로퍼티 할당 노가다 시작...
                                 
@@ -223,25 +316,64 @@
                                     
                                     e.appendChild(circle);
                                 });
-                            });
-                            
 
-                            
-
-                            
+                                const percentage = document.createTextNode(Math.round((keyvalue / total) * 100) + '%');
+                                const percentage_text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                                percentage_text.appendChild(percentage);
+                                percentage_text.setAttribute('x', '50');
+                                percentage_text.setAttribute('y', '50');
+                                percentage_text.setAttribute('fill', '#0C59D8');
+                                percentage_text.setAttribute('font-size', '1.4em');
+                                percentage_text.setAttribute('dominant-baseline', 'middle');
+                                percentage_text.setAttribute('text-anchor', 'middle');
+                                percentage_text.setAttribute('font-weight', 'bold');
+                                percentage_text.setAttribute('transform', 'translate(98 0) rotate(90)');
+                                e.appendChild(percentage_text)
+                            });   
                         </script>
                     </div>
-                    <div class="bd_box ty_mid q_box">
+                    <div class="bd_box ty_big q_box">
                         <h2 class="title2">[긴급관리] 정기작업시설</h2>
-                        
+                        <div class="q_box_cont">
+                            <div class="data_list">
+                                <dl class="data_list_item">
+                                    <dt>전체</dt>
+                                    <dd><b>59건</b></dd>
+                                </dl>
+                                <dl class="data_list_item">
+                                    <dt>수행</dt>
+                                    <dd><b>40건</b> <span class="fc_grey">(68%)</span></dd>
+                                </dl>
+                                <dl class="data_list_item">
+                                    <dt>미수행</dt>
+                                    <dd><b>19건</b> <span class="fc_grey">(32%)</span></dd>
+                                </dl>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bd_box ty_mid q_box">
+                    <div class="bd_box ty_big q_box">
                         <h2 class="title2">[긴급관리] 고객이용시설</h2>
-                        
+                        <div class="q_box_cont">
+                            <div class="data_list">
+                                <dl class="data_list_item">
+                                    <dt>전체</dt>
+                                    <dd><b>59건</b></dd>
+                                </dl>
+                                <dl class="data_list_item">
+                                    <dt>수행</dt>
+                                    <dd><b>40건</b> <span class="fc_grey">(68%)</span></dd>
+                                </dl>
+                                <dl class="data_list_item">
+                                    <dt>미수행</dt>
+                                    <dd><b>19건</b> <span class="fc_grey">(32%)</span></dd>
+                                </dl>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
+    
 </body>
 </html>
