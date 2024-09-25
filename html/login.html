@@ -195,7 +195,7 @@
             <h1 class="title1 mb20">모니터링</h1>
             <div class="contents">
                 
-                <div class="monitoring_sec1">
+                <div class="monitoring_sec sec1">
                     <div class="d_flex fw_w ai_c w100">
                         <span class="fz_3">현재일시 2024.09.10(화) 23:00:00</span>
                         <div class="ml_auto d_flex ai_c _gap8">
@@ -298,24 +298,36 @@
                                 }, [0]);
                                 // 프로퍼티 할당 노가다 시작...
                                 
-                                dataset.forEach((data, i) => {
-                                    const ratio = data / total;
-                                    const fillSpace = diameter * ratio;
-                                    const emptySpace = diameter - fillSpace;
-                                    const offset = (acc[i] / total) * diameter;
-                                    
-                                    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                                    circle.setAttribute('cx', '50');
-                                    circle.setAttribute('cy', '50');
-                                    circle.setAttribute('r', String(radius));
-                                    circle.setAttribute('fill', 'transparent');
-                                    circle.setAttribute('stroke', colors[i]);
-                                    circle.setAttribute('stroke-width', '15');
-                                    circle.setAttribute('stroke-dasharray', `${fillSpace} ${emptySpace}`);
-                                    circle.setAttribute('stroke-dashoffset', String(-offset));
-                                    
-                                    e.appendChild(circle);
-                                });
+                                if(total > 0){
+                                    dataset.forEach((data, i) => {
+                                        const ratio = data / total;
+                                        const fillSpace = diameter * ratio;
+                                        const emptySpace = diameter - fillSpace;
+                                        const offset = (acc[i] / total) * diameter;
+                                        
+                                        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                                        circle.setAttribute('cx', '50');
+                                        circle.setAttribute('cy', '50');
+                                        circle.setAttribute('r', String(radius));
+                                        circle.setAttribute('fill', 'transparent');
+                                        circle.setAttribute('stroke', colors[i]);
+                                        circle.setAttribute('stroke-width', '15');
+                                        circle.setAttribute('stroke-dasharray', `${fillSpace} ${emptySpace}`);
+                                        circle.setAttribute('stroke-dashoffset', String(-offset));
+                                        
+                                        e.appendChild(circle);
+                                    });
+                                }else{
+                                    const circle_empty = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                                    circle_empty.setAttribute('cx', '50');
+                                    circle_empty.setAttribute('cy', '50');
+                                    circle_empty.setAttribute('r', String(radius));
+                                    circle_empty.setAttribute('fill', 'transparent');
+                                    circle_empty.setAttribute('stroke', '#F1F1F1');
+                                    circle_empty.setAttribute('stroke-width', '15');
+                                    e.appendChild(circle_empty);
+                                }
+                                
 
                                 const percentage = document.createTextNode(Math.round((keyvalue / total) * 100) + '%');
                                 const percentage_text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
@@ -328,7 +340,10 @@
                                 percentage_text.setAttribute('text-anchor', 'middle');
                                 percentage_text.setAttribute('font-weight', 'bold');
                                 percentage_text.setAttribute('transform', 'translate(98 0) rotate(90)');
-                                e.appendChild(percentage_text)
+                                if (total > 0){
+                                    e.appendChild(percentage_text)
+                                }
+                                
                             });   
                         </script>
                     </div>
@@ -369,6 +384,268 @@
                                 </dl>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="monitoring_sec sec2">
+                    <div class="monitoring_sec_tit">
+                        <i class="tit_ico ty_facility"></i>
+                        <h2 class="title3">[시설관리] 정기작업시설</h2>
+                    </div>
+                    <div class="tbl_top d_flex ai_b">
+                        <span class="fc_font2">총 <b class="fc_key">10</b>건(<b class="fc_key">1</b>/2)페이지</span>
+                        <div class="hd_company_item select-box ty_mid2 w_120 ml_auto">
+                            <input type="text" class="select-input" value="10개씩 보기" readonly>
+                            <div class="options">
+                                <ul>
+                                    <li data-value="1" class="option">10개씩 보기</li>
+                                    <li data-value="2" class="option">20개씩 보기</li>
+                                    <li data-value="3" class="option">30개씩 보기</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tbl_wrap" style="max-height: 300px;">
+                        <table class="tbl tl_fixed">
+                            <colgroup>
+                                <col style="width:50px">
+                                <col>
+                                <col>
+                                <col>
+                                <col style="width:100px">
+                                <col style="width:100px">
+                                <col style="width:100px">
+                                <col style="width:100px">
+                                <col style="width:100px">
+                            </colgroup>
+                            <caption></caption>
+                            <thead class="fixed_top">
+                                <tr>
+                                    <th rowspan="2">NO</th>
+                                    <th rowspan="2">시설명<button class="btn_sorting on"></button></th>
+                                    <th rowspan="2">시설명 별칭<button class="btn_sorting"></button></th>
+                                    <th rowspan="2">수행작업</th>
+                                    <th rowspan="2">작업자</th>
+                                    <th rowspan="2">점검률<button class="btn_sorting"></button></th>
+                                    <th colspan="3">수행작업 상태</th>
+                                </tr>
+                                <tr>
+                                    <th>전체</th>
+                                    <th>수행</th>
+                                    <th>미수행<button class="btn_sorting"></button></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="fixed_left">1</td>
+                                    <td class="fixed_left taL">1층 남자 화장실</td>
+                                    <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                    <td class="taL">
+                                        <div class="d_flex _gap4 scroll_h">
+                                            <span class="f_tag ty_small _blue">수행작업Group6</span>
+                                            <span class="f_tag ty_small _blue">수행작업Group6</span>
+                                            <span class="f_tag ty_small _blue">수행작업Group6</span>
+                                            <span class="f_tag ty_small _blue">수행작업Group6</span>
+                                            <span class="f_tag ty_small _blue">수행작업Group6</span>
+                                            <span class="f_tag ty_small _blue">수행작업Group6</span>
+                                        </div>
+                                    </td>
+                                    <td>홍길동</td>
+                                    <td class="fc_red2">60%</td>
+                                    <td>5</td>
+                                    <td class="bg_key6 fc_key">4</td>
+                                    <td class="bg_red3 fc_red2">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="fixed_left">1</td>
+                                    <td class="fixed_left taL">1층 남자 화장실</td>
+                                    <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                    <td class="taL"></td>
+                                    <td>홍길동</td>
+                                    <td>100%</td>
+                                    <td>5</td>
+                                    <td class="bg_key6 fc_key">4</td>
+                                    <td class="bg_red3 fc_red2">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="fixed_left">1</td>
+                                    <td class="fixed_left taL">1층 남자 화장실</td>
+                                    <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                    <td class="taL"></td>
+                                    <td>홍길동</td>
+                                    <td>100%</td>
+                                    <td>5</td>
+                                    <td class="bg_key6 fc_key">4</td>
+                                    <td class="bg_red3 fc_red2">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="fixed_left">1</td>
+                                    <td class="fixed_left taL">1층 남자 화장실</td>
+                                    <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                    <td class="taL"></td>
+                                    <td>홍길동</td>
+                                    <td>100%</td>
+                                    <td>5</td>
+                                    <td class="bg_key6 fc_key">4</td>
+                                    <td class="bg_red3 fc_red2">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="fixed_left">1</td>
+                                    <td class="fixed_left taL">1층 남자 화장실</td>
+                                    <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                    <td class="taL"></td>
+                                    <td>홍길동</td>
+                                    <td>100%</td>
+                                    <td>5</td>
+                                    <td class="bg_key6 fc_key">4</td>
+                                    <td class="bg_red3 fc_red2">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="fixed_left">1</td>
+                                    <td class="fixed_left taL">1층 남자 화장실</td>
+                                    <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                    <td class="taL"></td>
+                                    <td>홍길동</td>
+                                    <td>100%</td>
+                                    <td>5</td>
+                                    <td class="bg_key6 fc_key">4</td>
+                                    <td class="bg_red3 fc_red2">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="paging_wrap">
+                        <button type="button" class="paging_btn ty_first paging_nav"></button>
+                        <button type="button" class="paging_btn ty_prev paging_nav"></button>
+                        <div class="paging_list">
+                            <button type="button" class="paging_btn current">1</button>
+                            <button type="button" class="paging_btn">2</button>
+                            <button type="button" class="paging_btn">3</button>
+                            <button type="button" class="paging_btn">4</button>
+                            <button type="button" class="paging_btn">5</button>                          
+                        </div>
+                        <button type="button" class="paging_btn ty_next paging_nav"></button>
+                        <button type="button" class="paging_btn ty_last paging_nav"></button>
+                    </div>
+                </div>
+                <div class="monitoring_sec sec3">
+                    <div class="monitoring_sec_tit">
+                        <i class="tit_ico ty_emergency"></i>
+                        <h2 class="title3">[긴급관리] 정기작업시설</h2>
+                    </div>
+                    <div class="tbl_top d_flex ai_b">
+                        <span class="fc_font2">총 <b class="fc_key">10</b>건(<b class="fc_key">1</b>/2)페이지</span>
+                        <div class="hd_company_item select-box ty_mid2 w_120 ml_auto">
+                            <input type="text" class="select-input" value="10개씩 보기" readonly>
+                            <div class="options">
+                                <ul>
+                                    <li data-value="1" class="option">10개씩 보기</li>
+                                    <li data-value="2" class="option">20개씩 보기</li>
+                                    <li data-value="3" class="option">30개씩 보기</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tbl_wrap" style="max-height: 300px;">
+                        <table class="tbl tl_fixed">
+                            <colgroup>
+                                <col style="width:50px">
+                                <col>
+                                <col>
+                                <col style="width:100px">
+                                <col style="width:100px">
+                                <col style="width:160px">
+                                <col style="width:160px">
+                                <col style="width:120px">
+                            </colgroup>
+                            <caption></caption>
+                            <thead class="fixed_top">
+                                <tr>
+                                    <th>NO</th>
+                                    <th>시설명<button class="btn_sorting on"></button></th>
+                                    <th>시설명 별칭<button class="btn_sorting"></button></th>
+                                    <th>요청자</th>
+                                    <th>작업자</th>
+                                    <th>요청 일시</th>
+                                    <th>작업 일시</th>
+                                    <th>이슈 상태<button class="btn_sorting"></button></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="fixed_left taL">1층 남자 화장실</td>
+                                    <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                    <td>홍길동</td>
+                                    <td>홍길동</td>
+                                    <td>2000-00-00 17:14</td>
+                                    <td>2024.09.10(화) 17:14</td>
+                                    <td class="fc_key">해결완료</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="fixed_left taL">1층 남자 화장실</td>
+                                    <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                    <td>홍길동</td>
+                                    <td>홍길동</td>
+                                    <td>2000-00-00 17:14</td>
+                                    <td>2024.09.10(화) 17:14</td>
+                                    <td class="fc_red2">대기중</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="fixed_left taL">1층 남자 화장실</td>
+                                    <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                    <td>홍길동</td>
+                                    <td>홍길동</td>
+                                    <td>2000-00-00 17:14</td>
+                                    <td>2024.09.10(화) 17:14</td>
+                                    <td class="fc_key">해결완료</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="fixed_left taL">1층 남자 화장실</td>
+                                    <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                    <td>홍길동</td>
+                                    <td>홍길동</td>
+                                    <td>2000-00-00 17:14</td>
+                                    <td>2024.09.10(화) 17:14</td>
+                                    <td class="fc_red2">대기중</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="fixed_left taL">1층 남자 화장실</td>
+                                    <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                    <td>홍길동</td>
+                                    <td>홍길동</td>
+                                    <td>2000-00-00 17:14</td>
+                                    <td>2024.09.10(화) 17:14</td>
+                                    <td class="fc_key">해결완료</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="fixed_left taL">1층 남자 화장실</td>
+                                    <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                    <td>홍길동</td>
+                                    <td>홍길동</td>
+                                    <td>2000-00-00 17:14</td>
+                                    <td>2024.09.10(화) 17:14</td>
+                                    <td class="fc_red2">대기중</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="paging_wrap">
+                        <button type="button" class="paging_btn ty_first paging_nav"></button>
+                        <button type="button" class="paging_btn ty_prev paging_nav"></button>
+                        <div class="paging_list">
+                            <button type="button" class="paging_btn current">1</button>
+                            <button type="button" class="paging_btn">2</button>
+                            <button type="button" class="paging_btn">3</button>
+                            <button type="button" class="paging_btn">4</button>
+                            <button type="button" class="paging_btn">5</button>                          
+                        </div>
+                        <button type="button" class="paging_btn ty_next paging_nav"></button>
+                        <button type="button" class="paging_btn ty_last paging_nav"></button>
                     </div>
                 </div>
             </div>

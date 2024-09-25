@@ -18,7 +18,10 @@ $colors: (
     _key2: #F5F9FF,
     _key3: #ACBFFF,
     _key4: #2852B8,
+    _key5: #E2EDFF,
+    _key6: #F5F9FF,
     _line: #F1F1F1,
+    _line2: #e4e4e4,
     _bg: #F1F1F1,
     _title: #333D4B,
     _font: #333D4B,
@@ -58,9 +61,12 @@ $c_key : map-get($colors, _key);
 $c_key2 : map-get($colors, _key2);
 $c_key3 : map-get($colors, _key3);
 $c_key4 : map-get($colors, _key4);
+$c_key5 : map-get($colors, _key5);
+$c_key6 : map-get($colors, _key6);
 
 
 $c_line : map-get($colors, _line);
+$c_line2 : map-get($colors, _line2);
 $c_bg : map-get($colors, _bg);
 
 $c_blue : map-get($colors, _blue);

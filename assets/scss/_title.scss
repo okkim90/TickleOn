@@ -6,3 +6,20 @@
     font-size: $fz_8;
     font-weight: bold;
 }
+.title3 {
+    font-size: $fz_7;
+    font-weight: 500;
+}
+
+.tit_ico {
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &.ty_facility {
+        background-image: url(../images/icon_FacilityManagement_blue.svg);
+    }
+    &.ty_emergency {
+        background-image: url(../images/icon_EmergencyManagement_blue.svg);
+    }
+}

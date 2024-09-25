@@ -1,0 +1,17 @@
+.f_tag {
+    
+    display: inline-flex;
+    align-items: center;
+    &.ty_small {
+        height: 31px;
+        border-radius: 6px;
+        font-size: $fz_4;
+        padding: 0 10px;
+    }
+
+    &._blue {
+        background-color: $c_key6;
+        color:$c_key;
+        
+    }
+}

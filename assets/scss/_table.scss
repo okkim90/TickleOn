@@ -1,0 +1,74 @@
+.tbl {
+    border-collapse: separate;
+    &.tl_fixed {
+        table-layout: fixed;
+    }
+    &_top {
+        margin-bottom: 16px;
+    }
+    &_wrap {
+        position: relative;
+        overflow: auto;
+        border: 1px solid $c_line;
+        width: 100%;
+    }
+    th, td {
+        height: 46px;
+        padding: 10px;
+        border: 1px solid $c_line;
+        text-align: center;
+        vertical-align: middle;
+        &.taR {
+            text-align: right;
+        }
+        &.taL {
+            text-align: left;
+        }
+    }
+    thead {
+        th {
+            background-color: #E2EDFF;
+            font-weight: 500;
+        }
+    }
+    .btn_sorting {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: $c_key6;
+        background-image: url(../images/arrow_sorting.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 4px;
+        &:hover {
+            background-color: darken($c_key6, 10%);
+        }
+        &.on {
+            transform: rotate(180deg);
+            background-color: $c_key;
+            background-image: url(../images/arrow_sorting_w.svg);
+            &:hover {
+                background-color: darken($c_key, 10%);
+            }
+        }
+    }
+   
+    .fixed_top {
+        position: sticky;
+        left: 0;
+        top: 0;
+        z-index: 11;
+        .fixed_left {
+            z-index: 11;
+            left: 0;
+        }
+
+    }
+    .fixed_left {
+        position: sticky;
+        left: 0;
+        z-index: 10;
+    }
+}

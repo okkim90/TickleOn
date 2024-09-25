@@ -12,26 +12,29 @@
     }
     &_btn {
         
-        min-width: 30px;
-        height: 30px;
+        min-width: 32px;
+        height: 32px;
         //padding: 0 4px;
         box-sizing: border-box;
-        border-radius: 8px;
+        border-radius: 50%;
         line-height: 30px;
         font-size: 13px;
         color: $c_font;
-        //font-family: 'Montserrat';
+        border: 1px solid $c_line2;
         flex-shrink: 0;
-        border: 1px solid transparent;
         font-weight: 500;
         
         background-repeat: no-repeat;
         background-position: center center;
-        
+        background-color: #fff;
+        &:hover {
+            background-color: $c_key6;
+            //color: #fff;
+        }
         &.paging_nav {
-            width: 20px;
-            height: 20px;
-            min-width: 20px;
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
         }
         
         &.ty_first {
@@ -53,10 +56,8 @@
         display: flex;
         gap: 0 5px;
         .paging_btn {
-            background-color: $c_bg;
-            &:hover {
-                background-color: $c_key;
-            }
+            
+            
             &.current {
                 background-color: $c_key;
                 color: #fff;
