@@ -70,5 +70,9 @@
         position: sticky;
         left: 0;
         z-index: 10;
+        background-color: #fff;
+        &.col2 {
+            left: 50px;
+        }
     }
 }

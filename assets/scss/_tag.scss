@@ -14,4 +14,8 @@
         color:$c_key;
         
     }
+    &._grey {
+        background-color: $c_bg;
+        color: $c_font;
+    }
 }

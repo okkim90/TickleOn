@@ -2,12 +2,14 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
 
 /* 공통 */
-@import "./variable";
+
 @import "./mixin";
+@import "./variable";
 @import "./reset";
 
 /* layout */
 @import "./layout";
+@import "./footer";
 @import "./login";
 
 /* templates */

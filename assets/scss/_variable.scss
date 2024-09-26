@@ -38,23 +38,11 @@ $colors: (
     _yellow3: #F96400,
     _green: #17993A,
     _green_l: #EFFBF2,
-   
     _dim: rgba(#000,.3),
     _placeholder: #CBCBCB,
     _kakao: #F9E000,
     _kakao_ov: #E8D000,
 );
-
-
-$btn_c: (
-    _key: #0C59D8,
-    _red: #FF2020,
-    _yellow: #FCA004,
-    _green: #17993A,
-);
-
-
-
 
 
 $c_key : map-get($colors, _key);
@@ -63,12 +51,10 @@ $c_key3 : map-get($colors, _key3);
 $c_key4 : map-get($colors, _key4);
 $c_key5 : map-get($colors, _key5);
 $c_key6 : map-get($colors, _key6);
-
-
 $c_line : map-get($colors, _line);
 $c_line2 : map-get($colors, _line2);
 $c_bg : map-get($colors, _bg);
-
+$c_grey : map-get($colors, _grey);
 $c_blue : map-get($colors, _blue);
 $c_red : map-get($colors, _red);
 $c_red2 : map-get($colors, _red2);
@@ -79,10 +65,10 @@ $c_yellow2 : map-get($colors, _yellow2);
 $c_title : map-get($colors, _title);
 $c_font : map-get($colors, _font);
 $c_font2 : map-get($colors, _font2);
-
 $c_placeholder : map-get($colors, _placeholder);
 $c_disabled : map-get($colors, _disabled);
 $c_disabled_bg : map-get($colors, _disabled_bg);
+
 $fz: (
     _1: 12px, 
     _2: 13px, 
@@ -126,121 +112,12 @@ $fz_9 : map-get($fz, _9);
 }
 
 
-@mixin btn($bg, $bd){
-    transition: all .1s ease-in-out;
-    background-color: $bg;
-    border-color: $bd;
-    color: #fff;
-    &:hover {
-        background-color: darken( $bg, 3%);
-        border-color: darken($bd, 3%);
-        box-shadow: 0 2px 3px rgba(#000, 0.2);
-    }
-    &:active {
-        box-shadow: inset 0 0 4px rgba(#000, 0.2);
-        transform: scale(0.98);
-    }
-}
-
-@mixin btn_op($bd ,$color){
-    transition: all .1s ease-in-out;
-    background-color: rgba($color, .15);
-    border-color: $bd;
-    color: $color;
-    &:hover {
-        background-color: rgba($color, .2); 
-        //color: #fff;
-    }
-    &:active {
-        box-shadow: inset 0 0 4px rgba(#000, 0.2);
-        transform: scale(0.98);
-    }
-}
-
-@mixin btn_ol($bd ,$color){
-    transition: all .1s ease-in-out;
-    background-color: transparent;
-    border: 1px solid $bd;
-    color: $color;
-    &:hover {
-        background-color: $color;
-        color: #fff;
-    }
-    &.on {
-        background-color: $color;
-        color: #fff;
-    }
-    &:active {
-        box-shadow: inset 0 0 4px rgba(#000, 0.2);
-        transform: scale(0.98);
-    }
-}
-
-
-@mixin tag($bg, $bd){
-   
-    background-color: $bg;
-    border-color: $bd;
-    color: #fff;
-}
-
-@mixin tag_op($bd ,$color){
-    
-    background-color: lighten($color, 40%);
-    border-color: $bd;
-    color: $color;
-}
-
-@mixin tag_ol($bd ,$color){
-    
-    background-color: transparent;
-    border-color: $bd;
-    color: $color;
-}
-
-@each $key, $color in $btn_c {
-    .f_btn  {
-        &.#{$key} {
-            @include btn($color, $color)
-        }
-        &.#{$key}_ol {
-            @include btn_ol($color ,$color);
-    
-        }
-        &.#{$key}_op {
-            @include btn_op($color ,$color);
-        }
-    }
-    
-    .f_tag {
-        &.#{$key} {
-            @include tag($color, $color)
-        }
-        &.#{$key}_ol {
-            @include tag_ol($color ,$color);
-    
-        }
-        &.#{$key}_op {
-            @include tag_op($color ,$color);
-        }
-    }
-}
-
-
-
-
-
-
 //Font
 $font: "Pretendard", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 
 
-
 //innerBox
 $inner: 1280px;
-
-
-
 
 @for $i from 1 through 100 {
     $w : 10*$i;
