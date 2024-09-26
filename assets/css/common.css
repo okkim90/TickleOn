@@ -7297,6 +7297,13 @@ input::-webkit-search-results-decoration {
   background-color: #F5F9FF;
   color: #6980A5;
 }
+.f_btn._blue {
+  background-color: #0C59D8;
+  color: #fff;
+}
+.f_btn._blue:hover {
+  background-color: #2852B8;
+}
 .f_btn._ico {
   -moz-column-gap: 8px;
        column-gap: 8px;
@@ -7309,6 +7316,8 @@ input::-webkit-search-results-decoration {
   background-position: center center;
 }
 .f_btn._ico._add::before {
+  width: 16px;
+  height: 16px;
   background-image: url(../images/ico_add.svg);
 }
 

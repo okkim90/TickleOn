@@ -5,43 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TickleOn</title>
-    <!--[D] datepicker js&css-->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
-    <script>
-        $(function(){
-            // datepicker
-            $.datepicker.regional['ko'] = {
-                closeText: '닫기',
-                prevText: '이전달',
-                nextText: '다음달',
-                currentText: '오늘',
-                monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-                monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-                dayNames: ['일','월','화','수','목','금','토'],
-                dayNamesShort: ['일','월','화','수','목','금','토'],
-                dayNamesMin: ['일','월','화','수','목','금','토'],
-                weekHeader: 'Wk',
-                dateFormat: 'yy-mm-dd(D)',
-                firstDay: 0,
-                isRTL: false,
-                showMonthAfterYear: true,
-                changeMonth: true,
-                changeYear: true
-            };
-            $.datepicker.setDefaults($.datepicker.regional['ko']);
-            $(".datepicker").datepicker();
-        });
-        //오늘 선택
-        function set_today(target){
-            let date_set = $(target).parents('.date_set');
-            let datepicker = date_set.find('.datepicker'); 
-            datepicker.datepicker('setDate', 'today');
-        }
-    </script>
-    <!--//[D] datepicker js&css-->
-
     <!--[D] 공통척용 js&css-->
     <link rel="stylesheet" href="../assets/css/common.min.css">
     <script type="text/javascript" src="../assets/js/common.js"></script>
@@ -197,10 +160,10 @@
             </div>
             <div class="top_set">
                 <form class="srch_box">
-                    <input type="text" class="f_input" placeholder="지점을 검색해주세요.">
+                    <input type="text" class="f_input ty_mid" placeholder="지점을 검색해주세요.">
                     <button type="submit" class="srch_box_btn" aria-label="search"></button> 
                 </form>
-                button.
+                <button class="f_btn ty_mid _blue _ico _add">추가하기</button>
                 
             </div>
             <div class="contents">

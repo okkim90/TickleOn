@@ -68,6 +68,13 @@
         background-color: $c_key2;
         color: $c_font2;
     }
+    &._blue {
+        background-color: $c_key;
+        color: #fff;
+        &:hover {
+            background-color: $c_key4;
+        }
+    }
 
     &._ico {
         column-gap: 8px;
@@ -80,6 +87,8 @@
         }
         &._add {
             &::before {
+                width: 16px;
+                height: 16px;
                 background-image: url(../images/ico_add.svg);
             }
         }
