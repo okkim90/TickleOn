@@ -1,6 +1,9 @@
 .title1 {
     font-size: $fz_9;
     font-weight: bold;
+    @include mobile {
+        font-size: $fz_8;
+    }
 }
 .title2 {
     font-size: $fz_8;

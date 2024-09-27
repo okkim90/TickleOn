@@ -54,14 +54,14 @@
                             <span class="txt">모니터링</span>
                         </a>
                     </li>
-                    <li class="nav_dep1 has_dep on"> <!--[DEV] 활성화 : 'on' class-->
+                    <li class="nav_dep1 has_dep">
                         <a href="" class="nav_btn dep1 ">
                             <i class="nav_ico ty_facility"></i>
                             <span class="txt">시설관리</span>
                         </a>
                         <ul class="nav_list dep2">
                             <li class="nav_dep2">
-                                <a href="" class="nav_btn dep2 on">정기작업시설</a><!--[DEV] 활성화 : 'on' class-->
+                                <a href="" class="nav_btn dep2">정기작업시설</a>
                             </li>
                             <li class="nav_dep2">
                                 <a href="" class="nav_btn dep2">고객이용시설</a>
@@ -157,13 +157,40 @@
         <main id="container" class="container">
             <div class="sub_tit">
                 <h1 class="title1">지점 관리</h1>
+                <div class="btn_set ml_auto">
+                    <button class="f_btn ty_mid _blue _ico _add">지점 등록</button>
+                </div> 
             </div>
             <div class="top_set">
-                <form class="srch_box">
-                    <input type="text" class="f_input ty_mid w100" placeholder="지점을 검색해주세요.">
-                    <button type="submit" class="srch_box_btn f_btn ty_mid _line _ico _search" aria-label="search">검색</button> 
+                <form class="srch_box ml_auto">
+                    <div class="srch_set">
+                        <input type="text" class="f_input ty_mid2 w100" placeholder="지점을 검색해주세요.">
+                        
+                        <!--[D] 검색어 입력시 검색어 삭제 버튼
+                            활성화 : 'on' class
+                        -->
+                        <button type="button" class="srch_close on"></button>
+                        
+                        <!--[D] 검색어 입력시 검색어 자동완성 미리보기가 있을 경우 리스트 노출 
+                            활성화 : 'on' class
+                        -->
+                        <ul class="srch_list on">
+                            <li class="srch_list_item">
+                                <div class="txt"><span class="fc_key">티클</span> 청소</div> 
+                            </li>
+                            <li class="srch_list_item">
+                                <div class="txt"><span class="fc_key">티클</span> 전문</div> 
+                            </li>
+                            <li class="srch_list_item">
+                                <div class="txt"><span class="fc_key">티클</span> 공간관리</div> 
+                            </li>
+                            <li class="srch_list_item">
+                                <div class="txt"><span class="fc_key">티클</span> 엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때</div> 
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="submit" class="srch_box_btn btn_ico _srch" aria-label="search"></button> 
                 </form>
-                <button class="f_btn ty_mid _blue _ico _add">지점 등록</button>
             </div>
             <ul class="branch_list">
                 <li class="branch_list_item col_item">
@@ -318,7 +345,7 @@
                 </li>
             </ul>
         </main>
-        <div class="modal on" onclick="close_modal(this)">
+        <div class="modal on" >
             <div class="modal_inner">
                 <div class="modal_cont ty_small">
                    

@@ -435,6 +435,9 @@
         }
         .sub_tit {
             margin-bottom: 20px;
+            padding-top: 30px;
+            display: flex;
+            align-items: flex-end;
             @include mobile { 
                 padding: 0 20px;
             }
@@ -614,7 +617,7 @@
     border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    //justify-content: flex-end;
     flex-wrap: wrap;
     background-color: #fff;
     gap: 16px;
@@ -626,6 +629,7 @@
 .branch_list {
     @include flex_col(4, 16px, 16px);
     margin-top: 64px;
+    
     &_item {
         background-color: #fff;
         border-radius: 16px;
@@ -663,6 +667,7 @@
     @include mobile {
         @include flex_col(1, 16px, 16px);
         padding: 0 20px;
+        padding-bottom: 20px;
     }
 }
 

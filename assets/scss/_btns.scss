@@ -153,6 +153,13 @@
     background-position: center center;
     border-radius: 8px;
     flex-shrink: 0;
+    &._srch {
+        background-image: url(../images/ico_search.svg);
+        border: 1px solid $c_line2;
+        &:hover {
+            background-color: darken(#fff, 2%);
+        }
+    }
     &._add {
         background-image: url(../images/ico_add.svg);
         background-color: $c_key;
