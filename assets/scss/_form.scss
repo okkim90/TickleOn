@@ -27,7 +27,11 @@
 
 .f_input {
     border: 1px solid $c_line;
-    
+    max-width: 100%;
+    text-overflow: ellipsis;
+    &:read-only {
+        background-color: darken(#fff, 3%);
+    }
     &.ty_small {
         height: 33px;
         //line-height: 31px;
@@ -35,6 +39,7 @@
         border-radius: 4px;
         font-size: 14px;
         //font-weight: 500;
+
     }
     &.ty_mid {
         height: 40px;
@@ -42,6 +47,15 @@
         border-radius: 7px;
         font-size: 15px;
         //font-weight: 500;
+        
+    }
+    &.ty_mid2 {
+        height: 40px;
+        padding: 0 20px;
+        border-radius: 7px;
+        font-size: 15px;
+        //font-weight: 500;
+        
     }
     &.ty_big {
         height: 50px;
@@ -87,5 +101,46 @@
         background: url(../images/ico_date.svg) no-repeat left 8px center / 24px auto;
         font-size: 14px;
         cursor: pointer;
+    }
+}
+.input_wrap {
+    position: relative;
+    .f_input {
+        &.has_count {
+            padding-right: 60px;
+        }
+    }
+    .count {
+        position: absolute;
+        right: 10px;
+        line-height: 40px;
+        color: $c_placeholder;
+    }
+}
+.ico_required {
+    font-style: normal;
+    color: $c_red;
+}
+.srch_box {
+    display: flex;
+    align-items: center;
+    width: 440px;
+    .f_input {
+        flex: 1;
+    }
+    &_btn {
+        margin-left: 4px;
+    }
+}
+
+.form_set {
+    & + & {
+        margin-top: 30px;
+    }
+    &_tit {
+        display: block;
+        font-size: $fz_4;
+        font-weight: 500;
+        margin-bottom: 10px;
     }
 }

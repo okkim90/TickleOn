@@ -75,6 +75,13 @@
             background-color: $c_key4;
         }
     }
+    &._line {
+        border: 1px solid $c_line2;
+        background-color: #fff;
+        &:hover {
+            background-color: darken(#fff, 2%);
+        }
+    }
 
     &._ico {
         column-gap: 8px;
@@ -90,6 +97,13 @@
                 width: 16px;
                 height: 16px;
                 background-image: url(../images/ico_add.svg);
+            }
+        }
+        &._search {
+            &::before {
+                width: 24px;
+                height: 24px;
+                background-image: url(../images/ico_search.svg);
             }
         }
     }
@@ -129,9 +143,21 @@
     height: 40px;
     background-repeat: no-repeat;
     background-position: center center;
+    border-radius: 8px;
+    flex-shrink: 0;
+    &._add {
+        background-image: url(../images/ico_add.svg);
+        background-color: $c_key;
+        &:hover {
+            background-color: $c_key4;
+        }
+    }
     &._edit {
         background-image: url(../images/ico_edit.svg);
         &:hover {
+            background-color: $c_bg;
+        }
+        &.on {
             background-color: $c_bg;
         }
     }
@@ -139,6 +165,18 @@
         background-image: url(../images/ico_del.svg);
         &:hover {
             background-color: $c_red3;
+        }
+        &.on {
+            background-color: $c_red3;
+        }
+    }
+    &._drag {
+        background-image: url(../images/ico_drag.svg);
+        opacity: 0.6;
+        cursor: move;
+        &:hover {
+            background-color: $c_bg;
+            opacity: 1;
         }
     }
 }

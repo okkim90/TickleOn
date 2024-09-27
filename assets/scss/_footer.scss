@@ -146,20 +146,7 @@
         @include mobile {
             width: 100%;
         }
-        &:hover {
-            
-            .branch_list {
-                opacity: 1;
-                bottom: 36px;
-                visibility: visible;
-            }
-            .btn_trigger {
-                //border-color: $c_lightGrey;
-                &::after {
-                    transform: rotate(180deg);
-                }
-            }
-        }
+        
         .btn_trigger {
             cursor: pointer;
             display: flex;
@@ -188,7 +175,7 @@
                 transition: all .2s ease-in-out;
             }
         }
-        .branch_list {
+        &_list {
             visibility: hidden;
 
             opacity: 0;
@@ -208,6 +195,20 @@
                 overflow: hidden;
                 &:hover {
                     background-color: rgba($c_key, .1);
+                }
+            }
+        }
+        &:hover {
+            
+            .footer_branch_list {
+                opacity: 1;
+                bottom: 36px;
+                visibility: visible;
+            }
+            .btn_trigger {
+                //border-color: $c_lightGrey;
+                &::after {
+                    transform: rotate(180deg);
                 }
             }
         }

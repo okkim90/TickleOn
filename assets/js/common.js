@@ -72,39 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    const h_tbl_wrap = document.querySelectorAll('.h_tbl_wrap');
-    const mobile_alert = document.querySelector('.mobile_alert');
-    ['load', 'resize'].forEach(function(event) {
-      window.addEventListener(event, ()=>{
-        // h_tbl_wrap.forEach(e=>{
-        //   if(e.querySelector('.h_tbl').offsetWidth > e.offsetWidth){
-        //     e.classList.add('scrolling');
-        //   }else{
-        //     e.classList.remove('scrolling');
-        //   }
-        // });
-        if(mobile_alert){
-          if(window.innerWidth < 1023){
-            mobile_alert.classList.add('on')
-          }else{
-            mobile_alert.classList.remove('on')
-          }
-        }
-        
-      });
-    });
-   
-    
-    h_tbl_wrap.forEach(e=>{
-      e.addEventListener('scroll',()=>{
-        let sticky = e.querySelector('.sticky_left');
-        if(sticky && sticky.offsetLeft > 0){
-          e.classList.add('scrolling');
-        }else{
-          e.classList.remove('scrolling');
-        }
-      })
-    });
 
     const modal_cont = document.querySelectorAll('.modal_cont');
     modal_cont.forEach(e=>{
@@ -113,22 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
       })
     });
 
-
-
-    /* 5점별점 표시 */
-    const star_rating = document.querySelectorAll('.star_rating');
-    star_rating.forEach(e=>{
-
-      let rating1 = parseInt(e.dataset.rating);
-      let rating2 = Number((e.dataset.rating % 1).toFixed(2)) ; 
-      let item = e.querySelectorAll('.star_rating_inner');
-      for(let i = 0; i < rating1; i++) {
-        item[i].style.width = '100%'
-      }
-      if(rating2 > 0 ){
-        item[rating1].style.width = 100*rating2 + '%'
-      }
-    });
 
 
     const nav = document.querySelector('.nav');
