@@ -61,12 +61,17 @@
 
     &_top {
         display: flex;
-        flex-wrap: wrap;
-        align-items: flex-end;
+        align-items: center;
         padding: 30px 30px 16px;
+        @include mobile { 
+            padding: 20px 20px 16px;
+        }
     }
     &_tit {
         font-size: 25px;
+        @include mobile {
+            font-size: 20px;
+        }
     }
     &_close_btn {
         width: 40px;
@@ -76,6 +81,8 @@
         background-repeat: no-repeat;
         background-position: center center;
         border-radius: 8px;
+        flex-shrink: 0;
+        align-self: flex-start;
         &:hover {
             background-color: $c_bg;
         }
@@ -83,6 +90,9 @@
     &_contents {
         padding: 30px ;
         overflow-y: auto;
+        @include mobile {
+            padding: 20px;
+        }
     }
     &_bot {
         display: flex;
@@ -90,6 +100,8 @@
         column-gap: 12px;
         padding: 16px 30px;
         border-top: 1px solid $c_line;
-        
+        @include mobile { 
+            padding: 16px 20px;
+        }
     }
 }
