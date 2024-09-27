@@ -40,6 +40,7 @@
     &.disabled {
         cursor: not-allowed;
         pointer-events: none;
+        opacity: 0.6;
     }
     &.ty_small {
         height: 33px;
@@ -73,6 +74,13 @@
         color: #fff;
         &:hover {
             background-color: $c_key4;
+        }
+    }
+    &._red {
+        background-color: $c_red2;
+        color: #fff;
+        &:hover {
+            background-color: $c_red;
         }
     }
     &._line {

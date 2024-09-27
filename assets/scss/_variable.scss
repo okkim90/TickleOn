@@ -399,3 +399,9 @@ $inner: 1280px;
 .tdU {
     text-decoration: underline;
 }
+.bdT {
+    border-top: 1px solid $c_line;
+}
+.bdB {
+    border-bottom: 1px solid $c_line;
+}

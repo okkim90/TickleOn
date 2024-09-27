@@ -683,3 +683,26 @@
         }
     }
 }
+
+.info_box {
+    background-color: $c_key2;
+    padding: 10px 20px;
+    border-radius: 7px;
+    color: $c_grey;
+    font-size: $fz_3;
+    &._top {
+        margin-bottom: 8px;
+    }
+    &._bot {
+        margin-top: 8px;
+    }
+    .ico_info {
+        flex-shrink: 0;
+        margin-right: 8px;
+        width: 16px;
+        height: 1.5em;
+        background-image: url(../images/ico_info.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
