@@ -150,6 +150,7 @@
         box-shadow: 0 0 10px rgba(#000, .05);
         margin-top: 8px;
         display: none;
+        z-index: 999;
         &.on {
             display: block;
         }

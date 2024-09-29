@@ -621,6 +621,7 @@
     flex-wrap: wrap;
     background-color: #fff;
     gap: 16px;
+    margin-bottom: 20px;
     @include mobile {
         margin: 0 20px;
     }
@@ -628,7 +629,7 @@
 
 .branch_list {
     @include flex_col(4, 16px, 16px);
-    margin-top: 64px;
+    margin-top: 60px;
     
     &_item {
         background-color: #fff;

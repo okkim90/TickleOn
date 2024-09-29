@@ -89,6 +89,12 @@
         &:hover {
             background-color: darken(#fff, 2%);
         }
+        &.disabled {
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.5;
+            background-color: $c_line2;
+        }
     }
 
     &._ico {

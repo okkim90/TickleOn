@@ -24,34 +24,51 @@
         &.taL {
             text-align: left;
         }
+        &._blue {
+            background-color: #F0F9FF;
+            color: $c_key;
+        }
+        &._red {
+            background-color: #FFF1F1;
+            color: $c_red2;
+        }
     }
     thead {
         th {
-            background-color: #E2EDFF;
+            background-color: #F8F9FB;
             font-weight: 500;
+            color: $c_font2;
+        }
+    }
+    tbody {
+        tr:nth-child(even) {
+            background-color: #F8F9FB;
+        }
+        tr:hover {
+            background-color: #F4F9FF;
         }
     }
     .btn_sorting {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
-        background-color: $c_key6;
-        background-image: url(../images/arrow_sorting.svg);
+        //background-color: $c_key6;
+        background-image: url(../images/arrow_sorting2.svg);
         background-repeat: no-repeat;
         background-position: center center;
         display: inline-block;
         vertical-align: middle;
         margin-left: 4px;
-        &:hover {
-            background-color: darken($c_key6, 10%);
-        }
+        // &:hover {
+        //     background-color: darken($c_key6, 10%);
+        // }
         &.on {
             transform: rotate(180deg);
-            background-color: $c_key;
-            background-image: url(../images/arrow_sorting_w.svg);
-            &:hover {
-                background-color: darken($c_key, 10%);
-            }
+            //background-color: $c_key;
+            //background-image: url(../images/arrow_sorting_w.svg);
+            // &:hover {
+            //     background-color: darken($c_key, 10%);
+            // }
         }
     }
    

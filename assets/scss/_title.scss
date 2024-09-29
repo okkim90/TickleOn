@@ -1,8 +1,20 @@
 .title1 {
     font-size: $fz_9;
     font-weight: bold;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
     @include mobile {
         font-size: $fz_8;
+    }
+    .tit_ico {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+        &.ty_facility {
+            background-image: url(../images/tit1_ico_facility.svg);
+        }
+        
     }
 }
 .title2 {
