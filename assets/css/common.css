@@ -7732,6 +7732,13 @@ input::-webkit-search-results-decoration {
   background-color: #F1F1F1;
   opacity: 1;
 }
+.btn_ico._qr {
+  background-image: url(../images/ico_qr.svg);
+  border: 1px solid #e4e4e4;
+}
+.btn_ico._qr:hover {
+  background-color: #fafafa;
+}
 
 .title1 {
   font-size: 32px;

@@ -156,10 +156,9 @@
         </aside>
         <main id="container" class="container">
             <div class="sub_tit">
-                <h1 class="title1"><i class="tit_ico ty_facility"></i> 정기작업시설</h1>
-                <div class="btn_set ml_auto">
+                <h1 class="title1 mr_auto"><i class="tit_ico ty_facility"></i> 고객이용시설</h1>
+                <div class="btn_set">
                     <button class="f_btn ty_mid _blue _ico _add">직접 등록</button>
-                    <button class="f_btn ty_mid _blue _ico _add">AI도면 등록</button>
                 </div> 
             </div>
             <div class="top_set">
@@ -170,12 +169,12 @@
                         <!--[D] 검색어 입력시 검색어 삭제 버튼
                             활성화 : 'on' class
                         -->
-                        <button type="button" class="srch_close on"></button>
+                        <button type="button" class="srch_close"></button>
                         
                         <!--[D] 검색어 입력시 검색어 자동완성 미리보기가 있을 경우 리스트 노출 
                             활성화 : 'on' class
                         -->
-                        <ul class="srch_list on">
+                        <ul class="srch_list">
                             <li class="srch_list_item">
                                 <div class="txt"><span class="fc_key">티클</span> 청소</div> 
                             </li>
@@ -207,18 +206,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="tbl_wrap">
-                    <table class="tbl tl_fixed">
+                <div class="tbl_wrap" style="max-height: 500px;">
+                    <table class="tbl tl_fixed" style="min-width:1500px">
                         <colgroup>
                             <col style="width: 60px;">
                             <col style="width: 120px;">
                             <col>
                             <col>
-                            <col style="width: 110px;">
                             <col>
                             <col style="width: 120px;">
                             <col style="width: 110px;">
-                            <col style="width: 90px;">
+                            <col style="width: 60px;">
+                            <col style="width: 80px;">
                             <col style="width: 150px;">
                         </colgroup>
                         <caption></caption>
@@ -228,21 +227,91 @@
                                 <th class="taL">지점명(ID)<button class="btn_sorting"></button></th>
                                 <th class="taL">시설명<button class="btn_sorting"></button></th>
                                 <th class="taL">시설명 별칭<button class="btn_sorting"></button></th>
-                                <th>등록 옵션<button class="btn_sorting"></button></th>
                                 <th class="taL">수행작업</th>
                                 <th>총 누적 점검<button class="btn_sorting"></button></th>
                                 <th>작업 일시<button class="btn_sorting"></button></th>
+                                <th>QR</th>
                                 <th>NFC</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="10" style="background: #fff;">
-                                    <div class="no_data">
-                                        <i class="no_data_ico"></i>
-                                        <p class="no_data_txt">검색과 일치하는 결과가 없습니다.</p>
+                                <td>1</td>
+                                <td class="taL">서울지점</td>
+                                <td class="taL">1층 화장실</td>
+                                <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                <td class="taL">
+                                    <div class="d_flex _gap4 scroll_h">
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
                                     </div>
+                                </td>
+                                <td>0</td>
+                                <td>2000-00-00 <br> 17:14</td>
+                                <td>
+                                    <button class="btn_ico _qr"></button>
+                                </td>
+                                <td><button class="f_btn ty_mid _line">발행</button></td>
+                                <td>
+                                    <button class="f_btn ty_mid _line ">수정</button>
+                                    <button class="f_btn ty_mid _line ">삭제</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="taL">서울지점</td>
+                                <td class="taL">1층 화장실</td>
+                                <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                <td class="taL">
+                                    <div class="d_flex _gap4 scroll_h">
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                    </div>
+                                </td>
+                                <td>0</td>
+                                <td>2000-00-00 <br> 17:14</td>
+                                <td>
+                                    <button class="btn_ico _qr"></button>
+                                </td>
+                                <td><button class="f_btn ty_mid _line disabled">발행</button></td>
+                                <td>
+                                    <button class="f_btn ty_mid _line ">수정</button>
+                                    <button class="f_btn ty_mid _line ">삭제</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="taL">서울지점</td>
+                                <td class="taL">1층 화장실</td>
+                                <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                <td class="taL">
+                                    <div class="d_flex _gap4 scroll_h">
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                    </div>
+                                </td>
+                                <td>0</td>
+                                <td>2000-00-00 <br> 17:14</td>
+                                <td>
+                                    <button class="btn_ico _qr"></button>
+                                </td>
+                                <td><button class="f_btn ty_mid _line ">발행</button></td>
+                                <td>
+                                    <button class="f_btn ty_mid _line ">수정</button>
+                                    <button class="f_btn ty_mid _line ">삭제</button>
                                 </td>
                             </tr>
                         </tbody>
