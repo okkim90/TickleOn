@@ -6810,6 +6810,70 @@ input::-webkit-search-results-decoration {
   background-position: center center;
 }
 
+.work_wrap {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+@media (max-width: 1024px) {
+  .work_wrap {
+    display: block;
+  }
+}
+.work_wrap_tit {
+  width: 100%;
+}
+.work_wrap .work_qr {
+  width: 430px;
+  flex-shrink: 0;
+}
+.work_wrap .work_qr .qr_wrap {
+  padding: 45px 0;
+  background-color: #F8F9FB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.work_wrap .work_qr .btn_set {
+  margin-bottom: 32px;
+}
+.work_wrap .work_qr .info_box {
+  margin-top: 16px;
+}
+@media (max-width: 1024px) {
+  .work_wrap .work_qr {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+.work_wrap .work_list {
+  flex: 1;
+  min-width: 0;
+}
+.work_wrap .work_list .tbl_top {
+  margin-top: 32px;
+}
+.work_wrap .work_list .tbl_wrap {
+  max-height: 296px;
+}
+@media (max-width: 1024px) {
+  .work_wrap .work_list {
+    margin-top: 30px;
+  }
+}
+
+.qr_box {
+  padding: 16px;
+  border: 1px solid #e4e4e4;
+  text-align: center;
+  background-color: #fff;
+}
+.qr_box .date {
+  display: block;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
 .footer {
   color: #6980A5;
   border-top: 1px solid #F1F1F1;
@@ -7810,6 +7874,7 @@ input::-webkit-search-results-decoration {
 
 .f_select {
   border: 1px solid #F1F1F1;
+  background-color: #fff;
 }
 .f_select.ty_small {
   height: 33px;
@@ -7837,6 +7902,7 @@ input::-webkit-search-results-decoration {
   border: 1px solid #F1F1F1;
   max-width: 100%;
   text-overflow: ellipsis;
+  background-color: #fff;
 }
 .f_input:-moz-read-only {
   background-color: #f7f7f7;
@@ -7899,6 +7965,12 @@ input::-webkit-search-results-decoration {
   background: url(../images/ico_date.svg) no-repeat left 8px center/24px auto;
   font-size: 14px;
   cursor: pointer;
+}
+.f_input.datepicker:-moz-read-only {
+  background-color: #fff;
+}
+.f_input.datepicker:read-only {
+  background-color: #fff;
 }
 
 .input_wrap {
@@ -8012,6 +8084,17 @@ input::-webkit-search-results-decoration {
   font-size: 15px;
   font-weight: 500;
   margin-bottom: 10px;
+}
+
+.form_wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: #F5F9FF;
+  border: 1px solid #F1F1F1;
 }
 
 .ui-datepicker.ui-widget.ui-widget-content {
@@ -8222,7 +8305,6 @@ input::-webkit-search-results-decoration {
   background-position: center center;
   display: inline-block;
   vertical-align: middle;
-  margin-left: 4px;
 }
 .tbl .btn_sorting.on {
   transform: rotate(180deg);

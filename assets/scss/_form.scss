@@ -1,6 +1,6 @@
 .f_select {
     border: 1px solid $c_line;
-
+    background-color: #fff;
     &.ty_small {
         height: 33px;
         //line-height: 31px;
@@ -29,6 +29,7 @@
     border: 1px solid $c_line;
     max-width: 100%;
     text-overflow: ellipsis;
+    background-color: #fff;
     &:read-only {
         background-color: darken(#fff, 3%);
     }
@@ -101,6 +102,9 @@
         background: url(../images/ico_date.svg) no-repeat left 8px center / 24px auto;
         font-size: 14px;
         cursor: pointer;
+        &:read-only {
+            background-color: #fff;
+        }
     }
 }
 .input_wrap {
@@ -211,4 +215,16 @@
         font-weight: 500;
         margin-bottom: 10px;
     }
+}
+
+
+.form_wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 32px ;
+    padding: 16px;
+    border-radius: 4px;
+    background-color: $c_key2;
+    border: 1px solid $c_line;
 }

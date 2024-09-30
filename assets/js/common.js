@@ -73,12 +73,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    const modal_cont = document.querySelectorAll('.modal_cont');
-    modal_cont.forEach(e=>{
-      e.addEventListener('click',e=>{
-        e.stopPropagation();
-      })
-    });
+    // const modal_cont = document.querySelectorAll('.modal_cont');
+    // modal_cont.forEach(e=>{
+    //   e.addEventListener('click',e=>{
+    //     e.stopPropagation();
+    //   })
+    // });
 
 
 
