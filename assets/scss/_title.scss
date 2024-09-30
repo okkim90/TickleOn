@@ -4,6 +4,7 @@
     line-height: 1.2;
     display: flex;
     align-items: center;
+    
     @include mobile {
         font-size: $fz_8;
     }
@@ -13,6 +14,12 @@
         margin-right: 10px;
         background-repeat: no-repeat;
         background-position: center center;
+        @include mobile {
+            width: 22px;
+            height: 22px;
+            background-size: cover;
+            margin-right: 8px;
+        }
         &.ty_monitoring {
             background-image: url(../images/tit1_ico_monitoring.svg);
         }

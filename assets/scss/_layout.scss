@@ -47,7 +47,7 @@
                 top: 0;
                 align-items: center;
                 justify-content: center;
-                z-index: 999;
+                z-index: 9999;
                 h1 {
                     height: 100%;
                     a {
@@ -438,6 +438,8 @@
             padding-top: 30px;
             display: flex;
             align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 10px;
             @include mobile { 
                 padding: 0 20px;
             }
