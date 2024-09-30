@@ -399,13 +399,33 @@
                 </div>
             </div>
         </main>
+        <div class="modal on" >
+            <div class="modal_inner">
+                <div class="modal_cont ty_big">
+                    <div class="modal_top">
+                        <div class="modal_tit">시설 작업내역</div>
+                        <button type="button" class="modal_close_btn" onclick="close_modal(this)" aria-label="close modal"></button>
+                        <p class="desc w100">출력된QR 또는 해당 화면의 QR을 휴대폰으로 스캔 및 로그인 후 시설 작업이  가능합니다.</p>
+                    </div>
+                    <div class="modal_contents ty2">
+                        <div class="bd_box ty_small">
+                            <div class="d_flex ai_c fw_w _gap10">
+                                <div class="title3">
+                                    <i class="tit_ico ty_arrow"></i>1층 화장실
+                                </div>
+                                <div class="desc">[R3005] 1층 D1카운터 주변 여자화장실</div>
+                            </div>
+                            <button type="button" class="f_btn ty_mid _line _ico _print">인쇄하기</button>
+                            <button type="button" class="f_btn ty_mid _line _ico _down">다운로드</button>
+                            <button type="button" class="f_btn ty_mid _line _ico _mView">모바일화면 미리보기</button>
+                        </div>
+                    </div>
+                    <div class="modal_bot">
+                        <button type="submit" class="f_btn ty_mid _line w_60" onclick="close_modal(this)">닫기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!--[D] 로딩 레이어 
-        활성화 : 'on' class
-    -->
-    <div class="loader_layer">
-        <span class="loader"></span>
-    </div>
-    <!--[D] 로딩 레이어 -->
 </body>
 </html>

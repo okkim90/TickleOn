@@ -41,13 +41,10 @@
         &.ty_small {
             max-width: 500px;
         }
+        &.ty_big {
+            max-width: 1340px;
+        }
         
-        &.pt40 {
-            padding-top: 40px;
-        }
-        &.pt50 {
-            padding-top: 50px;
-        }
         
         box-shadow: 3px 8px 20px rgba(#000,.05);
 
@@ -62,13 +59,19 @@
     &_top {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         padding: 30px 30px 16px;
         @include mobile { 
             padding: 20px 20px 16px;
         }
+        .desc {
+            margin-top: 16px;
+        }
+        
     }
     &_tit {
         font-size: 25px;
+        font-weight: bold;
         @include mobile {
             font-size: 20px;
         }
@@ -90,6 +93,9 @@
     &_contents {
         padding: 30px ;
         overflow-y: auto;
+        &.ty2 {
+            padding: 16px 30px;
+        }
         @include mobile {
             padding: 20px;
         }

@@ -120,6 +120,27 @@
                 background-image: url(../images/ico_search.svg);
             }
         }
+        &._print {
+            &::before {
+                width: 16px;
+                height: 16px;
+                background-image: url(../images/ico_pring.svg);
+            }
+        }
+        &._down {
+            &::before {
+                width: 15px;
+                height: 16px;
+                background-image: url(../images/ico_down2.svg);
+            }
+        }
+        &._mView {
+            &::before {
+                width: 16px;
+                height: 16px;
+                background-image: url(../images/ico_mView.svg);
+            }
+        }
     }
 }
 
