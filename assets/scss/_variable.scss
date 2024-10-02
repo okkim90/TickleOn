@@ -30,6 +30,7 @@ $colors: (
     _disabled: #A3A3A3,
     _disabled_bg: #e2e2e2,
     _grey: #9D9D9D,
+    _grey2: #727272,
     _desc: #333D4B,
     _red: #FF2020,
     _red2: #FF5B5B,
@@ -59,6 +60,8 @@ $c_line2 : map-get($colors, _line2);
 $c_bg : map-get($colors, _bg);
 $c_bg2 : map-get($colors, _bg2);
 $c_grey : map-get($colors, _grey);
+$c_grey2 : map-get($colors, _grey2);
+$c_desc : map-get($colors, _desc);
 $c_blue : map-get($colors, _blue);
 $c_red : map-get($colors, _red);
 $c_red2 : map-get($colors, _red2);
@@ -309,6 +312,7 @@ $inner: 1280px;
 
 .flex1 {
     flex: 1;
+    min-width: 0;
 }
 .shrink0 {
     flex-shrink: 0;
@@ -386,6 +390,9 @@ $inner: 1280px;
     .lh_1_#{$i} {
         line-height: 1 + $i/10;
     }
+    .fw_#{$i} {
+       font-weight: $i*100
+    }
 }
 
 .hv {
@@ -409,3 +416,4 @@ $inner: 1280px;
 .bdB {
     border-bottom: 1px solid $c_line;
 }
+

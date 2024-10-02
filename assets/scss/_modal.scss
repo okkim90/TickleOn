@@ -27,7 +27,7 @@
     &_cont {
         position: relative;
         background-color: #fff;
-        border-radius: 24px;
+        border-radius: 20px;
         width: 100%;
         
        
@@ -57,9 +57,7 @@
     }
 
     &_top {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
+       
         padding: 30px 30px 16px;
         @include mobile { 
             padding: 20px 20px 16px;
@@ -67,16 +65,19 @@
         .desc {
             margin-top: 16px;
         }
-        
     }
     &_tit {
         font-size: 25px;
-        font-weight: bold;
+        font-weight: 500;
+        padding-right: 40px;
         @include mobile {
             font-size: 20px;
         }
     }
     &_close_btn {
+        position: absolute;
+        right: 20px;
+        top: 28px;
         width: 40px;
         height: 40px;
         margin-left: auto;
@@ -86,6 +87,10 @@
         border-radius: 8px;
         flex-shrink: 0;
         align-self: flex-start;
+        @include mobile {
+            top: 15px;
+            right: 10px;
+        }
         &:hover {
             background-color: $c_bg;
         }
@@ -95,6 +100,9 @@
         overflow-y: auto;
         &.ty2 {
             padding: 16px 30px;
+            @include mobile { 
+                padding: 16px 20px;
+            }
         }
         @include mobile {
             padding: 20px;

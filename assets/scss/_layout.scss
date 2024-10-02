@@ -1,9 +1,10 @@
 .grid_wrap {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: 70px 1fr;
+    grid-template-rows: 70px auto 1fr;
     grid-template-areas:
       "nav header"
+      "nav sticky_top"
       "nav main"
     ;
     min-height: 100dvh;
@@ -74,6 +75,7 @@
         .breadcrumb {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
             @include tablet {
                 order: 3;
                 width: 100%;
@@ -414,6 +416,19 @@
         }
         
     }
+    .sticky_top {
+        grid-area: sticky_top;
+        position: sticky;
+        left: 0;
+        top: 70px;
+        z-index: 999;
+        padding: 15px 20px;
+        background-color: $c_key6;
+        @include mobile {
+            top: 80px;
+        }
+       
+    }
     
     .container {
         grid-area: main;
@@ -422,8 +437,9 @@
         overflow: hidden;
         .contents {
             padding: 20px;
-            border-radius: 16px;
+            border-radius: 8px;
             background-color: #fff;
+            border: 1px solid $c_line;
             @include mobile { 
                 border-radius: 0;
                 padding-bottom: 60px;
@@ -440,6 +456,11 @@
             align-items: flex-end;
             flex-wrap: wrap;
             gap: 10px;
+            &.ty_sticky {
+                position: sticky;
+                left: 0;
+                top: 70px;
+            }
             @include mobile { 
                 padding: 0 20px;
             }
@@ -723,12 +744,16 @@
     @include tablet {
         display: block;
     }
-
+    @include mobile {
+        border: none;
+        padding: 0 !important;
+        margin-bottom: 10px;
+    }
     &_tit {
         width: 100%;
     }
     .work_qr {
-        width: 430px;
+        width: 410px;
         flex-shrink: 0;
         .qr_wrap {
             padding: 45px 0;
@@ -760,6 +785,24 @@
         @include tablet { 
             margin-top: 30px;
         }
+
+        @include mobile {
+            .form_wrap {
+                .d_flex {
+                    flex-wrap: wrap;
+                    width: 100%;
+                    .select-box {
+                        width: 100%;
+                    }
+                }
+                .f_btn {
+                    width: 100%;
+                }
+                .date_set {
+                    width: 100%;
+                }
+            }
+        }
     }
 
 
@@ -774,5 +817,66 @@
         display: block;
         font-size: $fz_3;
         margin-top: 16px;
+    }
+}
+
+.date_set {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    .f_input {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+.tip_box {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: $c_key6;
+    color: $c_grey;
+}
+.list_dot {
+    &_item {
+        display: flex;
+        align-items: flex-start;
+        &::before {
+            content:'·';
+            margin-right: 6px;
+
+        }
+    }
+}
+
+.list_tip {
+    &_item {
+        display: flex;
+        align-items: flex-start;
+        color: $c_font2;
+        &::before {
+            content:'※';
+            margin-right: 6px;
+
+        }
+    }
+}
+
+.ai_upload {
+    display: flex;
+    gap: 32px;
+    &_sec {
+        flex: 1;
+        flex-shrink: 0;
+        width: 50%;
+        &_tit {
+            margin-bottom: 20px;
+        }
+    }
+    .upload_wrap {
+        background-color: $c_key2;
+        height: 560px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

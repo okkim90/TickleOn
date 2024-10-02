@@ -399,6 +399,46 @@
                 </div>
             </div>
         </main>
+
+        <div class="modal on" >
+            <div class="modal_inner">
+                <div class="modal_cont ty_small">
+                    <div class="modal_top">
+                        <div class="modal_tit">시설을 삭제 하시겠습니까?</div>
+                        <button type="button" class="modal_close_btn" onclick="close_modal(this)" aria-label="close modal"></button>
+                    </div>
+                    <div class="modal_contents">
+                        <p class="fz_5"><span class="fw_5 fc_key">1층 화장실</span>을 삭제하려고 합니다.</p>
+                        <!--[D] 연동된 시설일 경우-->
+                        <div class="tip_box mt16">
+                            <ul class="list_dot">
+                                <li class="list_dot_item">삭제시 이전의 연동 기록은 유지되며 업데이트된 네역은 이후 내역에 반영됩니다.</li>
+                            </ul>
+                        </div>
+                        <div class="pt16 mt16 bdT">
+                            <input type="text" class="f_input ty_mid2 w100" placeholder="입력해주세요">
+                            <div class="info_box _bot d_flex">
+                                <i class="ico_info"></i> 
+                                “박스에 “DELETE”를 입력하시면 [삭제]버튼이 활성화됩니다.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal_bot">
+                        <button type="button" class="f_btn ty_mid _line w_60"  onclick="close_modal(this)">취소</button>
+                        <button type="submit" class="f_btn ty_mid _red w_100 disabled">삭제</button> <!--[D] 비활성화 'disabled' class-->
+                        <button type="submit" class="f_btn ty_mid _red w_100 ">삭제</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--[D]토스트 활성화 : 'on' class-->
+        <div class="toast on">
+            <div class="toast_inner">
+                <i class="toast_ico"></i>
+                <div class="toast_txt">시설 등록(직접등록)이 삭제 되었습니다.</div>
+                <button type="button" class="toast_close" onclick="close_toast(this)"></button>
+            </div>
+        </div>
     </div>
     <!--[D] 로딩 레이어 
         활성화 : 'on' class

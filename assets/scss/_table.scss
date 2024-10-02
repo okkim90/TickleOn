@@ -12,6 +12,9 @@
         border: 1px solid $c_line;
         width: 100%;
     }
+    .select-box {
+        z-index: 10;
+    }
     th, td {
         height: 46px;
         padding: 10px;

@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    z-index: 99;
+    z-index: 9;
     border: 1px solid $c_line;
     &::after {
         content: '';
@@ -90,7 +90,7 @@
         }
     }
     &.on {
-        z-index: 100;
+        z-index: 999;
         .options {
             display: block;
         }
@@ -107,7 +107,7 @@
         cursor: pointer;
         background-color: #fff;
         flex: 1;
-        font-size: 12px;
+        font-size: 14px;
         text-overflow: ellipsis;
         &:focus {
             border-color: none;
@@ -117,7 +117,7 @@
     &.ty_small {
         height: 34px;   
         border-radius: 7px;
-        padding: 0 12px;
+        padding: 0 8px;
         
         
         .options {

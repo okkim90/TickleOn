@@ -43,7 +43,7 @@
         opacity: 0.6;
     }
     &.ty_small {
-        height: 33px;
+        height: 34px;
         //line-height: 31px;
         padding: 0 10px;
         border-radius: 4px;
@@ -72,8 +72,19 @@
     &._blue {
         background-color: $c_key;
         color: #fff;
+        &.disabled {
+            background-color: lighten($c_key, 30%);
+        }
         &:hover {
             background-color: $c_key4;
+        }
+    }
+    
+    &._grey {
+        background-color: $c_grey2;
+        color: #fff;
+        &:hover {
+            background-color: darken($c_grey2, 10%);
         }
     }
     &._red {
@@ -227,6 +238,13 @@
         border: 1px solid $c_line2;
         &:hover {
             background-color: darken(#fff, 2%);
+        }
+    }
+    &._back {
+        background-color: $c_bg;
+        background-image: url(../images/arrow_back.svg);
+        &:hover {
+            background-color: darken($c_bg, 10%);
         }
     }
 }
