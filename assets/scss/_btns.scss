@@ -83,8 +83,12 @@
     &._grey {
         background-color: $c_grey2;
         color: #fff;
+        
         &:hover {
             background-color: darken($c_grey2, 10%);
+        }
+        &.disabled {
+            color: lighten($c_grey2, 40%);
         }
     }
     &._red {
@@ -96,6 +100,19 @@
     }
     &._line {
         border: 1px solid $c_line2;
+        background-color: #fff;
+        &:hover {
+            background-color: darken(#fff, 2%);
+        }
+        &.disabled {
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.5;
+            background-color: $c_line2;
+        }
+    }
+    &._line2 {
+        border: 1px solid $c_grey;
         background-color: #fff;
         &:hover {
             background-color: darken(#fff, 2%);
@@ -150,6 +167,13 @@
                 width: 16px;
                 height: 16px;
                 background-image: url(../images/ico_mView.svg);
+            }
+        }
+        &._reset {
+            &::before {
+                width: 16px;
+                height: 16px;
+                background-image: url(../images/ico_reset2.svg);
             }
         }
     }

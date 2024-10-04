@@ -30,6 +30,9 @@
     max-width: 100%;
     text-overflow: ellipsis;
     background-color: #fff;
+    &.error {
+        border-color: $c_red2;
+    }
     &:read-only {
         background-color: darken(#fff, 3%);
     }
@@ -106,6 +109,25 @@
             background-color: #fff;
         }
     }
+
+    &_del {
+        
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-image: url(../images/ico_srch_close.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        display: none;
+        &.on {
+            display: block;
+        }
+        &:hover {
+            background-color: #f5f5f5;
+        }
+    }
+
+    
 }
 .input_wrap {
     position: relative;
@@ -119,6 +141,19 @@
         right: 10px;
         line-height: 40px;
         color: $c_placeholder;
+    }
+
+    .f_input_util {
+        position: absolute;
+        right: 10px;
+        top: 0;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        .count {
+            position: relative ;
+            right: 0;
+        }
     }
 }
 .ico_required {
@@ -322,6 +357,11 @@
     border-radius: 4px;
     background-color: $c_key2;
     border: 1px solid $c_line;
+}
+
+.form_alert {
+    font-size: 11px;
+    margin-top: 6px;
 }
 
 .f_chk {

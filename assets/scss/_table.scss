@@ -21,6 +21,9 @@
         border: 1px solid $c_line;
         text-align: center;
         vertical-align: middle;
+        &.pd4 {
+            padding: 4px;
+        }
         &.taR {
             text-align: right;
         }

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TickleOn</title>
+    <!--[D] 공통척용 js&css-->
+    <link rel="stylesheet" href="../assets/css/common.min.css">
+    <script type="text/javascript" src="../assets/js/common.js"></script>
+</head>
+<body>
+    <div id="wrap" class="grid_wrap">
+        <header id="header" class="header">
+            <div class="m_header">
+                <h1><a href=""><img src="../assets/images/logo.svg" alt="TickleOn"></a> </h1>
+                <button type="button" class="btn_nav"></button>
+            </div>
+            <div class="header_cont">
+                <div class="breadcrumb">
+                    <div class="breadcrumb_item">수행작업관리</div>
+                    <div class="breadcrumb_item">정기작업관리</div>
+                    <div class="breadcrumb_item">템플릿 등록</div>
+                </div>
+                <div class="hd_company">
+                    <div class="hd_company_item dep1">회사명</div>
+                    <div class="hd_company_item select-box ty_mid ">
+                        <input type="text" class="select-input" value="서울지점" placeholder="매체를 선택해주세요" readonly>
+                        <div class="options">
+                            <ul>
+                                <li data-value="1" class="option">서울지점</li>
+                                <li data-value="2" class="option">경기지점</li>
+                                <li data-value="3" class="option">강원지점</li>
+                            </ul>
+                            <button type="button" class="f_btn ty_mid _key2 w100" onclick="event.stopPropagation();">지점 관리</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hd_user">
+                    <button type="button" class="hd_user_btn"></button>
+                    <div class="hd_user_menu"></div>
+                </div>
+            </div>
+        </header>
+        <div class="sticky_top">
+            <div class="d_flex fw_w ai_c _gap8">
+                <button type="button" class="btn_ico _back mr4"></button>
+                <h1 class="title2 mr_auto fw_5">템플릿 등록</h1>
+                <div class="btn_set">
+                    <button type="button" class="f_btn ty_mid _blue disabled">등록하기</button>
+                    <button type="button" class="f_btn ty_mid _blue">등록하기</button>
+                </div>
+            </div>
+        </div>
+        <aside class="nav fixed">
+            <div class="nav_top">
+                <a href="" class="nav_top_logo"></a>
+                <button type="button" class="nav_close" aria-label="close nav"></button>
+            </div>
+            <nav class="nav_wrap">
+                <ul class="nav_list dep1">
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_monitoring"></i>
+                            <span class="txt">모니터링</span>
+                        </a>
+                    </li>
+                    <li class="nav_dep1 has_dep"> <!--[DEV] 활성화 : 'on' class-->
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_facility"></i>
+                            <span class="txt">시설관리</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">정기작업시설</a><!--[DEV] 활성화 : 'on' class-->
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">고객이용시설</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep on">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_work"></i>
+                            <span class="txt">수행작업관리</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2 on">정기작업관리</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">고객작업관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_emergency"></i>
+                            <span class="txt">긴급관리</span>
+                            <span class="tag_new">N</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">정기작업시설<span class="tag_new">10 New</span></a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">고객이용시설</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_account"></i>
+                            <span class="txt">계정관리</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">작업자 계정</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">지점 관리자 계정</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_material"></i>
+                            <span class="txt">소모품/장비관리</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">소모품 관리</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">장비 관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_statistic"></i>
+                            <span class="txt">통계</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">현황통계</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">근태관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_notification"></i>
+                            <span class="txt">안내사항</span>
+                        </a>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_setting"></i>
+                            <span class="txt">설정</span>  
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+       
+        <main id="container" class="container">
+            <div class="contents">
+                <div class="template_wrap">
+                    <div class="template_wrap_left">
+                        <div class="template_sec mt0">
+                            <div class="template_tit">
+                                <h3 class="fz_4">수행작업 이름 <span class="fc_red">*</span></h3>
+                            </div>
+                            <div class="form_set">
+                                <div class="d_flex _gapX8">
+                                    <div class="input_wrap flex1">
+                                        <!--[D] 중복일 경우 일 경우 input 에 'error' class-->
+                                        <input type="text" class="f_input ty_mid2 w100 has_count error" placeholder="수행작업 이름을 입력하세요" max-length="50">
+                                        <span class="count">0/50</span>
+                                    </div>
+                                    <button type="button" class="f_btn ty_mid _line">중복확인</button>
+                                </div>                          
+                                <div class="form_alert fc_red2">같은 이름으로 등록된 점검표가 있습니다.</div>
+                            </div>   
+                        </div>
+                        <div class="template_sec">
+                            <div class="template_tit d_flex ai_b">
+                                <h3 class="fz_4">반복 빈도<span class="fc_red">*</span></h3> 
+                                <button type="button" class="f_btn ty_mid _line _ico _reset ml_auto">초기화</button>
+                            </div>
+                            <div class="tag_wrap">
+                                <div class="tag_list">
+                                    <span class="f_tag _line">
+                                        <span class="txt">월별</span>
+                                        <button type="button" aria-label="delete" class="btn_del"></button>
+                                    </span>
+                                    <span class="f_tag _line">
+                                        <span class="txt">2개월마다</span>
+                                        <button type="button" aria-label="delete" class="btn_del"></button>
+                                    </span>
+                                    <span class="f_tag _line">
+                                        <span class="txt">첫번째주</span>
+                                        <button type="button" aria-label="delete" class="btn_del"></button>
+                                    </span>
+                                    <span class="f_tag _line">
+                                        <span class="txt">월</span>
+                                        <button type="button" aria-label="delete" class="btn_del"></button>
+                                    </span>
+                                    <span class="f_tag _line">
+                                        <span class="txt">화</span>
+                                        <button type="button" aria-label="delete" class="btn_del"></button>
+                                    </span>
+                                    <span class="f_tag _line">
+                                        <span class="txt">수</span>
+                                        <button type="button" aria-label="delete" class="btn_del"></button>
+                                    </span>
+                                    <span class="f_tag _line">
+                                        <span class="txt">시간</span>
+                                        <button type="button" aria-label="delete" class="btn_del"></button>
+                                    </span>
+                                </div>
+                                
+                            </div>
+                            <div class="info_box d_flex mt16">
+                                <i class="ico_info"></i> 
+                                <p class="fc_key">수행작업이 수행되어야 하는 점검 날짜(또는 기간)와 점검 횟수를 선택해주세요. 수행작업 빈도를 자세하게 설정할 수록 시설의 점검 완료 여부를 더 정확히 파악할 수 있습니다.</p>
+                            </div>
+                            <div class="template_tab mt16">
+                                <div class="template_tab_dep1 _frequency on">
+                                    <div class="template_tab_tit no_bd">
+                                        <div>1. 빈도 <span class="fc_blue">선택[월별 12개월마다 다섯번째주]</span></div>
+                                    </div>
+                                    <div class="template_tab_cont">
+                                        <ul class="template_tab_list no_bd">
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">
+                                                            상시
+                                                            <!-- <span class="desc">* 점검 빈도가 [상시]로 설정될 경우 특정 날짜에 점검이 배정되지 않아, 점검 완료 여부를 판단할 수 없습니다.</span> -->
+                                                        </div> 
+                                                    </div> 
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">일별</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">주별</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">월별</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <ul class="template_tab_list">
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">매달마다</div> 
+                                                    </div> 
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">2개월마다</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">3개월마다</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">4개월마다</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">5개월마다</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">6개월마다</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">7개월마다</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">8개월마다</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">9개월마다</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">10개월마다</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">11개월마다</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">12개월마다</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <ul class="template_tab_list">
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">첫번째주</div> 
+                                                    </div> 
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">첫번째주</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">첫번째주</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="xxx">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">첫번째주</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="template_tab_dep1 _day">
+                                    <div class="template_tab_tit">
+                                        <div>2. 요일 <span class="fc_blue">선택[요일 월, 화, 수, 목, 금, 토, 일]</span></div>
+                                    </div>
+                                    <div class="template_tab_cont">
+                                        <ul class="template_tab_list">
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="checkbox">
+                                                    <div class="btn_inner">
+                                                        <i class="ico_chk"></i>
+                                                        <div class="txt">월</div> 
+                                                    </div> 
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="checkbox">
+                                                    <div class="btn_inner">
+                                                        <i class="ico_chk"></i>
+                                                        <div class="txt">화</div> 
+                                                    </div> 
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="checkbox">
+                                                    <div class="btn_inner">
+                                                        <i class="ico_chk"></i>
+                                                        <div class="txt">수</div> 
+                                                    </div> 
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="checkbox">
+                                                    <div class="btn_inner">
+                                                        <i class="ico_chk"></i>
+                                                        <div class="txt">목</div> 
+                                                    </div> 
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="checkbox">
+                                                    <div class="btn_inner">
+                                                        <i class="ico_chk"></i>
+                                                        <div class="txt">금</div> 
+                                                    </div> 
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="checkbox">
+                                                    <div class="btn_inner">
+                                                        <i class="ico_chk"></i>
+                                                        <div class="txt">토</div> 
+                                                    </div> 
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="checkbox">
+                                                    <div class="btn_inner">
+                                                        <i class="ico_chk"></i>
+                                                        <div class="txt">일</div> 
+                                                    </div> 
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="template_tab_dep1 _count">
+                                    <div class="template_tab_tit">
+                                        <div>3. 횟수 및 시간 <span class="fc_blue">선택[횟수 99999회]</span></div>
+                                    </div>
+                                    <div class="template_tab_cont">
+                                        <ul class="template_tab_list">
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_1">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">횟수</div> 
+                                                    </div> 
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_1">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">시간</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <ul class="template_tab_list">
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">1회</div> 
+                                                    </div> 
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">2회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">3회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">4회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">5회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">6회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">7회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">7회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">7회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">7회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">7회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">7회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">7회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li class="list_item">
+                                                <label class="template_tab_btn">
+                                                    <input type="radio" name="3_2">
+                                                    <div class="btn_inner">
+                                                        <div class="txt">99999회</div> 
+                                                    </div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>     
+                                </div>
+                                <!--[D] 탭 상단 높이 정렬 -->
+                                <script>
+                                    function setEqualHeight() {
+                                        const divs = document.querySelectorAll('.template_tab_tit');
+                                        let maxHeight = 0;
+                                        divs.forEach(div => {
+                                            div.style.height = 'auto'; 
+                                            const divHeight = div.offsetHeight;
+                                            if (divHeight > maxHeight) {
+                                                maxHeight = divHeight; 
+                                            }
+                                        });
+                                    
+                                        divs.forEach(div => {
+                                            div.style.height = maxHeight + 'px';
+                                        });
+                                    }
+                                    window.addEventListener('DOMContentLoaded', setEqualHeight);
+                                    window.addEventListener('resize', setEqualHeight);
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template_wrap_right">
+                        <div class="template_sec ">
+                            <div class="template_tit">
+                                <h3 class="fz_4">반복 리스트<span class="fc_red">*</span></h3>
+                            </div>
+                            <div class="info_box d_flex">
+                                <i class="ico_info"></i> 
+                                <p class="fc_key">수향작업 항목은 반드시 한 개 이상 등록해주세요.</p>
+                            </div>
+
+                            <div class="tbl_top d_flex ai_b">
+                                <span class="fc_font2">총 <b class="fc_key">10</b>건</span>
+                                <div class="select-box ty_mid2 w_120 ml_auto ty_fillter">
+                                    <input type="text" class="select-input" value="항목추가" readonly>
+                                    <div class="options">
+                                        <ul>
+                                            <li data-value="1" class="option_nochange">확인</li>
+                                            <li data-value="2" class="option_nochange">체크리스트</li>
+                                            <li data-value="3" class="option_nochange">텍스트</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab_btns">
+                                <button class="tab_btn">전체</button>
+                                <button class="tab_btn">확인</button>
+                                <button class="tab_btn">체크리스트</button>
+                                <button class="tab_btn">텍스트</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!--[D] 로딩 레이어 
+        활성화 : 'on' class
+    -->
+    <div class="loader_layer">
+        <span class="loader"></span>
+    </div>
+    <!--[D] 로딩 레이어 -->
+</body>
+</html>

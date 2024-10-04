@@ -17,6 +17,18 @@
         background-size: cover;
         flex-shrink: 0;
     }
+    &.ty_fillter {
+        &::after {
+            width: 16px;
+            height: 16px;
+            background-image: url(../images/ico_filter.svg);
+        }
+        &.on {
+            &::after { 
+                transform: none;
+            }
+        }
+    }
     .options {
         display: none;
         overflow-y: auto;
@@ -91,6 +103,7 @@
     }
     &.on {
         z-index: 1000;
+        border-color: $c_key;
         .options {
             display: block;
         }
@@ -137,7 +150,11 @@
                 border-radius: 8px;
                 cursor: pointer;
                 &.option {
-                    padding: 0 16px;
+                    padding: 0 8px;
+                    border-radius: 7px;
+                }
+                &.option_nochange {
+                    padding: 0 8px;
                     border-radius: 7px;
                 }
                 &:hover {
@@ -174,6 +191,10 @@
             li {
                 font-size: 15px;
                 &.option {
+                    padding: 0 16px;
+                    border-radius: 7px;
+                }
+                &.option_nochange {
                     padding: 0 16px;
                     border-radius: 7px;
                 }
@@ -229,6 +250,10 @@
             li {
                 font-size: 14px;
                 &.option {
+                    padding: 0 8px;
+                    border-radius: 7px;
+                }
+                &.option_nochange {
                     padding: 0 8px;
                     border-radius: 7px;
                 }
