@@ -191,6 +191,7 @@
     background-position: center center;
     border-radius: 8px;
     flex-shrink: 0;
+    vertical-align: middle;
     &._srch {
         background-image: url(../images/ico_search.svg);
         border: 1px solid $c_line2;
@@ -233,6 +234,7 @@
         }
     }
     &._qr {
+        background-color: #fff;
         background-image: url(../images/ico_qr.svg);
         
         border: 1px solid $c_line2;

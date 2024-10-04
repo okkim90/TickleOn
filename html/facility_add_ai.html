@@ -45,7 +45,7 @@
         <div class="sticky_top">
             <div class="d_flex fw_w ai_c _gap8">
                 <button type="button" class="btn_ico _back mr4"></button>
-                <h1 class="title2 mr_auto">시설 등록(AI도면 등록)</h1>
+                <h1 class="title2 mr_auto fw_5">시설 등록(AI도면 등록)</h1>
                 <div class="btn_set">
                     <button type="button" class="f_btn ty_mid _blue disabled">등록하기</button>
                     <button type="button" class="f_btn ty_mid _blue">등록하기</button>
@@ -169,12 +169,12 @@
         <main id="container" class="container">
             <div class="contents">
                 <div class="ai_upload">
-                    <div class="ai_upload_sec ty_left">
-                        <h3 class="ai_upload_sec_tit fz_4">층별 도면 등록 <span class="fc_red">*</span></h3> 
-                        <div class="info_box d_flex ">
+                    <div class="ai_upload_sec ">
+                        <h3 class="ai_upload_sec_tit fz_4">층별 도면 <span class="fc_red">*</span></h3> 
+                        <!-- <div class="info_box d_flex ">
                             <i class="ico_info"></i> 
                             <p class="fc_key">도면 파일의 AI인식을 통해 공간에대한 수행작업을 선택하여 작업을 관리할 수 있습니다.</p>
-                        </div>
+                        </div> -->
                         <div class="select-box ty_mid w_200 mt16">
                             <input type="text" class="select-input" value="1층" placeholder="매체를 선택해주세요" readonly>
                             <div class="options">
@@ -186,7 +186,7 @@
                             </div>
                         </div>
                         <div class="upload_wrap mt16">
-                            <div class="d_flex ty_col _gap16 ai_c">
+                            <div class="bf_upload">
                                 <img src="../assets/images/img_upload.svg" alt="">
                                 <button type="button" class="f_btn ty_mid _blue _ico _add">도면 파일</button>
                                 <ul class="list_tip">
@@ -195,24 +195,38 @@
                                 </ul>
                             </div>
                         </div>
+                        <!--[D]이미지 등록 시-->
+                        <div class="upload_wrap mt16">
+                            <img src="../assets/images/blueprint.png" alt="">
+                        </div>
                     </div>
-                    <div class="ai_upload_sec ty_right">
-                        <h3 class="ai_upload_sec_tit fz_4">반복 리스트 <span class="fc_red">*</span></h3>
-                        <div class="info_box d_flex ">
+                    <div class="ai_upload_sec ">
+                        <h3 class="ai_upload_sec_tit fz_4 mb0">시설 리스트 <span class="fc_red">*</span></h3>
+                        <!-- <div class="info_box d_flex ">
                             <i class="ico_info"></i> 
                             <p class="fc_key">문의사항 발생시 대표전화 : 1533-3910 로 문의 부탁드립니다.</p>
-                        </div>
+                        </div> -->
 
-                        <div class="tbl_top d_flex ai_b mt16">
-                            <span class="fc_font2">전체 <b class="fc_key">10</b>건</span>
+                        <div class="tbl_top d_flex ai_b">
+                            <span class="fc_font2">총 <b class="fc_key">10</b>건(<b class="fc_key">1</b>/2)페이지</span>
+                            <div class="hd_company_item select-box ty_mid2 w_120 ml_auto">
+                                <input type="text" class="select-input" value="10개씩 보기" readonly>
+                                <div class="options">
+                                    <ul>
+                                        <li data-value="1" class="option">10개씩 보기</li>
+                                        <li data-value="2" class="option">20개씩 보기</li>
+                                        <li data-value="3" class="option">30개씩 보기</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="tbl_wrap" style="height:580px">
-                            <table class="tbl tl_fixed" style="min-width:700px">
+                        <div class="tbl_wrap" style="height:500px">
+                            <table class="tbl tl_fixed" style="min-width:1100px">
                                 <colgroup>
                                     <col style="width:60px">
                                     <col style="width: 100px;">
-                                    <col style="width: 100px;">
-                                    <col style="width: 100px;">
+                                    <col style="width: 20%;">
+                                    <col style="width: 20%;">
                                     <col>
                                     <col style="width: 120px;">
                                 </colgroup>
@@ -258,11 +272,13 @@
                                         <td class="taL">
                                             <div class="d_flex _gap4">
                                                 <input type="text" class="f_input ty_small flex1">
+                                                <button class="f_btn ty_small _grey ">중복확인</button>
                                             </div>
                                         </td>
                                         <td class="taL">
                                             <div class="d_flex _gap4">
                                                 <input type="text" class="f_input ty_small flex1">
+                                                <button class="f_btn ty_small _grey ">중복확인</button>
                                             </div>
                                         </td>
                                         <td class="taL">
@@ -347,9 +363,70 @@
                                         <td class="taL">
                                             <div class="d_flex _gap4 scroll_h">
                                                 <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                                <span class="f_tag ty_small _grey">수행작업Group6</span>                                  
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="f_btn ty_small _line ">수정</button>
+                                            <button class="f_btn ty_small _line ">삭제</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1층</td>
+                                        <td class="taL">사무실</td>
+                                        <td class="taL">M004</td>
+                                        <td class="taL">
+                                            <div class="d_flex _gap4 scroll_h">
+                                                <span class="f_tag ty_small _grey">수행작업Group6</span>                                       
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="f_btn ty_small _line ">수정</button>
+                                            <button class="f_btn ty_small _line ">삭제</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1층</td>
+                                        <td class="taL">사무실</td>
+                                        <td class="taL">M004</td>
+                                        <td class="taL">
+                                            <div class="d_flex _gap4 scroll_h">
+                                                <span class="f_tag ty_small _grey">수행작업Group6</span>                                          
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="f_btn ty_small _line ">수정</button>
+                                            <button class="f_btn ty_small _line ">삭제</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1층</td>
+                                        <td class="taL">사무실</td>
+                                        <td class="taL">M004</td>
+                                        <td class="taL">
+                                            <div class="d_flex _gap4 scroll_h">
                                                 <span class="f_tag ty_small _grey">수행작업Group6</span>
                                                 <span class="f_tag ty_small _grey">수행작업Group6</span>
                                                 <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="f_btn ty_small _line ">수정</button>
+                                            <button class="f_btn ty_small _line ">삭제</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1층</td>
+                                        <td class="taL">사무실</td>
+                                        <td class="taL">M004</td>
+                                        <td class="taL">
+                                            <div class="d_flex _gap4 scroll_h">
+                                                <span class="f_tag ty_small _grey">수행작업Group6</span>                                             
                                             </div>
                                         </td>
                                         <td>
@@ -383,9 +460,7 @@
                                         <td class="taL">
                                             <div class="d_flex _gap4 scroll_h">
                                                 <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                                <span class="f_tag ty_small _grey">수행작업Group6</span>                                              
                                             </div>
                                         </td>
                                         <td>
@@ -401,81 +476,7 @@
                                         <td class="taL">
                                             <div class="d_flex _gap4 scroll_h">
                                                 <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button class="f_btn ty_small _line ">수정</button>
-                                            <button class="f_btn ty_small _line ">삭제</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1층</td>
-                                        <td class="taL">사무실</td>
-                                        <td class="taL">M004</td>
-                                        <td class="taL">
-                                            <div class="d_flex _gap4 scroll_h">
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button class="f_btn ty_small _line ">수정</button>
-                                            <button class="f_btn ty_small _line ">삭제</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1층</td>
-                                        <td class="taL">사무실</td>
-                                        <td class="taL">M004</td>
-                                        <td class="taL">
-                                            <div class="d_flex _gap4 scroll_h">
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button class="f_btn ty_small _line ">수정</button>
-                                            <button class="f_btn ty_small _line ">삭제</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1층</td>
-                                        <td class="taL">사무실</td>
-                                        <td class="taL">M004</td>
-                                        <td class="taL">
-                                            <div class="d_flex _gap4 scroll_h">
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button class="f_btn ty_small _line ">수정</button>
-                                            <button class="f_btn ty_small _line ">삭제</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1층</td>
-                                        <td class="taL">사무실</td>
-                                        <td class="taL">M004</td>
-                                        <td class="taL">
-                                            <div class="d_flex _gap4 scroll_h">
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                                <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                                <span class="f_tag ty_small _grey">수행작업Group6</span>  
                                             </div>
                                         </td>
                                         <td>
@@ -486,7 +487,19 @@
                                 </tbody>
                             </table>
                         </div>
-
+                        <div class="paging_wrap">
+                            <button type="button" class="paging_btn ty_first paging_nav"></button>
+                            <button type="button" class="paging_btn ty_prev paging_nav"></button>
+                            <div class="paging_list">
+                                <button type="button" class="paging_btn current">1</button>
+                                <button type="button" class="paging_btn">2</button>
+                                <button type="button" class="paging_btn">3</button>
+                                <button type="button" class="paging_btn">4</button>
+                                <button type="button" class="paging_btn">5</button>                          
+                            </div>
+                            <button type="button" class="paging_btn ty_next paging_nav"></button>
+                            <button type="button" class="paging_btn ty_last paging_nav"></button>
+                        </div>
                     </div>
                 </div>
             </div>

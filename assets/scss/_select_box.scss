@@ -6,7 +6,7 @@
     align-items: center;
     cursor: pointer;
     z-index: 9;
-    border: 1px solid $c_line;
+    border: 1px solid $c_line2;
     &::after {
         content: '';
         width: 18px;
@@ -22,7 +22,7 @@
         overflow-y: auto;
         max-height: 284px;
         padding: 12px;
-
+        border: 1px solid $c_line;
         &.ty2 {
             padding: 0 !important;
             max-height: none;
@@ -90,7 +90,7 @@
         }
     }
     &.on {
-        z-index: 999;
+        z-index: 1000;
         .options {
             display: block;
         }
@@ -126,14 +126,14 @@
             left: 0;
             min-width: 100%;
             background-color: #fff;
-            padding: 8px;
+            padding: 6px;
             box-sizing: border-box;
             box-shadow: 2px 8px 20px rgba(#000,0.08) ;
             
-            border-radius: 8px;
+            border-radius: 7px;
             li {
                 padding: 0 8px;
-                line-height: 26px;
+                line-height: 30px;
                 border-radius: 8px;
                 cursor: pointer;
                 &.option {
@@ -141,7 +141,8 @@
                     border-radius: 7px;
                 }
                 &:hover {
-                    background-color: $c_bg;
+                    background-color: $c_key2;
+                    color: $c_key;
                 }
             }
         }
@@ -164,7 +165,7 @@
             box-sizing: border-box;
             box-shadow: 2px 8px 20px rgba(#000,0.1) ;
             
-            border-radius: 16px;
+            border-radius: 7px;
 
             &.ty_up {
                 top: auto;
@@ -219,7 +220,7 @@
             box-sizing: border-box;
             box-shadow: 0 0 14px rgba(#000,0.1) ;
             
-            border-radius: 16px;
+            border-radius: 7px;
 
             &.ty_up {
                 top: auto;

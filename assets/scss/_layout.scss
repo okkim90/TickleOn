@@ -18,7 +18,7 @@
         position: sticky;
         left: 0;
         top: 0;
-        z-index: 999;
+        z-index: 9999;
         background-color: $c_key2;
         @include tablet { 
             position: static;
@@ -853,6 +853,10 @@
         display: flex;
         align-items: flex-start;
         color: $c_font2;
+        text-align: left;
+        & + & {
+            margin-top: 8px;
+        }
         &::before {
             content:'※';
             margin-right: 6px;
@@ -862,21 +866,35 @@
 }
 
 .ai_upload {
-    display: flex;
-    gap: 32px;
+    
     &_sec {
-        flex: 1;
-        flex-shrink: 0;
-        width: 50%;
+        // flex: 1;
+        // flex-shrink: 0;
+        // width: 50%;
+        & + & {
+            margin-top: 40px;
+        }
         &_tit {
             margin-bottom: 20px;
+            &.mb0 {
+                margin-bottom: 0;
+            }
         }
     }
     .upload_wrap {
-        background-color: $c_key2;
-        height: 560px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        //background-color: $c_key2;
+        border: 1px solid $c_line2;
+        text-align: center;
+        padding: 20px;
+        border-radius: 8px;
+        //min-height: 400px;
+        .bf_upload {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
     }
 }
