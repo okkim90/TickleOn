@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //const optionsLists = document.querySelectorAll('.select-box .options');
     const selectBoxes = document.querySelectorAll('.select-box');
     const selectOption = document.querySelectorAll('.select-box .option');
-    const selectOptionMulti = document.querySelectorAll('.select-box .f_chk');
+    //const selectOptionMulti = document.querySelectorAll('.select-box .f_chk');
     selectBoxes.forEach(e => {
       e.addEventListener('click', function() {
         
@@ -24,25 +24,26 @@ document.addEventListener('DOMContentLoaded', function() {
         closeAllOptions();
       });
     });
-    selectOptionMulti.forEach(e=>{
-      e.addEventListener('click',(event)=>{
-        let selectBox = e.closest('.select-box');
-        let selectInput = selectBox.querySelector('.select-input');
-        let chked = selectBox.querySelectorAll('.f_chk input[type=checkbox]:checked');
-        let chkCount = chked.length;
-        let arr= []
-        chked.forEach((chk)=>{
-            arr.push(chk.closest('.f_chk').querySelector('.f_chk_txt').textContent)
-        })
+    // selectOptionMulti.forEach(e=>{
+    //   e.addEventListener('click',(event)=>{
+    //     let selectBox = e.closest('.select-box');
+    //     let selectInput = selectBox.querySelector('.select-input');
+    //     let chked = selectBox.querySelectorAll('.f_chk input[type=checkbox]:checked');
+    //     let chkCount = chked.length;
+    //     let arr= []
+    //     chked.forEach((chk)=>{
+    //         arr.push(chk.closest('.f_chk').querySelector('.f_chk_txt').textContent)
+    //     })
         
-        if(chkCount > 0){
-          selectInput.value = chkCount + '개 선택' + ' ('+ arr.join(', ') +')' 
-        }else{
-          selectInput.value = '';
-        }
+    //     if(chkCount > 0){
+    //      // selectInput.value = chkCount + '개 선택' + ' ('+ arr.join(', ') +')'
+    //       selectInput.value = arr.join(', ')
+    //     }else{
+    //       selectInput.value = '';
+    //     }
         
-      });
-    });
+    //   });
+    // });
     document.addEventListener('click', function(event) {
       if (!event.target.closest('.select-box')) {
         closeAllOptions();

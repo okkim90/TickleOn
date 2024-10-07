@@ -527,3 +527,51 @@
         }
     }
 }
+
+.f_ta {
+    width: 100%;
+    border: 1px solid $c_line2;
+    border-radius: 7px;
+    padding: 10px 20px;
+    height: 100px;
+    overflow-y: auto;
+}
+.ta_wrap {
+    position: relative;
+    .f_ta {
+        padding-bottom: 30px;
+    }
+    .count {
+        position: absolute;
+        right: 10px;
+        bottom: 6px;
+        color: $c_placeholder;
+    }
+}
+
+.img_upload {
+    background-color: $c_bg;
+    text-align: center;
+    //padding: 10px;
+    border-radius: 10px;
+    height: 180px;
+    width: 180px;
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    &_ico {
+        width: 50px;
+        height: 50px;
+        background-image: url(../images/img_upload2.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+}

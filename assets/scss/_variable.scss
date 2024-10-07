@@ -129,8 +129,7 @@ $inner: 1280px;
 @for $i from 1 through 100 {
     $w : 10*$i;
     .mw_#{$w} {
-        width: #{$w}px;
-        max-width: 100%;
+        min-width: #{$w}px !important;
     }
     .h_#{$w} {
         height: #{$w}px;

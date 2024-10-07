@@ -18,8 +18,8 @@
             </div>
             <div class="header_cont">
                 <div class="breadcrumb">
-                    <div class="breadcrumb_item">수행작업관리</div>
-                    <div class="breadcrumb_item">정기작업관리</div>
+                    <div class="breadcrumb_item">긴급관리</div>
+                    <div class="breadcrumb_item">정기작업시설</div>
                 </div>
                 <div class="hd_company">
                     <div class="hd_company_item dep1">회사명</div>
@@ -68,21 +68,21 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav_dep1 has_dep on">
+                    <li class="nav_dep1 has_dep">
                         <a href="" class="nav_btn dep1 ">
                             <i class="nav_ico ty_work"></i>
                             <span class="txt">수행작업관리</span>
                         </a>
                         <ul class="nav_list dep2">
                             <li class="nav_dep2">
-                                <a href="" class="nav_btn dep2 on">정기작업관리</a>
+                                <a href="" class="nav_btn dep2">정기작업관리</a>
                             </li>
                             <li class="nav_dep2">
                                 <a href="" class="nav_btn dep2">고객작업관리</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav_dep1 has_dep">
+                    <li class="nav_dep1 has_dep on">
                         <a href="" class="nav_btn dep1 ">
                             <i class="nav_ico ty_emergency"></i>
                             <span class="txt">긴급관리</span>
@@ -90,7 +90,7 @@
                         </a>
                         <ul class="nav_list dep2">
                             <li class="nav_dep2">
-                                <a href="" class="nav_btn dep2">정기작업시설<span class="tag_new">10 New</span></a>
+                                <a href="" class="nav_btn dep2 on">정기작업시설<span class="tag_new">10 New</span></a>
                             </li>
                             <li class="nav_dep2">
                                 <a href="" class="nav_btn dep2">고객이용시설</a>
@@ -156,38 +156,38 @@
         </aside>
         <main id="container" class="container">
             <div class="sub_tit">
-                <h1 class="title1 mr_auto"><i class="tit_ico ty_work"></i> 정기작업관리</h1>
+                <h1 class="title1 mr_auto"><i class="tit_ico ty_facility"></i> 정기작업시설</h1>
                 <div class="btn_set">
-                    <button class="f_btn ty_mid _blue _ico _add">수행작업 등록</button>
+                    <button class="f_btn ty_mid _blue _ico _add">긴급관리 등록</button>
                 </div> 
             </div>
             <div class="top_set">
+                <div class="d_flex fw_w _gap8">
+                    <div class="select-box ty_mid2 flex1 w_160 mw_160">
+                        <input type="text" class="select-input" value="시설별 보기" readonly>
+                        <div class="options">
+                            <ul>
+                                <li data-value="1" class="option">Lorem ipsum dolor sit amet.</li>
+                                <li data-value="2" class="option">Lorem ipsum dolor sit amet.</li>
+                                <li data-value="3" class="option">Lorem ipsum dolor sit amet.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="select-box ty_mid2 flex1 w_160 mw_160">
+                        <input type="text" class="select-input" value="수행작업별 보기" readonly>
+                        <div class="options">
+                            <ul>
+                                <li data-value="1" class="option">Lorem ipsum dolor sit amet.</li>
+                                <li data-value="2" class="option">Lorem ipsum dolor sit amet.</li>
+                                <li data-value="3" class="option">Lorem ipsum dolor sit amet.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
                 <form class="srch_box ml_auto">
                     <div class="srch_set">
-                        <input type="text" class="f_input ty_mid2 w100" placeholder="시설명을 검색해주세요.">
-                        
-                        <!--[D] 검색어 입력시 검색어 삭제 버튼
-                            활성화 : 'on' class
-                        -->
-                        <button type="button" class="srch_close"></button>
-                        
-                        <!--[D] 검색어 입력시 검색어 자동완성 미리보기가 있을 경우 리스트 노출 
-                            활성화 : 'on' class
-                        -->
-                        <ul class="srch_list">
-                            <li class="srch_list_item">
-                                <div class="txt"><span class="fc_key">티클</span> 청소</div> 
-                            </li>
-                            <li class="srch_list_item">
-                                <div class="txt"><span class="fc_key">티클</span> 전문</div> 
-                            </li>
-                            <li class="srch_list_item">
-                                <div class="txt"><span class="fc_key">티클</span> 공간관리</div> 
-                            </li>
-                            <li class="srch_list_item">
-                                <div class="txt"><span class="fc_key">티클</span> 엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때</div> 
-                            </li>
-                        </ul>
+                        <input type="text" class="f_input ty_mid2 w100" placeholder="제목을 검색해주세요">
                     </div>
                     <button type="submit" class="srch_box_btn btn_ico _srch" aria-label="search"></button> 
                 </form>
@@ -195,7 +195,7 @@
             <div class="contents">
                 <div class="tbl_top d_flex ai_b">
                     <span class="fc_font2">총 <b class="fc_key">10</b>건(<b class="fc_key">1</b>/2)페이지</span>
-                    <div class="select-box ty_mid2 w_120 ml_auto">
+                    <div class="hd_company_item select-box ty_mid2 w_120 ml_auto">
                         <input type="text" class="select-input" value="10개씩 보기" readonly>
                         <div class="options">
                             <ul>
@@ -207,122 +207,104 @@
                     </div>
                 </div>
                 <div class="tbl_wrap" style="max-height: 500px;">
-                    <table class="tbl tl_fixed" style="min-width:1000px">
+                    <table class="tbl tl_fixed" style="min-width:1300px">
                         <colgroup>
                             <col style="width: 60px;">
+                            <col style="width: 100px;">
+                            <col>
                             <col style="width: 120px;">
                             <col>
                             <col>
-                            <col style="width: 140px;">
-                            <col style="width: 150px;">
+                            <col style="width: 100px;">
+                            <col style="width: 100px;">
+                            <col style="width: 120px;">
+                            <col style="width: 120px;">
                         </colgroup>
                         <caption></caption>
                         <thead class="fixed_top">
                             <tr>
                                 <th>번호</th>
+                                <th>이슈상태<button class="btn_sorting"></button></th>
+                                <th>제목</th>
                                 <th class="taL">지점명(ID)<button class="btn_sorting"></button></th>
-                                <th class="taL">수행작업<button class="btn_sorting"></button></th>
-                                <th class="taL">설정 내역</th>
-                                <th>연동 시설 수</th>
-                                <th></th>
+                                <th class="taL">시설명<button class="btn_sorting"></button></th>
+                                <th class="taL">시설명 별칭</th>
+                                <th>요청자</th>
+                                <th>작업자</th>
+                                <th>요청 일시<button class="btn_sorting"></button></th>
+                                <th>작업 일시<button class="btn_sorting"></button></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
+                                <td>999</td>
+                                <td>
+                                    <span class="f_tag ty_xsmall _red">대기중</span>
+                                </td>
+                                <td class="taL">벽 페인트 벗겨짐 <span class="fc_red2">미수행 {+1}일</span></td>
                                 <td class="taL">서울지점</td>
-                                <td class="taL">
-                                    <div class="d_flex _gap4 scroll_h">
-                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        <span class="f_tag ty_small _grey">수행작업Group6</span>  
-                                    </div>
-                                </td>
-                                <td class="taL">매일마다 | 4회[00:00/00:00/09:00/13:00]</td>
-                                <td class="pd4"><button type="button" class="f_btn ty_mid _grey w_120">999</button></td>
-                                <td class="pd4">
-                                    <button class="f_btn ty_mid _line ">수정</button>
-                                    <button class="f_btn ty_mid _line ">삭제</button>
-                                </td>
+                                <td class="taL">1층 화장실 1001</td>
+                                <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                <td>홍길동</td>
+                                <td>홍길동</td>
+                                <td>2000-00-00 17:14</td>
+                                <td>2000-00-00 17:14</td>
                             </tr>
                             <tr>
-                                <td>1</td>
+                                <td>999</td>
+                                <td>
+                                    <span class="f_tag ty_xsmall _red">대기중</span>
+                                </td>
+                                <td class="taL">벽 페인트 벗겨짐 <span class="fc_red2">미수행 {+1}일</span></td>
                                 <td class="taL">서울지점</td>
-                                <td class="taL">
-                                    <div class="d_flex _gap4 scroll_h">
-                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        <span class="f_tag ty_small _grey">수행작업Group6</span>  
-                                    </div>
-                                </td>
-                                <td class="taL">매일마다 | 4회[00:00/00:00/09:00/13:00]</td>
-                                <td class="pd4"><button type="button" class="f_btn ty_mid _grey w_120">999</button></td>
-                                <td class="pd4">
-                                    <button class="f_btn ty_mid _line ">수정</button>
-                                    <button class="f_btn ty_mid _line ">삭제</button>
-                                </td>
+                                <td class="taL">1층 화장실 1001</td>
+                                <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                <td>홍길동</td>
+                                <td>홍길동</td>
+                                <td>2000-00-00 17:14</td>
+                                <td>2000-00-00 17:14</td>
                             </tr>
                             <tr>
-                                <td>1</td>
+                                <td>999</td>
+                                <td>
+                                    <span class="f_tag ty_xsmall _blue">해결 완료</span>
+                                </td>
+                                <td class="taL">벽 페인트 벗겨짐 <span class="fc_red2">미수행 {+1}일</span></td>
                                 <td class="taL">서울지점</td>
-                                <td class="taL">
-                                    <div class="d_flex _gap4 scroll_h">
-                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        <span class="f_tag ty_small _grey">수행작업Group6</span>  
-                                    </div>
-                                </td>
-                                <td class="taL">매일마다 | 4회[00:00/00:00/09:00/13:00]</td>
-                                <td class="pd4"><button type="button" class="f_btn ty_mid _grey w_120">999</button></td>
-                                <td class="pd4">
-                                    <button class="f_btn ty_mid _line ">수정</button>
-                                    <button class="f_btn ty_mid _line ">삭제</button>
-                                </td>
+                                <td class="taL">1층 화장실 1001</td>
+                                <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                <td>홍길동</td>
+                                <td>홍길동</td>
+                                <td>2000-00-00 17:14</td>
+                                <td>2000-00-00 17:14</td>
                             </tr>
                             <tr>
-                                <td>1</td>
+                                <td>999</td>
+                                <td>
+                                    <span class="f_tag ty_xsmall _blue">해결 완료</span>
+                                </td>
+                                <td class="taL">벽 페인트 벗겨짐 <span class="fc_red2">미수행 {+1}일</span></td>
                                 <td class="taL">서울지점</td>
-                                <td class="taL">
-                                    <div class="d_flex _gap4 scroll_h">
-                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        <span class="f_tag ty_small _grey">수행작업Group6</span>  
-                                    </div>
-                                </td>
-                                <td class="taL">매일마다 | 4회[00:00/00:00/09:00/13:00]</td>
-                                <td class="pd4"><button type="button" class="f_btn ty_mid _grey w_120">999</button></td>
-                                <td class="pd4">
-                                    <button class="f_btn ty_mid _line ">수정</button>
-                                    <button class="f_btn ty_mid _line ">삭제</button>
-                                </td>
+                                <td class="taL">1층 화장실 1001</td>
+                                <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                <td>홍길동</td>
+                                <td>홍길동</td>
+                                <td>2000-00-00 17:14</td>
+                                <td>2000-00-00 17:14</td>
                             </tr>
                             <tr>
-                                <td>1</td>
+                                <td>999</td>
+                                <td>
+                                    <span class="f_tag ty_xsmall _blue">해결 완료</span>
+                                </td>
+                                <td class="taL">벽 페인트 벗겨짐 <span class="fc_red2">미수행 {+1}일</span></td>
                                 <td class="taL">서울지점</td>
-                                <td class="taL">
-                                    <div class="d_flex _gap4 scroll_h">
-                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        <span class="f_tag ty_small _grey">수행작업Group6</span>  
-                                    </div>
-                                </td>
-                                <td class="taL">매일마다 | 4회[00:00/00:00/09:00/13:00]</td>
-                                <td class="pd4"><button type="button" class="f_btn ty_mid _grey w_120 disabled">999</button></td>
-                                <td class="pd4">
-                                    <button class="f_btn ty_mid _line ">수정</button>
-                                    <button class="f_btn ty_mid _line ">삭제</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>9999</td>
-                                <td class="taL">서울지점</td>
-                                <td class="taL">
-                                    <div class="d_flex _gap4 scroll_h">
-                                        <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        <span class="f_tag ty_small _grey">수행작업Group6</span>  
-                                    </div>
-                                </td>
-                                <td class="taL">매일마다 | 4회[00:00/00:00/09:00/13:00]</td>
-                                <td class="pd4"><button type="button" class="f_btn ty_mid _grey w_120 disabled">999</button></td>
-                                <td class="pd4">
-                                    <button class="f_btn ty_mid _line ">수정</button>
-                                    <button class="f_btn ty_mid _line ">삭제</button>
-                                </td>
+                                <td class="taL">1층 화장실 1001</td>
+                                <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
+                                <td>홍길동</td>
+                                <td>홍길동</td>
+                                <td>2000-00-00 17:14</td>
+                                <td>2000-00-00 17:14</td>
                             </tr>
                         </tbody>
                     </table>

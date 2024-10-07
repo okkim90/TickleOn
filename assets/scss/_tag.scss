@@ -2,6 +2,12 @@
     
     display: inline-flex;
     align-items: center;
+    &.ty_xsmall {
+        height: 28px;
+        border-radius: 14px;
+        font-size: $fz_3;
+        padding: 0 8px;
+    }
     &.ty_small {
         height: 31px;
         border-radius: 6px;
@@ -10,8 +16,13 @@
     }
 
     &._blue {
-        background-color: $c_key6;
+        background-color: #E2F5FF;
         color:$c_key;
+        
+    }
+    &._red {
+        background-color: #FFE3E3;
+        color:$c_red;
         
     }
     &._grey {
