@@ -230,17 +230,28 @@
                             </div>
                             <!--[D][모바일] 모바일에서만 활성화-->
                             <div class="template_m_btns">
-                                <button type="button" class="template_m_btn"><div><b class="tit">1. 빈도</b> <span class="fc_key">선택[월별 12개월마다 다섯번째주]</span></div></button>
-                                <button type="button" class="template_m_btn"><div><b class="tit">2. 요일</b> <span class="fc_key">선택[요일 월, 화, 수, 목, 금, 토, 일]</span></div></button>
-                                <button type="button" class="template_m_btn disabled"><div><b class="tit">3. 횟수 및 시간</b> <span class="fc_key">선택[횟수 99999회]</span></div></button>
+                                <button type="button" class="template_m_btn" onclick="template_tab('_frequency')"><div><b class="tit">1. 빈도</b> <span class="fc_key">선택[월별 12개월마다 다섯번째주]</span></div></button>
+                                <button type="button" class="template_m_btn" onclick="template_tab('_day')"><div><b class="tit">2. 요일</b> <span class="fc_key">선택[요일 월, 화, 수, 목, 금, 토, 일]</span></div></button>
+                                <button type="button" class="template_m_btn" onclick="template_tab('_count')"><div><b class="tit">3. 횟수 및 시간</b> <span class="fc_key">선택[횟수 99999회]</span></div></button>
                             </div>
+                            <script>
+                                function template_tab(target){
+                                    const template_tab_wrap = document.querySelector('.template_tab_wrap')
+                                    const template_tab = document.querySelector('.template_tab');
+                                    
+                                    template_tab_wrap.classList.add('on');
+                                    template_tab.querySelectorAll(`.`+target+``).forEach(e=>{
+                                        e.classList.add('on');
+                                    });
+                                }
+                            </script>
                             <!--[D] 모바일에서 활성화 'on' class-->
                             <div class="template_tab_wrap on">
                                 <div class="template_tab">
                                     <!--[D] 모바일에서 활성화 'on' class-->
                                     <div class="template_tab_dep1 _frequency on">
                                         <div class="template_tab_tit no_bd">
-                                            <button type="button" class="btn_back"></button>
+                                            <button type="button" class="btn_back" onclick="close_tab(this)"></button>
                                             <div><b class="tit">1. 빈도</b> <span class="fc_key">선택[월별 12개월마다 다섯번째주]</span></div>
                                         </div>
                                         <div class="template_tab_cont">
@@ -425,7 +436,7 @@
                                     </div>
                                     <div class="template_tab_dep1 _day">
                                         <div class="template_tab_tit">
-                                            <button type="button" class="btn_back"></button>
+                                            <button type="button" class="btn_back" onclick="close_tab(this)"></button>
                                             <div><b class="tit">2. 요일</b> <span class="fc_key">선택[요일 월, 화, 수, 목, 금, 토, 일]</span></div>
                                         </div>
                                         <div class="template_tab_cont">
@@ -498,7 +509,7 @@
                                     </div>
                                     <div class="template_tab_dep1 _count">
                                         <div class="template_tab_tit">
-                                            <button type="button" class="btn_back"></button>
+                                            <button type="button" class="btn_back" onclick="close_tab(this)"></button>
                                             <div><b class="tit">3. 횟수 및 시간</b> <span class="fc_key">선택[횟수 99999회]</span></div>
                                         </div>
                                         <div class="template_tab_cont">
@@ -701,6 +712,17 @@
                                         }
                                         window.addEventListener('DOMContentLoaded', setEqualHeight);
                                         window.addEventListener('resize', setEqualHeight);
+
+                                        function close_tab(target){
+                                            const template_tab_wrap = document.querySelector('.template_tab_wrap');
+                                            const template_tab_dep1 = document.querySelectorAll('.template_tab_dep1');
+                                            const template_tab_time = document.querySelector('.template_tab_time');
+                                            template_tab_wrap.classList.remove('on');
+                                            template_tab_dep1.forEach(e=>{
+                                                e.classList.remove('on');
+                                            });
+                                            template_tab_time.classList.remove('on');
+                                        }
                                     </script>
                                 </div>
                                 <div class="template_tab_bot">
