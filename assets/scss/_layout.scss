@@ -648,6 +648,7 @@
     margin-bottom: 20px;
     @include mobile {
         margin: 0 20px;
+        margin-bottom: 20px;
     }
 }
 
@@ -693,6 +694,7 @@
         @include flex_col(1, 16px, 16px);
         padding: 0 20px;
         padding-bottom: 20px;
+        margin-top: 20px;
     }
 }
 
