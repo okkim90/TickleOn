@@ -128,10 +128,6 @@ $inner: 1280px;
 
 @for $i from 1 through 100 {
     $w : 10*$i;
-    .w_#{$w} {
-        width: #{$w}px;
-        max-width: 100%;
-    }
     .mw_#{$w} {
         width: #{$w}px;
         max-width: 100%;
@@ -151,7 +147,8 @@ $inner: 1280px;
 @for $i from 1 through 5 {
     $w : 5*$i;
     .w_#{$w} {
-        width: #{$w}px
+        width: #{$w}px;
+        max-width: 100%;
     }
 }
 
@@ -160,7 +157,8 @@ $inner: 1280px;
     $w : 10*$i;
     
     .w_#{$w} {
-        width: #{$w}px
+        width: #{$w}px;
+        max-width: 100%;
     }
 }
 

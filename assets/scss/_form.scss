@@ -371,7 +371,7 @@
     user-select: none;
     position: relative;
     z-index: 2;
-    input {
+    input[type="checkbox"] {
         border: 0; 
         clip: rect(0 0 0 0); 
         clip-path: inset(50%); 

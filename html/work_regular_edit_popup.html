@@ -45,10 +45,10 @@
         <div class="sticky_top">
             <div class="d_flex fw_w ai_c _gap8">
                 <button type="button" class="btn_ico _back mr4"></button>
-                <h1 class="title2 mr_auto fw_5">템플릿 등록</h1>
+                <h1 class="title2 mr_auto fw_5">템플릿 수정</h1>
                 <div class="btn_set">
-                    <button type="button" class="f_btn ty_mid _blue disabled">등록하기</button>
-                    <button type="button" class="f_btn ty_mid _blue">등록하기</button>
+                    <button type="button" class="f_btn ty_mid _blue disabled">수정하기</button>
+                    <button type="button" class="f_btn ty_mid _blue">수정하기</button>
                 </div>
             </div>
         </div>
@@ -796,11 +796,41 @@
                 </div>
             </div>
         </main>
+        <div class="modal on" >
+            <div class="modal_inner">
+                <div class="modal_cont ty_small">
+                    <div class="modal_top">
+                        <div class="modal_tit">수행작업을 수정 하시겠습니까?</div>
+                        <button type="button" class="modal_close_btn" onclick="close_modal(this)" aria-label="close modal"></button>
+                    </div>
+                    <div class="modal_contents">
+                        <!--[D] 연동된 시설일 경우-->
+                        <div class="tip_box ">
+                            <ul class="list_dot">
+                                <li class="list_dot_item">수정할 경우 해당 수행작업을 사용하고 있는 모든 시설의 수행 내용및 통계가 변경됩니다.</li>
+                            </ul>
+                        </div>
+                        <div class="pt16 mt16 bdT">
+                            <input type="text" class="f_input ty_mid2 w100" placeholder="입력해주세요">
+                            <div class="info_box _bot d_flex">
+                                <i class="ico_info"></i> 
+                                “박스에 “DELETE”를 입력하시면 [수정]버튼이 활성화됩니다.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal_bot">
+                        <button type="button" class="f_btn ty_mid _line w_60"  onclick="close_modal(this)">취소</button>
+                        <button type="submit" class="f_btn ty_mid _blue w_100 disabled">수정</button> <!--[D] 비활성화 'disabled' class-->
+                        <button type="submit" class="f_btn ty_mid _blue w_100 ">수정</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--[D]토스트 활성화 : 'on' class-->
-        <div class="toast">
+        <div class="toast on">
             <div class="toast_inner">
                 <i class="toast_ico"></i>
-                <div class="toast_txt">수행작업 텝플릿이 등록되었습니다.</div>
+                <div class="toast_txt">수행작업이 수정되었습니다.</div>
                 <button type="button" class="toast_close" onclick="close_toast(this)"></button>
             </div>
         </div>
