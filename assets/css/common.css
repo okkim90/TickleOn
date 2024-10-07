@@ -6688,6 +6688,9 @@ input::-webkit-search-results-decoration {
 .template_sec {
   flex-shrink: 0;
 }
+.template_sec + .template_sec {
+  margin-top: 32px;
+}
 .template_sec .tag_list {
   align-self: center;
   display: flex;
@@ -8557,6 +8560,116 @@ input::-webkit-search-results-decoration {
   overflow: hidden;
   white-space: nowrap;
   max-width: 100%;
+}
+
+.f_toggle {
+  display: inline-block;
+  vertical-align: top;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.f_toggle input {
+  display: none;
+}
+.f_toggle input:checked + .slider {
+  background: #d2e2fd;
+}
+.f_toggle input:focus + .slider {
+  box-shadow: 0 0 1px #0C59D8;
+}
+.f_toggle input:checked + .slider:before {
+  left: calc(100% - 19px);
+  background-color: #0C59D8;
+}
+.f_toggle input:checked + .slider .slider_txt.true {
+  visibility: visible;
+  opacity: 1;
+}
+.f_toggle input:checked + .slider .slider_txt.false {
+  visibility: hidden;
+  opacity: 0;
+}
+.f_toggle .slider {
+  display: block;
+  position: relative;
+  min-width: 50px;
+  box-sizing: border-box;
+  height: 22px;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FFD2D2;
+  transition: all 0.2s ease-in-out;
+  border-radius: 22px;
+}
+.f_toggle .slider_txt {
+  line-height: 22px;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  font-size: 12px;
+}
+.f_toggle .slider_txt.true {
+  padding: 0 23px 0 8px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100%);
+  color: #0C59D8;
+}
+.f_toggle .slider_txt.false {
+  padding: 0 8px 0 23px;
+  visibility: visible;
+  opacity: 1;
+  color: #FF5B5B;
+}
+.f_toggle .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #FF5B5B;
+  transition: all 0.2s ease-in-out;
+  border-radius: 50%;
+}
+.f_toggle.ty_big {
+  height: 30px;
+}
+.f_toggle.ty_big input:checked + .slider:before {
+  left: calc(100% - 25px);
+}
+.f_toggle.ty_big .slider {
+  height: 30px;
+  border-radius: 30px;
+}
+.f_toggle.ty_big .slider_txt {
+  font-size: 13px;
+  line-height: 30px;
+  font-weight: 500;
+}
+.f_toggle.ty_big .slider_txt.true {
+  padding: 0 30px 0 10px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100%);
+}
+.f_toggle.ty_big .slider_txt.false {
+  padding: 0 10px 0 30px;
+  visibility: visible;
+  opacity: 1;
+}
+.f_toggle.ty_big .slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 5px;
+  bottom: 5px;
+  transition: all 0.2s ease-in-out;
+  border-radius: 50%;
 }
 
 .ui-datepicker.ui-widget.ui-widget-content {
