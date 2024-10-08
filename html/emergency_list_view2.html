@@ -324,6 +324,148 @@
                 </div>
             </div>
         </main>
+        <div class="modal on" >
+            <div class="modal_inner">
+                <div class="modal_cont ty_big">
+                    <div class="modal_top d_flex ai_c">
+                        <div class="modal_tit">긴급관리 상세</div>
+                        <span class="f_tag ty_small _blue ml10">완료</span>
+                        <button type="button" class="modal_close_btn" onclick="close_modal(this)" aria-label="close modal"></button>
+                    </div>
+                    <div class="modal_contents ty2">
+                        <div class="emgc_detail">
+                            <div class="emgc_detail_sec ty_request">
+                                <div class="emgc_detail_sec_tit">
+                                    <h2 class="tit">요청</h2>
+                                    <span class="tit_sub">미수행 {+1}일</span>
+                                    <span class="date">2023.08.03(목) 14:00</span>
+                                </div>
+                                
+                                <table class="v_tbl">
+                                    <colgroup>
+                                        <col style="width: 120px;">
+                                        <col>
+                                    </colgroup>
+                                    <tr>
+                                        <th>제목</th>
+                                        <td>
+                                            <span class="fz_6 fw_5">핸드워시 디스펜서 고장</span> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2">시설</th>
+                                        <td>2층</td>
+                                    </tr>
+                                    <tr>
+                                        <td>남자화장실</td>
+                                    </tr>
+                                    <tr>
+                                        <th>내용</th>
+                                        <td>
+                                            핸드워시 디스펜서가 이상합니다. 손 세정제가 잘 안나와서 사용하기 힘들어요. 고치거나 교체해야 할 것 같습니다.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>요청자</th>
+                                        <td>
+                                            김티클
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>알림 재발송</th>
+                                        <td>
+                                            <div class="worker_list_wrap d_flex _gap10 ai_c fw_w">
+                                                <div class="worker_list flex1 d_flex _gap10 fw_w ai_t">
+                                                    <label class="f_chk">
+                                                        <input type="checkbox" checked>
+                                                        <div class="f_chk_ico"></div>
+                                                        <div class="f_chk_txt">작업자1</div>
+                                                    </label>
+                                                    <label class="f_chk">
+                                                        <input type="checkbox" checked>
+                                                        <div class="f_chk_ico"></div>
+                                                        <div class="f_chk_txt">작업자1</div>
+                                                    </label>
+                                                    <label class="f_chk">
+                                                        <input type="checkbox">
+                                                        <div class="f_chk_ico"></div>
+                                                        <div class="f_chk_txt">작업자1</div>
+                                                    </label>
+                                                    <label class="f_chk">
+                                                        <input type="checkbox">
+                                                        <div class="f_chk_ico"></div>
+                                                        <div class="f_chk_txt">작업자1</div>
+                                                    </label>
+                                                    <label class="f_chk">
+                                                        <input type="checkbox">
+                                                        <div class="f_chk_ico"></div>
+                                                        <div class="f_chk_txt">작업자1</div>
+                                                    </label>
+                                                    <label class="f_chk">
+                                                        <input type="checkbox">
+                                                        <div class="f_chk_ico"></div>
+                                                        <div class="f_chk_txt">작업자1</div>
+                                                    </label>
+                                                </div>
+                                                <div class="shrink0">
+                                                    <button class="f_btn ty_mid _grey ">선택 알림 재발송</button>
+                                                </div>
+                                               
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>사진 등록</th>
+                                        <td>
+                                            <!--[D]이미지 등록 후-->
+                                            <div class="img_upload">
+                                                <img src="https://picsum.photos/800/400" alt="">
+                                            </div> 
+                                        </td>
+                                    </tr>
+                                </table>  
+                            </div> 
+                            <div class="emgc_detail_sec ty_work">
+                                <div class="emgc_detail_sec_tit">
+                                    <h2 class="tit">수행</h2>
+                                </div>
+                                <table class="v_tbl">
+                                    <colgroup>
+                                        <col style="width: 120px;">
+                                        <col>
+                                    </colgroup>
+                                    <tr>
+                                        <th>내용</th>
+                                        <td>
+                                            핸드워시 디스펜서가 이상합니다. 손 세정제가 잘 안나와서 사용하기 힘들어요. 고치거나 교체해야 할 것 같습니다.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>작업자</th>
+                                        <td>
+                                            작업자1
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>사진 등록</th>
+                                        <td>
+                                            <!--[D]이미지 등록 후-->
+                                            <div class="img_upload">
+                                                <img src="https://picsum.photos/800/400" alt="">
+                                            </div> 
+                                        </td>
+                                    </tr>
+                                </table>  
+                            </div>
+                        </div>       
+
+                    </div>
+                    <div class="modal_bot">
+                        <button type="button" class="f_btn ty_mid _line w_60" onclick="close_modal(this)">닫기</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!--[D] 로딩 레이어 
         활성화 : 'on' class

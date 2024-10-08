@@ -6087,6 +6087,10 @@ input::-webkit-search-results-decoration {
     padding: 0 20px;
   }
 }
+.grid_wrap .container .sub_tit .btn_set {
+  display: flex;
+  gap: 8px;
+}
 
 .bd_box {
   border: 1px solid #F1F1F1;
@@ -6933,6 +6937,90 @@ input::-webkit-search-results-decoration {
   flex: 1;
 }
 
+.emgc_detail {
+  display: flex;
+}
+@media (max-width: 1024px) {
+  .emgc_detail {
+    display: block;
+  }
+}
+.emgc_detail_sec {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1024px) {
+  .emgc_detail_sec {
+    display: block;
+  }
+}
+.emgc_detail_sec .worker_list {
+  min-width: 50%;
+}
+.emgc_detail_sec_tit {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .emgc_detail_sec_tit {
+    margin-bottom: 10px;
+  }
+}
+.emgc_detail_sec_tit .tit {
+  font-size: 20px;
+}
+@media (max-width: 768px) {
+  .emgc_detail_sec_tit .tit {
+    font-size: 18px;
+  }
+}
+.emgc_detail_sec_tit .tit_sub {
+  font-size: 16px;
+  color: #0C59D8;
+}
+@media (max-width: 768px) {
+  .emgc_detail_sec_tit .tit_sub {
+    font-size: 15px;
+  }
+}
+.emgc_detail_sec_tit .date {
+  font-size: 13px;
+  margin-left: auto;
+}
+.emgc_detail_sec.ty_request {
+  padding-right: 32px;
+}
+@media (max-width: 1024px) {
+  .emgc_detail_sec.ty_request {
+    padding-right: 0;
+  }
+}
+.emgc_detail_sec.ty_work {
+  border-left: 1px solid #e4e4e4;
+  padding-left: 32px;
+}
+@media (max-width: 1024px) {
+  .emgc_detail_sec.ty_work {
+    padding-left: 0;
+    border-left: none;
+    margin-top: 32px;
+  }
+}
+.emgc_detail_sec.ty_work .no_data {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: #F5F9FF;
+  padding: 60px 16px;
+}
+
 .footer {
   color: #6980A5;
   border-top: 1px solid #F1F1F1;
@@ -7289,10 +7377,12 @@ input::-webkit-search-results-decoration {
 
 .modal_top {
   padding: 30px 30px 16px;
+  padding-right: 60px;
 }
 @media (max-width: 768px) {
   .modal_top {
     padding: 20px 20px 16px;
+    padding-right: 50px;
   }
 }
 .modal_top .desc {
@@ -7301,7 +7391,6 @@ input::-webkit-search-results-decoration {
 .modal_tit {
   font-size: 25px;
   font-weight: 500;
-  padding-right: 40px;
 }
 @media (max-width: 768px) {
   .modal_tit {
@@ -8877,12 +8966,14 @@ input::-webkit-search-results-decoration {
   border: 1px solid #F1F1F1;
   border-left: none;
   border-right: none;
+  height: 56px;
 }
 .v_tbl th {
   background-color: #F1F1F1;
   text-align: right;
   vertical-align: middle;
   padding: 8px 16px;
+  padding-left: 8px;
   font-size: 15px;
   font-weight: 500;
 }

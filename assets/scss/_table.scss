@@ -105,12 +105,14 @@
         border: 1px solid $c_line;
         border-left: none;
         border-right: none;
+        height: 56px;
     }
     th {
         background-color: $c_bg;
         text-align: right;
         vertical-align: middle;
         padding: 8px 16px;
+        padding-left: 8px;
         font-size: $fz_4;
         font-weight: 500;
     }
