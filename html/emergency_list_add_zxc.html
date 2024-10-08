@@ -195,7 +195,7 @@
             <div class="contents">
                 <div class="tbl_top d_flex ai_b">
                     <span class="fc_font2">총 <b class="fc_key">10</b>건(<b class="fc_key">1</b>/2)페이지</span>
-                    <div class="hd_company_item select-box ty_mid2 w_120 ml_auto">
+                    <div class="select-box ty_mid2 w_120 ml_auto">
                         <input type="text" class="select-input" value="10개씩 보기" readonly>
                         <div class="options">
                             <ul>
@@ -241,7 +241,7 @@
                                 <td>
                                     <span class="f_tag ty_xsmall _red">대기중</span>
                                 </td>
-                                <td class="taL"><a href=""><a href=""></a>벽 페인트 벗겨짐 <span class="fc_red2">미수행 {+1}일</span></a> </a> </td>
+                                <td class="taL"><a href="">벽 페인트 벗겨짐 <span class="fc_red2">미수행 {+1}일</span></a> </td>
                                 <td class="taL">서울지점</td>
                                 <td class="taL">1층 화장실 1001</td>
                                 <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
@@ -255,7 +255,7 @@
                                 <td>
                                     <span class="f_tag ty_xsmall _red">대기중</span>
                                 </td>
-                                <td class="taL"><a href=""><a href="">벽 페인트 벗겨짐 <span class="fc_red2">미수행 {+1}일</span></a> </a> </td>
+                                <td class="taL"><a href="">벽 페인트 벗겨짐 <span class="fc_red2">미수행 {+1}일</span></a> </td>
                                 <td class="taL">서울지점</td>
                                 <td class="taL">1층 화장실 1001</td>
                                 <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
@@ -269,7 +269,7 @@
                                 <td>
                                     <span class="f_tag ty_xsmall _blue">해결 완료</span>
                                 </td>
-                                <td class="taL"><a href=""><a href="">벽 페인트 벗겨짐 <span class="fc_red2">미수행 {+1}일</span></a> </a> </td>
+                                <td class="taL"><a href="">벽 페인트 벗겨짐 <span class="fc_red2">미수행 {+1}일</span></a> </td>
                                 <td class="taL">서울지점</td>
                                 <td class="taL">1층 화장실 1001</td>
                                 <td class="taL">[R3005] 1층 D1카운터 주변 여자화장실</td>
@@ -326,121 +326,187 @@
         </main>
         <div class="modal on" >
             <div class="modal_inner">
-                <div class="modal_cont ty_big">
-                    <div class="modal_top d_flex ai_c">
-                        <div class="modal_tit">긴급관리 상세</div>
-                        <span class="f_tag ty_small _red ml10">대기중</span>
-                        <button type="button" class="modal_close_btn" onclick="close_modal(this)" aria-label="close modal"></button>
+                <div class="modal_cont ty_mid">
+                    <div class="modal_top">
+                        <div class="modal_tit">긴급관리 등록</div>
+                         <button type="button" class="modal_close_btn" onclick="close_modal(this)" aria-label="close modal"></button>
                     </div>
-                    <div class="modal_contents ty2">
-                        <div class="emgc_detail">
-                            <div class="emgc_detail_sec ty_request">
-                                <div class="emgc_detail_sec_tit">
-                                    <h2 class="tit">요청</h2>
-                                    <span class="tit_sub">미수행 {+1}일</span>
-                                    <span class="date">2023.08.03(목) 14:00</span>
-                                </div>
-                                
-                                <table class="v_tbl">
-                                    <colgroup>
-                                        <col style="width: 120px;">
-                                        <col>
-                                    </colgroup>
-                                    <tr>
-                                        <th>제목</th>
-                                        <td>
-                                            <span class="fz_6 fw_5">핸드워시 디스펜서 고장</span> 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th rowspan="2">시설</th>
-                                        <td>2층</td>
-                                    </tr>
-                                    <tr>
-                                        <td>남자화장실</td>
-                                    </tr>
-                                    <tr>
-                                        <th>내용</th>
-                                        <td>
-                                            핸드워시 디스펜서가 이상합니다. 손 세정제가 잘 안나와서 사용하기 힘들어요. 고치거나 교체해야 할 것 같습니다.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>요청자</th>
-                                        <td>
-                                            김티클
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>알림 재발송</th>
-                                        <td>
-                                            <div class="worker_list_wrap d_flex _gap10 ai_c fw_w">
-                                                <div class="worker_list flex1 d_flex _gap10 fw_w ai_t">
-                                                    <label class="f_chk">
-                                                        <input type="checkbox" checked>
-                                                        <div class="f_chk_ico"></div>
-                                                        <div class="f_chk_txt">작업자1</div>
-                                                    </label>
-                                                    <label class="f_chk">
-                                                        <input type="checkbox" checked>
-                                                        <div class="f_chk_ico"></div>
-                                                        <div class="f_chk_txt">작업자1</div>
-                                                    </label>
-                                                    <label class="f_chk">
-                                                        <input type="checkbox">
-                                                        <div class="f_chk_ico"></div>
-                                                        <div class="f_chk_txt">작업자1</div>
-                                                    </label>
-                                                    <label class="f_chk">
-                                                        <input type="checkbox">
-                                                        <div class="f_chk_ico"></div>
-                                                        <div class="f_chk_txt">작업자1</div>
-                                                    </label>
-                                                    <label class="f_chk">
-                                                        <input type="checkbox">
-                                                        <div class="f_chk_ico"></div>
-                                                        <div class="f_chk_txt">작업자1</div>
-                                                    </label>
-                                                    <label class="f_chk">
-                                                        <input type="checkbox">
-                                                        <div class="f_chk_ico"></div>
-                                                        <div class="f_chk_txt">작업자1</div>
-                                                    </label>
+                    <div class="modal_contents ty3">
+                        <table class="v_tbl">
+                            <colgroup>
+                                <col style="width: 100px;">
+                                <col>
+                            </colgroup>
+                            <tr>
+                                <th>제목</th>
+                                <td>
+                                    <div class="input_wrap">
+                                        <input type="text" class="f_input ty_mid2 w100 has_count" placeholder="제목을 등록해주세요." max-length="50">
+                                        <span class="count">0/50</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>시설</th>
+                                <td>
+                                    <div class="d_flex fw_w ai_c _gap4">
+                                        <span class="w_80 mw_max">층 선택</span>
+                                        <div class="select-box ty_mid flex1 mw_max">
+                                            <input type="text" class="select-input" value="" placeholder="층을 선택해 주세요" readonly>
+                                            <div class="options">
+                                                <ul>
+                                                    <li>
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt">특정 층수 없음</div>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt">전체선택</div>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt">1층</div>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt">2층</div>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt">3층</div>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                                <div class="mt10">
+                                                    <button type="button" class="f_btn ty_mid _blue w100">선택</button>
+                                                    <!--[D] 비활성화 'disabled' class 추가-->
                                                 </div>
-                                                <div class="shrink0">
-                                                    <button type="button" class="f_btn ty_mid _grey ">선택 알림 재발송</button>
-                                                </div>
-                                               
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>사진 등록</th>
-                                        <td>
-                                            <!--[D]이미지 등록 후-->
-                                            <div class="img_upload">
-                                                <img src="https://picsum.photos/800/400" alt="">
-                                            </div> 
-                                        </td>
-                                    </tr>
-                                </table>  
-                            </div> 
-                            <div class="emgc_detail_sec ty_work">
-                                <div class="emgc_detail_sec_tit">
-                                    <h2 class="tit">수행</h2>
-                                </div>
-                                <!--[D] 수행 기록이 없을 경우-->
-                                <div class="no_data">
-                                    <i class="no_data_ico"></i>
-                                    <p class="fz_5 mt16">수행기록이 없습니다.</p>
-                                    <p class="fz_3 fc_grey mt4">알림 재발송을 통해 작업자에게 수행요청을 보내주세요.</p>
-                                </div>
-                            </div>
-                        </div>       
+                                        </div>
+                                    </div>
+                                    <div class="d_flex fw_w ai_c _gap4 mt10">
+                                        <span class="w_80 mw_max">공간 선택</span>
+                                        <div class="srch_set ty_select flex1 mw_max">
+                                            <i class="srch_ico"></i>
+                                            <input type="text" class="f_input ty_mid w100" placeholder="공간을 검색해주세요" value="">
+                                            <!--[D] 검색어 입력시 검색어 자동완성 미리보기가 있을 경우 리스트 노출 
+                                                활성화 : 'on' class
+                                            -->
+                                            <button type="button" class="srch_arrow on"></button>
+                                            
+                                            <!--[D] 검색어 입력시 검색어 삭제 버튼
+                                                활성화 : 'on' class
+                                            -->
+                                            <button type="button" class="srch_close on"></button>
+                                            
+                                            <!--[D] 검색어 입력시 검색어 자동완성 미리보기가 있을 경우 리스트 노출 
+                                                활성화 : 'on' class
+                                            -->
+                                            <div class="srch_select on">
+                                                <div class="desc fc_desc">공간을 선택해 주세요.</div>
+                                                <ul class="srch_select_list">
+                                                    <li class="srch_select_item ty_all">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt">특정 공간 없음</div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="srch_select_item ty_all">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt">전체 선택</div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="srch_select_item">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt"><span class="fc_key">키워드</span> 검색어</div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="srch_select_item">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt"><span class="fc_key">키워드</span> 검색어</div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="srch_select_item">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt"><span class="fc_key">키워드</span> 검색어</div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="srch_select_item">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt"><span class="fc_key">키워드</span> 검색어</div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="srch_select_item">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt"><span class="fc_key">키워드</span> 검색어</div>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                                <div class="srch_select_bot">
+                                                    <button type="button" class="f_btn ty_mid _blue w100 disabled">선택</button>
+                                                    <button type="button" class="f_btn ty_mid _blue w100">선택</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>내용</th>
+                                <td>
+                                    <div class="ta_wrap">
+                                        <textarea name="" id="" class="f_ta"></textarea>
+                                        <span class="count">0/50</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>사진 등록</th>
+                                <td>
+                                    <!--[D]이미지 등록 전-->
+                                    <div class="img_upload">
+                                        <i class="img_upload_ico"></i>
+                                        <p class="fc_placeholder fz_2 mt6">이미지를 여기로 드레그</p>
+                                    </div>
 
+                                    <!--[D]이미지 등록 후-->
+                                    <div class="img_upload">
+                                        <img src="https://picsum.photos/800/400" alt="">
+                                    </div> 
+                                </td>
+                            </tr>
+                        </table>          
                     </div>
                     <div class="modal_bot">
-                        <button type="button" class="f_btn ty_mid _line w_60" onclick="close_modal(this)">닫기</button> 
+                        <button type="button" class="f_btn ty_mid _line w_60" onclick="close_modal(this)">취소</button>
+                        <button type="submit" class="f_btn ty_mid _blue w_100">등록</button>
                     </div>
                 </div>
             </div>
