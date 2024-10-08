@@ -8137,6 +8137,9 @@ input::-webkit-search-results-decoration {
 .title1 .tit_ico.ty_work {
   background-image: url(../images/tit1_ico_work.svg);
 }
+.title1 .tit_ico.ty_emergency {
+  background-image: url(../images/tit1_ico_emergency.svg);
+}
 
 .title2 {
   font-size: 24px;
