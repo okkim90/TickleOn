@@ -310,6 +310,11 @@ $inner: 1280px;
 .flex1 {
     flex: 1;
     min-width: 0;
+    @include mobile {
+        &.mw_max {
+            flex: none;
+        }
+    }
 }
 .shrink0 {
     flex-shrink: 0;
@@ -414,3 +419,9 @@ $inner: 1280px;
     border-bottom: 1px solid $c_line;
 }
 
+.mw_max {
+    @include mobile {
+        width: 100%;
+    }
+    
+}
