@@ -196,6 +196,13 @@
                 background-image: url(../images/ico_qr.svg);
             }
         }
+        &._excel {
+            &::before {
+                width: 24px;
+                height: 25px;
+                background-image: url(../images/ico_excel.svg);
+            }
+        }
     }
 }
 
@@ -239,6 +246,7 @@
     &._srch {
         background-image: url(../images/ico_search.svg);
         border: 1px solid $c_line2;
+        background-color: #fff;
         &:hover {
             background-color: darken(#fff, 2%);
         }

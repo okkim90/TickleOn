@@ -17,7 +17,7 @@
         @include mobile {
             width: 22px;
             height: 22px;
-            background-size: cover;
+            background-size: contain;
             margin-right: 8px;
         }
         &.ty_monitoring {
@@ -37,6 +37,13 @@
             background-image: url(../images/tit1_ico_worker.svg);
             @include mobile {
                 width: 35px;
+            }
+        }
+        &.ty_equipment {
+            width: 35px;
+            background-image: url(../images/tit1_ico_equipment.svg);
+            @include mobile {
+                width: 24px;
             }
         }
     }

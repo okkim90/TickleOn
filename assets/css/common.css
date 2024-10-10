@@ -7032,6 +7032,19 @@ input::-webkit-search-results-decoration {
   padding: 60px 16px;
 }
 
+.eqmt_wrap {
+  display: flex;
+  gap: 32px;
+}
+@media (max-width: 768px) {
+  .eqmt_wrap {
+    flex-direction: column;
+  }
+}
+.eqmt_wrap .eqmt_sec {
+  flex: 1;
+}
+
 .footer {
   color: #6980A5;
   border-top: 1px solid #F1F1F1;
@@ -8039,6 +8052,11 @@ input::-webkit-search-results-decoration {
   height: 24px;
   background-image: url(../images/ico_qr.svg);
 }
+.f_btn._ico._excel::before {
+  width: 24px;
+  height: 25px;
+  background-image: url(../images/ico_excel.svg);
+}
 
 .chk_btn {
   position: relative;
@@ -8080,6 +8098,7 @@ input::-webkit-search-results-decoration {
 .btn_ico._srch {
   background-image: url(../images/ico_search.svg);
   border: 1px solid #e4e4e4;
+  background-color: #fff;
 }
 .btn_ico._srch:hover {
   background-color: #fafafa;
@@ -8162,7 +8181,7 @@ input::-webkit-search-results-decoration {
   .title1 .tit_ico {
     width: 22px;
     height: 22px;
-    background-size: cover;
+    background-size: contain;
     margin-right: 8px;
   }
 }
@@ -8185,6 +8204,15 @@ input::-webkit-search-results-decoration {
 @media (max-width: 768px) {
   .title1 .tit_ico.ty_account {
     width: 35px;
+  }
+}
+.title1 .tit_ico.ty_equipment {
+  width: 35px;
+  background-image: url(../images/tit1_ico_equipment.svg);
+}
+@media (max-width: 768px) {
+  .title1 .tit_ico.ty_equipment {
+    width: 24px;
   }
 }
 
@@ -8402,6 +8430,9 @@ input::-webkit-search-results-decoration {
   display: flex;
   align-items: center;
   width: 440px;
+}
+.srch_box.w100 {
+  width: 100%;
 }
 .srch_box .f_input {
   flex: 1;

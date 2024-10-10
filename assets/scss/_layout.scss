@@ -1405,3 +1405,14 @@
         }
     }
 }
+
+.eqmt_wrap {
+    display: flex;
+    gap: 32px;
+    @include mobile {
+        flex-direction: column;
+    }
+    .eqmt_sec {
+        flex: 1;
+    }   
+}
