@@ -129,4 +129,22 @@
             padding: 16px 20px;
         }
     }
+
+    .commute_qr {
+        display: flex;
+        gap: 32px;
+        @include mobile {
+            flex-direction: column;
+        }
+        .qr_wrap {
+            padding: 16px;
+            background-color: $c_bg;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &_sec {
+            flex: 1;
+        }
+    }
 }

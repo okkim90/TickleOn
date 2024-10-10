@@ -30,11 +30,22 @@
     max-width: 100%;
     text-overflow: ellipsis;
     background-color: #fff;
+    
+    &:focus {
+        border-color: $c_key;
+    }
     &.error {
         border-color: $c_red2;
     }
     &:read-only {
         background-color: darken(#fff, 3%);
+    }
+    &.ty_fit {
+        width: 100%;
+        height: 100%;
+        padding: 0 10px;
+        font-size: 14px;
+        border: none;
     }
     &.ty_small {
         height: 34px;
@@ -67,6 +78,13 @@
         border-radius: 7px;
         font-size: 18px;
         //font-weight: 500;
+    }
+    &._key {
+        //border-color: $c_key;
+        color: $c_key;
+        &:focus {
+            background-color: $c_key2;
+        } 
     }
 
     &[type='date'] {
@@ -107,6 +125,12 @@
         cursor: pointer;
         &:read-only {
             background-color: #fff;
+        }
+        &.taL {
+            text-align-last: left;
+        }
+        &._blue {
+            background-image: url(../images/ico_date_blue.svg);
         }
     }
 

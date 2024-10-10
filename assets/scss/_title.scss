@@ -32,6 +32,13 @@
         &.ty_emergency {
             background-image: url(../images/tit1_ico_emergency.svg);
         }
+        &.ty_account {
+            width: 51px;
+            background-image: url(../images/tit1_ico_worker.svg);
+            @include mobile {
+                width: 35px;
+            }
+        }
     }
 }
 .title2 {

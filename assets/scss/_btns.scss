@@ -124,6 +124,19 @@
             background-color: $c_line2;
         }
     }
+    &._line3 {
+        border: 1px solid $c_line2;
+        background-color: $c_bg;
+        &:hover {
+            background-color: darken($c_bg, 2%);
+        }
+        &.disabled {
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.5;
+            background-color: $c_line2;
+        }
+    }
 
     &._ico {
         column-gap: 8px;
@@ -174,6 +187,13 @@
                 width: 16px;
                 height: 16px;
                 background-image: url(../images/ico_reset2.svg);
+            }
+        }
+        &._qr {
+            &::before {
+                width: 24px;
+                height: 24px;
+                background-image: url(../images/ico_qr.svg);
             }
         }
     }
