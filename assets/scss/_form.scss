@@ -203,8 +203,14 @@
 }
 .srch_set {
     position: relative;
+    &.no_ac {
+        .f_input {
+            padding-right: 20px;
+        }
+    }
     .f_input {
         padding-right: 60px;
+        
     }
     .srch_list {
         position: absolute;

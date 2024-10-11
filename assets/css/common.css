@@ -7034,7 +7034,7 @@ input::-webkit-search-results-decoration {
 
 .eqmt_wrap {
   display: flex;
-  gap: 32px;
+  gap: 64px;
 }
 @media (max-width: 768px) {
   .eqmt_wrap {
@@ -7043,6 +7043,30 @@ input::-webkit-search-results-decoration {
 }
 .eqmt_wrap .eqmt_sec {
   flex: 1;
+  flex-shrink: 0;
+  min-width: 0;
+}
+.eqmt_wrap .eqmt_sec1 {
+  flex: 0.6;
+}
+
+.cate_set {
+  line-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  gap: 0 4px;
+  word-break: break-all;
+}
+.cate_set::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-image: url(../images/ico_folder.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  align-self: flex-start;
+  flex-shrink: 0;
 }
 
 .footer {
@@ -8158,6 +8182,11 @@ input::-webkit-search-results-decoration {
   font-size: 15px;
 }
 
+.btn_link {
+  text-decoration: underline;
+  color: #0C59D8;
+}
+
 .title1 {
   font-size: 32px;
   font-weight: bold;
@@ -8446,6 +8475,9 @@ input::-webkit-search-results-decoration {
 
 .srch_set {
   position: relative;
+}
+.srch_set.no_ac .f_input {
+  padding-right: 20px;
 }
 .srch_set .f_input {
   padding-right: 60px;
