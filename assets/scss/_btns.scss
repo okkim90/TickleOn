@@ -311,3 +311,26 @@
     text-decoration: underline;
     color: $c_key;
 }
+
+.f_switch {
+    border-radius: 7px;
+    border: 1px solid $c_key;
+    height: 40px;
+    display: inline-flex;
+    overflow: hidden;
+    
+    &_btn {
+        height: 100%;    
+        text-align: center;
+        padding: 0 12px;
+        color: $c_key;
+        font-size: $fz_4;
+        font-weight: 500;
+        &.on {
+            background-color: lighten($c_key, 50%) ;
+        }
+        & + & {
+            border-left: 1px solid $c_key;
+        }
+    }
+}

@@ -446,6 +446,15 @@
                 padding-bottom: 60px;
                 padding-top: 20px;
             }
+            &.no_pd {
+                padding: 0;
+                padding-bottom: 20px;
+                background-color: transparent;
+                border: none;
+                @include mobile {       
+                    padding-bottom: 60px; 
+                }
+            }
         }
         @include mobile {
             padding: 0;    
@@ -649,7 +658,7 @@
     //justify-content: flex-end;
     flex-wrap: wrap;
     background-color: #fff;
-    gap: 16px;
+    gap: 16px 32px;
     margin-bottom: 20px;
     @include mobile {
         margin: 0 20px;
@@ -835,6 +844,9 @@
     .f_input {
         flex: 1;
         min-width: 0;
+    }
+    @include mobile {
+        gap: 4px;
     }
 }
 
@@ -1438,5 +1450,108 @@
         background-position: center center;
         align-self: flex-start;
         flex-shrink: 0;
+    }
+}
+
+
+.statistic {
+    &_wrap {
+        display: grid;
+        grid-template-columns: 2fr 1.4fr;
+        grid-template-areas:
+          "sec1 sec2"
+          "sec1 sec3"
+          "sec4 sec4"
+          "sec5 sec5"
+          "sec6 sec6"
+        ;
+        gap: 16px;
+        @include tablet2 {
+            grid-template-columns: auto;
+            grid-template-areas:
+                "sec1 "
+                "sec2 "
+                "sec3 "
+                "sec4 "
+                "sec5 "
+                "sec6 "
+            ;
+
+        }
+        @include mobile {
+            padding: 0 20px;
+        }
+    }
+    &_sec {
+        min-width: 0;
+        background-color: #fff;
+        border-radius: 8px;
+        border: 1px solid $c_line;
+        &_tit {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            gap: 8px;
+        }
+        &.sec1 {
+            grid-area: sec1;
+            .chart_box {
+                width: 100%;
+                height: 185px;
+            }
+            padding: 32px;
+            @include mobile {
+                padding: 16px;
+            }
+        }
+        &.sec2 {
+            grid-area: sec2;
+            padding: 32px;
+            @include mobile {
+                padding: 16px;
+            }
+        }
+        &.sec3 {
+            grid-area: sec3;
+            padding: 32px;
+            @include mobile {
+                padding: 16px;
+            }
+        }
+        &.sec4 {
+            grid-area: sec4;
+            padding: 16px;
+        }
+        &.sec5 {
+            grid-area: sec5;
+            padding: 16px;
+        }
+        &.sec6 {
+            grid-area: sec6;
+            padding: 16px;
+        }
+    }
+    &_data {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        &_item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            .tit {
+                font-size: 18px;
+                font-weight: 500;
+            }
+            .value {
+                font-size: 14px;
+                font-weight: 500;
+                display: flex;
+                gap: 4px;
+                
+            }
+            
+        }
     }
 }
