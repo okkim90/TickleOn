@@ -7190,6 +7190,9 @@ input::-webkit-search-results-decoration {
   display: flex;
   gap: 4px;
 }
+.statistic_tbl th, .statistic_tbl td {
+  width: 100px;
+}
 
 .footer {
   color: #6980A5;
