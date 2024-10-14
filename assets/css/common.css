@@ -8405,6 +8405,9 @@ input::-webkit-search-results-decoration {
 .title1 .tit_ico.ty_statistics {
   background-image: url(../images/tit1_ico_statistics.svg);
 }
+.title1 .tit_ico.ty_notice {
+  background-image: url(../images/tit1_ico_notice.svg);
+}
 
 .title2 {
   font-size: 24px;
@@ -8837,6 +8840,9 @@ input::-webkit-search-results-decoration {
   position: relative;
   z-index: 2;
 }
+.f_chk.vaT {
+  vertical-align: top;
+}
 .f_chk input[type=checkbox] {
   border: 0;
   clip: rect(0 0 0 0);
@@ -8981,6 +8987,51 @@ input::-webkit-search-results-decoration {
   width: 20px;
   left: 5px;
   bottom: 5px;
+  transition: all 0.2s ease-in-out;
+  border-radius: 50%;
+}
+
+.f_toggle2 {
+  display: inline-block;
+  vertical-align: top;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.f_toggle2 input {
+  display: none;
+}
+.f_toggle2 input:checked + .slider {
+  border-color: #0C59D8;
+}
+.f_toggle2 input:checked + .slider::before {
+  left: calc(100% - 18px);
+  background-color: #0C59D8;
+}
+.f_toggle2 .slider {
+  display: block;
+  position: relative;
+  width: 40px;
+  box-sizing: border-box;
+  height: 20px;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+  border-radius: 20px;
+  border: 1px solid #9D9D9D;
+}
+.f_toggle2 .slider::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 1px;
+  background-color: #9D9D9D;
   transition: all 0.2s ease-in-out;
   border-radius: 50%;
 }

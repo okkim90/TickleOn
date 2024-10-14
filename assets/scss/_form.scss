@@ -406,6 +406,9 @@
     user-select: none;
     position: relative;
     z-index: 2;
+    &.vaT {
+        vertical-align: top;
+    }
     input[type="checkbox"] {
         border: 0; 
         clip: rect(0 0 0 0); 
@@ -562,6 +565,51 @@
         }
     }
 }
+
+.f_toggle2 {
+    display: inline-block;
+    vertical-align: top;
+    user-select: none;
+    input { 
+        display: none;
+        &:checked + .slider {
+            border-color: $c_key;
+            &::before {
+                left: calc(100% - 18px);
+                background-color: $c_key;
+            }
+        }
+    }
+    .slider {
+        display: block;
+        position: relative;
+        width: 40px;
+        box-sizing: border-box;
+        height: 20px;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        //background: linear-gradient(90deg, rgba(101,101,101,1) 0%, rgba(57,57,57,1) 100%);
+        transition: all .2s ease-in-out;
+        border-radius: 20px;
+        border: 1px solid $c_grey;
+        &::before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 1px;
+            background-color: $c_grey;
+            transition: all .2s ease-in-out;
+            border-radius: 50%;
+        }
+    }
+}
+
 
 .f_ta {
     width: 100%;
