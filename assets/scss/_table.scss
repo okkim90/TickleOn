@@ -60,6 +60,22 @@
         }
         tr:hover {
             background-color: #F4F9FF;
+            td {
+                background-color: #F4F9FF;
+                &._blue {
+                    background-color: #F0F9FF;
+                    color: $c_key;
+                }
+                &._red {
+                    background-color: #FFF1F1;
+                    color: $c_red2;
+                }
+                &._key {
+                    background-color: $c_key2;
+                    border-color: $c_key;
+                    color: $c_key;
+                }
+            }
         }
     }
     .btn_sorting {
@@ -93,7 +109,7 @@
         z-index: 11;
         .fixed_left {
             z-index: 11;
-            left: 0;
+            //left: 0;
         }
 
     }

@@ -5350,6 +5350,10 @@
   }
 }
 
+.cursor_pointer {
+  cursor: pointer;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7191,7 +7195,14 @@ input::-webkit-search-results-decoration {
   gap: 4px;
 }
 .statistic_tbl th, .statistic_tbl td {
+  width: 89px;
+}
+.statistic_tbl th.col_num, .statistic_tbl td.col_num {
+  width: 60px;
+}
+.statistic_tbl th.col_name, .statistic_tbl td.col_name {
   width: 100px;
+  left: 60px;
 }
 
 .footer {
@@ -8545,6 +8556,8 @@ input::-webkit-search-results-decoration {
   background: url(../images/ico_date.svg) no-repeat left 8px center/24px auto;
   font-size: 14px;
   cursor: pointer;
+  width: 100%;
+  max-width: 150px;
 }
 .f_input.datepicker:-moz-read-only {
   background-color: #fff;
@@ -9234,6 +9247,22 @@ input::-webkit-search-results-decoration {
 .tbl tbody tr:hover {
   background-color: #F4F9FF;
 }
+.tbl tbody tr:hover td {
+  background-color: #F4F9FF;
+}
+.tbl tbody tr:hover td._blue {
+  background-color: #F0F9FF;
+  color: #0C59D8;
+}
+.tbl tbody tr:hover td._red {
+  background-color: #FFF1F1;
+  color: #FF5B5B;
+}
+.tbl tbody tr:hover td._key {
+  background-color: #F5F9FF;
+  border-color: #0C59D8;
+  color: #0C59D8;
+}
 .tbl .btn_sorting {
   width: 24px;
   height: 24px;
@@ -9255,7 +9284,6 @@ input::-webkit-search-results-decoration {
 }
 .tbl .fixed_top .fixed_left {
   z-index: 11;
-  left: 0;
 }
 .tbl .fixed_left {
   position: sticky;

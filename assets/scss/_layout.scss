@@ -1556,7 +1556,14 @@
     }
     &_tbl {
         th , td {
-            width: 100px;
+            width: 89px;
+            &.col_num {
+                width: 60px;
+            }
+            &.col_name {
+                width: 100px;
+                left: 60px;
+            }
         }
     }
 }
