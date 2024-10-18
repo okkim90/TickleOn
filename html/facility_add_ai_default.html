@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TickleOn</title>
+    <!--[D] 공통척용 js&css-->
+    <link rel="stylesheet" href="../assets/css/common.min.css">
+    <script type="text/javascript" src="../assets/js/common.js"></script>
+</head>
+<body>
+    <div id="wrap" class="grid_wrap">
+        <header id="header" class="header">
+            <div class="m_header">
+                <h1><a href=""><img src="../assets/images/logo.svg" alt="TickleOn"></a> </h1>
+                <button type="button" class="btn_nav"></button>
+            </div>
+            <div class="header_cont">
+                <div class="breadcrumb">
+                    <div class="breadcrumb_item">시설관리</div>
+                    <div class="breadcrumb_item">정기작업시설</div>
+                    <div class="breadcrumb_item">시설 등록(AI도면 등록)</div>
+                </div>
+                <div class="hd_company">
+                    <div class="hd_company_item dep1">회사명</div>
+                    <div class="hd_company_item select-box ty_mid ">
+                        <input type="text" class="select-input" value="서울지점" placeholder="매체를 선택해주세요" readonly>
+                        <div class="options">
+                            <ul>
+                                <li data-value="1" class="option">서울지점</li>
+                                <li data-value="2" class="option">경기지점</li>
+                                <li data-value="3" class="option">강원지점</li>
+                            </ul>
+                            <button type="button" class="f_btn ty_mid _key2 w100" onclick="event.stopPropagation();">지점 관리</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hd_user">
+                    <button type="button" class="hd_user_btn"></button>
+                    <div class="hd_user_menu"></div>
+                </div>
+            </div>
+        </header>
+        <div class="sticky_top">
+            <div class="d_flex fw_w ai_c _gap8">
+                <button type="button" class="btn_ico _back mr4"></button>
+                <h1 class="title2 mr_auto fw_5">시설 등록(AI도면 등록)</h1>   
+            </div>
+        </div>
+        <aside class="nav fixed">
+            <div class="nav_top">
+                <a href="" class="nav_top_logo"></a>
+                <button type="button" class="nav_close" aria-label="close nav"></button>
+            </div>
+            <nav class="nav_wrap">
+                <ul class="nav_list dep1">
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_monitoring"></i>
+                            <span class="txt">모니터링</span>
+                        </a>
+                    </li>
+                    <li class="nav_dep1 has_dep on"> <!--[DEV] 활성화 : 'on' class-->
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_facility"></i>
+                            <span class="txt">시설관리</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2 on">정기작업시설</a><!--[DEV] 활성화 : 'on' class-->
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">고객이용시설</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_work"></i>
+                            <span class="txt">수행작업관리</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">정기작업관리</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">고객작업관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_emergency"></i>
+                            <span class="txt">긴급관리</span>
+                            <span class="tag_new">N</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">정기작업시설<span class="tag_new">10 New</span></a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">고객이용시설</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_account"></i>
+                            <span class="txt">계정관리</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">작업자 계정</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">지점 관리자 계정</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_material"></i>
+                            <span class="txt">소모품/장비관리</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">소모품 관리</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">장비 관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_statistic"></i>
+                            <span class="txt">통계</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">현황통계</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">근태관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_notification"></i>
+                            <span class="txt">안내사항</span>
+                        </a>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_setting"></i>
+                            <span class="txt">설정</span>  
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+       
+        <main id="container" class="container">
+            <div class="contents">
+                <div class="d_flex _gap8 fw_w mb20">
+                    <h3 class="title3 _gap4">
+                        <i class="tit_ico ty_arrow"></i>층별 도면 등록 <span class="fc_red2 ml4">*</span>
+                    </h3>
+                    <div class="select-box ty_mid w_130">
+                        <input type="text" class="select-input" value="1층" placeholder="매체를 선택해주세요" readonly>
+                        <div class="options">
+                            <ul>
+                                <li data-value="1" class="option">1층</li>
+                                <li data-value="2" class="option">2층</li>
+                                <li data-value="3" class="option">3층</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="button" class="f_btn ty_mid _blue _ico _upload">도면파일 업로드</button>
+                </div>       
+                <div class="ai_upload">
+                    <div class="ai_upload_sec _left">
+                        <div class="upload_wrap_top mb16">
+                            <div class="view_tab ml_auto">
+                                <!--[D] 활성화 'on' class-->
+                                <button type="button" class="tab_btn ty_upload on"></button>
+                                <button type="button" class="tab_btn ty_list"></button>
+                            </div>
+                        </div>
+                        
+                        <div class="upload_wrap">
+                            <div class="bf_upload">
+                                <img src="../assets/images/ico_file_upload.svg" alt="">
+                                <button type="button" class="f_btn ty_mid _blue _ico _upload">도면파일 업로드</button>
+                                <p class="fc_key fz_4 fw_5">도면파일 업로드시 상단에 파일명으로 새로운 탭이 생성됩니다.</p>
+                                <ul class="list_tip">
+                                    <li class="list_tip_item">첨부가능 용량은 파일당 5MB 미만이며, 최대 1개까지 가능합니다.</li>
+                                    <li class="list_tip_item">첨부불가 파일 확장자 : exe, js, php, html, htm, sh</li>
+                                </ul>    
+                            </div>
+                        </div>         
+                    </div>
+                    <div class="ai_upload_sec _right">
+                        <div class="ai_upload_info_item">도면 파일을 업로드해 주세요</div>
+                        <div class="ai_upload_info_item">도면 상 치수를 알 수 있는 두 점을 찍어주세요.</div>
+                        <div class="ai_upload_info_item">두 점 간의 거리를 미터(m) 단위로 입력 후 완료 버튼 또는 엔터키를 눌러주세요</div>
+                        <div class="ai_upload_info_item">추가하고 싶은 공간을 도형으로 만들어주세요</div>
+                        <div class="ai_upload_info_item">등록한 공간의 형태를 더블 클릭하면 세부정보 조회, 등록, 수정이 가능합니다.</div>
+                        <div class="ai_upload_size ">
+                            <div class="ai_upload_sec_tit">단위 등록</div>
+                            <div class="input_box">
+                                <input type="text" class="f_input ty_mid taC">
+                                <span class="unit fz_4">m</span>
+                            </div>
+                            <div class="d_flex _gap8 pt8 pb8">
+                                <button type="button" class="f_btn ty_mid _line w_80">재설정</button>
+                                <button type="button" class="f_btn ty_mid _blue flex1">저장</button>
+                            </div>
+                        </div>
+                        <div class="ai_upload_type ">
+                            <div class="ai_upload_sec_tit">공간 등록</div>
+                            <div class="type_select">
+                                <div class="type_select_item">
+                                    <i class="ico_type _rectangle"></i>
+                                    <span>사각형</span> 
+                                    <button type="button" class="f_btn ty_mid _line ml_auto">추가</button>
+                                </div>
+                                <div class="type_select_item">
+                                    <i class="ico_type _polygon"></i>
+                                    <span>다각형</span>
+                                    <button type="button" class="f_btn ty_mid _line ml_auto">추가</button>
+                                </div>
+                            </div>
+                            <div class="d_flex _gap8 pt8 pb8">
+                                <button type="button" class="f_btn ty_mid _line w_80">재설정</button>
+                                <button type="button" class="f_btn ty_mid _blue flex1">저장</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="ai_upload_sec" style="display: none;">
+                    <h3 class="ai_upload_sec_tit fz_4 mb0">시설 리스트 <span class="fc_red">*</span></h3>
+                    
+
+                    <div class="tbl_top d_flex ai_b">
+                        <span class="fc_font2">총 <b class="fc_key">10</b>건(<b class="fc_key">1</b>/2)페이지</span>
+                        <div class="hd_company_item select-box ty_mid2 w_120 ml_auto">
+                            <input type="text" class="select-input" value="10개씩 보기" readonly>
+                            <div class="options">
+                                <ul>
+                                    <li data-value="1" class="option">10개씩 보기</li>
+                                    <li data-value="2" class="option">20개씩 보기</li>
+                                    <li data-value="3" class="option">30개씩 보기</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tbl_wrap" style="height:500px">
+                        <table class="tbl tl_fixed" style="min-width:1100px">
+                            <colgroup>
+                                <col style="width:60px">
+                                <col style="width: 100px;">
+                                <col style="width: 20%;">
+                                <col style="width: 20%;">
+                                <col>
+                                <col style="width: 140px;">
+                            </colgroup>
+                            <caption></caption>
+                            <thead class="fixed_top">
+                                <tr>
+                                    <th rowspan="2">번호</th>
+                                    <th colspan="3">시설명</th>
+                                    <th rowspan="2" class="taL">수행작업</th>
+                                    <th rowspan="2"></th>
+                                </tr>
+                                <tr>
+                                    
+                                    <th class="taL">층수<button class="btn_sorting on"></button></th>
+                                    <th class="taL">공간명<button class="btn_sorting on"></button></th>
+                                    <th class="taL">별칭</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <div class="select-box ty_small">
+                                            <input type="text" class="select-input" value="1층" readonly>
+                                            <div class="options" style="max-height: 200px;">
+                                                <ul>
+                                                    <li data-value="1" class="option">1층</li>
+                                                    <li data-value="2" class="option">2층</li>
+                                                    <li data-value="3" class="option">100층</li>
+                                                    <li data-value="3" class="option">100층</li>
+                                                    <li data-value="3" class="option">100층</li>
+                                                    <li data-value="3" class="option">100층</li>
+                                                    <li data-value="3" class="option">100층</li>
+                                                    <li data-value="3" class="option">100층</li>
+                                                    <li data-value="3" class="option">100층</li>
+                                                    <li data-value="3" class="option">100층</li>
+                                                    <li data-value="3" class="option">100층</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="taL">
+                                        <div class="d_flex _gap4">
+                                            <input type="text" class="f_input ty_small flex1">
+                                            <button class="f_btn ty_small _grey ">중복확인</button>
+                                        </div>
+                                    </td>
+                                    <td class="taL">
+                                        <div class="d_flex _gap4">
+                                            <input type="text" class="f_input ty_small flex1">
+                                            <button class="f_btn ty_small _grey ">중복확인</button>
+                                        </div>
+                                    </td>
+                                    <td class="taL">
+                                        <div class="srch_set ty_select">
+                                            <i class="srch_ico"></i>
+                                            <input type="text" class="f_input ty_small w100" placeholder="수행작업을 검색해주세요" value="수행작업Group6, 수행작업Group6, 수행작업Group6, 수행작업Group6">
+                                            <!--[D] 검색어 입력시 검색어 자동완성 미리보기가 있을 경우 리스트 노출 
+                                                활성화 : 'on' class
+                                            -->
+                                            <button type="button" class="srch_arrow on"></button>
+                                            
+                                            <!--[D] 검색어 입력시 검색어 삭제 버튼
+                                                활성화 : 'on' class
+                                            -->
+                                            <button type="button" class="srch_close on"></button>
+                                            
+                                            <!--[D] 검색어 입력시 검색어 자동완성 미리보기가 있을 경우 리스트 노출 
+                                                활성화 : 'on' class
+                                            -->
+                                            <div class="srch_select on">
+                                                <div class="desc fc_desc">수행작업을 선택해 주세요.</div>
+                                                <ul class="srch_select_list">
+                                                    <li class="srch_select_item ty_all">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt">전체 선택</div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="srch_select_item">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt"><span class="fc_key">일반</span> 청소</div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="srch_select_item">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt"><span class="fc_key">일반</span> 어쩌구</div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="srch_select_item">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt"><span class="fc_key">일반</span> 어쩌구</div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="srch_select_item">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt"><span class="fc_key">일반</span> 어쩌구</div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="srch_select_item">
+                                                        <label class="f_chk">
+                                                            <input type="checkbox">
+                                                            <div class="f_chk_ico"></div>
+                                                            <div class="f_chk_txt"><span class="fc_key">일반</span> 저쩌구저쩌구저쩌구저쩌구저쩌구저쩌구저쩌구저쩌구저쩌구저쩌구저쩌구저쩌구저쩌구</div>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                                <div class="srch_select_bot">
+                                                    <button type="button" class="f_btn ty_mid _blue w100 disabled">선택 수행작업 적용</button>
+                                                    <button type="button" class="f_btn ty_mid _blue w100">선택 수행작업 적용</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="f_btn ty_small _blue _ico _add w100"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1층</td>
+                                    <td class="taL">사무실</td>
+                                    <td class="taL">M004</td>
+                                    <td class="taL">
+                                        <div class="d_flex _gap4 scroll_h">
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>                                  
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d_flex jc_c _gap4">
+                                            <button class="f_btn ty_mid _line ">수정</button>
+                                            <button class="f_btn ty_mid _line ">삭제</button>
+                                        </div> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1층</td>
+                                    <td class="taL">사무실</td>
+                                    <td class="taL">M004</td>
+                                    <td class="taL">
+                                        <div class="d_flex _gap4 scroll_h">
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>                                       
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d_flex jc_c _gap4">
+                                            <button class="f_btn ty_mid _line ">수정</button>
+                                            <button class="f_btn ty_mid _line ">삭제</button>
+                                        </div> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1층</td>
+                                    <td class="taL">사무실</td>
+                                    <td class="taL">M004</td>
+                                    <td class="taL">
+                                        <div class="d_flex _gap4 scroll_h">
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>                                          
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d_flex jc_c _gap4">
+                                            <button class="f_btn ty_mid _line ">수정</button>
+                                            <button class="f_btn ty_mid _line ">삭제</button>
+                                        </div> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1층</td>
+                                    <td class="taL">사무실</td>
+                                    <td class="taL">M004</td>
+                                    <td class="taL">
+                                        <div class="d_flex _gap4 scroll_h">
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d_flex jc_c _gap4">
+                                            <button class="f_btn ty_mid _line ">수정</button>
+                                            <button class="f_btn ty_mid _line ">삭제</button>
+                                        </div> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1층</td>
+                                    <td class="taL">사무실</td>
+                                    <td class="taL">M004</td>
+                                    <td class="taL">
+                                        <div class="d_flex _gap4 scroll_h">
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>                                             
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d_flex jc_c _gap4">
+                                            <button class="f_btn ty_mid _line ">수정</button>
+                                            <button class="f_btn ty_mid _line ">삭제</button>
+                                        </div> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1층</td>
+                                    <td class="taL">사무실</td>
+                                    <td class="taL">M004</td>
+                                    <td class="taL">
+                                        <div class="d_flex _gap4 scroll_h">
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d_flex jc_c _gap4">
+                                            <button class="f_btn ty_mid _line ">수정</button>
+                                            <button class="f_btn ty_mid _line ">삭제</button>
+                                        </div> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1층</td>
+                                    <td class="taL">사무실</td>
+                                    <td class="taL">M004</td>
+                                    <td class="taL">
+                                        <div class="d_flex _gap4 scroll_h">
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>                                              
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d_flex jc_c _gap4">
+                                            <button class="f_btn ty_mid _line ">수정</button>
+                                            <button class="f_btn ty_mid _line ">삭제</button>
+                                        </div> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1층</td>
+                                    <td class="taL">사무실</td>
+                                    <td class="taL">M004</td>
+                                    <td class="taL">
+                                        <div class="d_flex _gap4 scroll_h">
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
+                                            <span class="f_tag ty_small _grey">수행작업Group6</span>  
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d_flex jc_c _gap4">
+                                            <button class="f_btn ty_mid _line ">수정</button>
+                                            <button class="f_btn ty_mid _line ">삭제</button>
+                                        </div> 
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="paging_wrap">
+                        <button type="button" class="paging_btn ty_first paging_nav"></button>
+                        <button type="button" class="paging_btn ty_prev paging_nav"></button>
+                        <div class="paging_list">
+                            <button type="button" class="paging_btn current">1</button>
+                            <button type="button" class="paging_btn">2</button>
+                            <button type="button" class="paging_btn">3</button>
+                            <button type="button" class="paging_btn">4</button>
+                            <button type="button" class="paging_btn">5</button>                          
+                        </div>
+                        <button type="button" class="paging_btn ty_next paging_nav"></button>
+                        <button type="button" class="paging_btn ty_last paging_nav"></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!--[D] 로딩 레이어 
+        활성화 : 'on' class
+    -->
+    <div class="loader_layer">
+        <span class="loader"></span>
+    </div>
+    <!--[D] 로딩 레이어 -->
+</body>
+</html>

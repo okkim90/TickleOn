@@ -154,6 +154,14 @@
                 background-image: url(../images/ico_add.svg);
             }
         }
+        &._upload {
+            &::before {
+                width: 24px;
+                height: 24px;
+                background-image: url(../images/ico_upload.svg);
+                background-size: contain;
+            }
+        }
         &._search {
             &::before {
                 width: 24px;
@@ -295,10 +303,10 @@
         }
     }
     &._back {
-        background-color: $c_bg;
-        background-image: url(../images/arrow_back.svg);
+        background-color: #E2EDFF;
+        background-image: url(../images/arrow_back_blue.svg);
         &:hover {
-            background-color: darken($c_bg, 10%);
+            background-color: darken(#E2EDFF, 4%);
         }
     }
 }
