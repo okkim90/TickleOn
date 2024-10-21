@@ -6598,6 +6598,11 @@ input::-webkit-search-results-decoration {
   display: flex;
   gap: 16px;
 }
+@media (max-width: 768px) {
+  .ai_upload {
+    display: block;
+  }
+}
 .ai_upload_sec {
   min-width: 0;
 }
@@ -6612,6 +6617,12 @@ input::-webkit-search-results-decoration {
   display: flex;
   flex-direction: column;
   row-gap: 16px;
+}
+@media (max-width: 768px) {
+  .ai_upload_sec._right {
+    width: 100%;
+    margin-top: 32px;
+  }
 }
 .ai_upload_sec_tit {
   padding: 12px 16px;
@@ -6642,6 +6653,7 @@ input::-webkit-search-results-decoration {
   border: 3px solid #0C59D8;
   min-height: 500px;
   height: 100%;
+  padding: 16px;
 }
 .ai_upload .upload_wrap_top {
   flex-shrink: 0;
