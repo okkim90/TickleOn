@@ -240,6 +240,83 @@
                 </div>
             </div>
         </main>
+        <div class="modal on" >
+            <div class="modal_inner">
+                <div class="modal_cont ty_small">
+                    <div class="modal_top">
+                        <div class="modal_tit">시설 관리(AI도면 등록)</div>
+                        <button type="button" class="modal_close_btn" onclick="close_modal(this)" aria-label="close modal"></button>
+                    </div>
+                    <div class="modal_contents no_ov">
+                        <div class="form_set">
+                            <label class="form_set_tit">시설명(층수+공간명+별칭) <i class="ico_required">*</i></label>
+                            <div class="d_flex fw_w _gap4">
+                                <div class="select-box ty_mid2 w_70 ">
+                                    <input type="text" class="select-input " value="1층" placeholder="매체를 선택해주세요" readonly>
+                                    <div class="options">
+                                        <ul>
+                                            <li data-value="1" class="option">1층</li>
+                                            <li data-value="2" class="option">2층</li>
+                                            <li data-value="3" class="option">3층</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <input type="text" class="f_input ty_mid flex1 " placeholder="공간명을 입력해주세요">
+                                <button type="button" class="f_btn ty_mid _grey mw_max">공간명 중복 체크</button>
+                                <div class="fz_1 w100">입력한 <span class="fc_red2">{화장실2}</span>은 사용이 가능합니다</div>
+                                <input type="text" class="f_input ty_mid w100" placeholder="시설명 별칭을 입력해주세요">
+                            </div>
+                        </div>   
+
+                        <div class="form_set">
+                            <label class="form_set_tit">수행작업 <i class="ico_required">*</i></label>
+                            <div class="srch_set ty_select">
+                                <i class="srch_ico"></i>
+                                <input type="text" class="f_input ty_mid2 w100" placeholder="검색해주세요">
+                                
+                                <!--[D] 검색어 입력시 검색어 삭제 버튼
+                                    활성화 : 'on' class
+                                -->
+                                <button type="button" class="srch_close "></button>
+
+                                <!--[D] 활성화 : 'on' class -->
+                                <button type="button" class="srch_arrow "></button>
+                                
+                                <!--[D] 검색어 입력시 검색어 자동완성 미리보기가 있을 경우 리스트 노출 
+                                    활성화 : 'on' class
+                                -->
+                                <ul class="srch_list " style="max-height:160px">
+                                    <li class="srch_list_item">
+                                        <div class="txt"><span class="fc_key">티클</span> 청소</div> 
+                                    </li>
+                                    <li class="srch_list_item">
+                                        <div class="txt"><span class="fc_key">티클</span> 전문</div> 
+                                    </li>
+                                    <li class="srch_list_item">
+                                        <div class="txt"><span class="fc_key">티클</span> 공간관리</div> 
+                                    </li>
+                                    <li class="srch_list_item">
+                                        <div class="txt"><span class="fc_key">티클</span> 엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때</div> 
+                                    </li>
+                                    <li class="srch_list_item">
+                                        <div class="txt"><span class="fc_key">티클</span> 엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때</div> 
+                                    </li>
+                                    <li class="srch_list_item">
+                                        <div class="txt"><span class="fc_key">티클</span> 엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때엄청긴 검색어일때</div> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="modal_bot">
+                        <button type="button" class="f_btn ty_mid _line w_60 mr_auto" >삭제</button>
+                        <button type="submit" class="f_btn ty_mid _line w_60" onclick="close_modal(this)">취소</button>
+                        <button type="submit" class="f_btn ty_mid _blue w_100 ">등록</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!--[D] 로딩 레이어 
         활성화 : 'on' class

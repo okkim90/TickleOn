@@ -7768,6 +7768,9 @@ input::-webkit-search-results-decoration {
   padding: 30px;
   overflow-y: auto;
 }
+.modal_contents.no_ov {
+  overflow-y: visible;
+}
 .modal_contents.ty2 {
   padding: 16px 30px;
 }
@@ -7899,7 +7902,7 @@ input::-webkit-search-results-decoration {
 .select-box .options {
   display: none;
   overflow-y: auto;
-  max-height: 284px;
+  max-height: 200px;
   padding: 12px;
   border: 1px solid #F1F1F1;
   white-space: nowrap;
@@ -8246,7 +8249,7 @@ input::-webkit-search-results-decoration {
   height: 40px;
   padding: 0 15px;
   border-radius: 7px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
 }
 .f_btn.ty_big {
@@ -8674,13 +8677,13 @@ input::-webkit-search-results-decoration {
   height: 40px;
   padding: 0 10px;
   border-radius: 7px;
-  font-size: 15px;
+  font-size: 14px;
 }
 .f_input.ty_mid2 {
   height: 40px;
   padding: 0 20px;
   border-radius: 7px;
-  font-size: 15px;
+  font-size: 14px;
 }
 .f_input.ty_big {
   height: 50px;
@@ -8825,6 +8828,8 @@ input::-webkit-search-results-decoration {
   margin-top: 8px;
   display: none;
   z-index: 99;
+  overflow-y: auto;
+  max-height: 180px;
 }
 .tbl .srch_set .srch_list {
   z-index: 10;

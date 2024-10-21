@@ -60,7 +60,7 @@
         height: 40px;
         padding: 0 10px;
         border-radius: 7px;
-        font-size: 15px;
+        font-size: 14px;
         //font-weight: 500;
         
     }
@@ -68,7 +68,7 @@
         height: 40px;
         padding: 0 20px;
         border-radius: 7px;
-        font-size: 15px;
+        font-size: 14px;
         //font-weight: 500;
         
     }
@@ -225,6 +225,8 @@
         margin-top: 8px;
         display: none;
         z-index: 99;
+        overflow-y: auto;
+        max-height: 180px;
         @at-root .tbl & {
             z-index: 10;
         }

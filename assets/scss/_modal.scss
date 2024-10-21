@@ -103,6 +103,10 @@
     &_contents {
         padding: 30px ;
         overflow-y: auto;
+        //max-height: calc(100dvh - 100px);
+        &.no_ov {
+            overflow-y: visible;
+        }
         &.ty2 {
             padding: 16px 30px;
             @include mobile { 
