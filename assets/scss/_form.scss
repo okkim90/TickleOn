@@ -294,6 +294,8 @@
             transform: rotate(180deg);
         }
     }
+
+    
     .srch_ico {
         width: 30px;
         height: 30px;
@@ -367,6 +369,24 @@
             height: 24px;
             right: 34px;
             margin-top: -12px;
+        }
+    }
+
+    &.ty2 {
+        .srch_ico {
+            top: 5px;
+            margin-top: 0;
+        }
+        .srch_close {
+            top: 8px;
+            margin-top: 0;
+        }
+        .srch_arrow {
+            top: 8px;
+            margin-top: 0;
+        }
+        .srch_select {
+            position: relative;
         }
     }
 }

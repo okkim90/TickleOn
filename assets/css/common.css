@@ -8986,6 +8986,21 @@ input::-webkit-search-results-decoration {
   right: 34px;
   margin-top: -12px;
 }
+.srch_set.ty2 .srch_ico {
+  top: 5px;
+  margin-top: 0;
+}
+.srch_set.ty2 .srch_close {
+  top: 8px;
+  margin-top: 0;
+}
+.srch_set.ty2 .srch_arrow {
+  top: 8px;
+  margin-top: 0;
+}
+.srch_set.ty2 .srch_select {
+  position: relative;
+}
 
 .form_set + .form_set {
   margin-top: 30px;
