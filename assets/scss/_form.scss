@@ -1,20 +1,25 @@
 .f_select {
     border: 1px solid $c_line2;
     background-color: #fff;
+    background-image: url(../images/arrow_select2.svg);
+    background-position: right 6px center;
+    background-size: 18px 18px;
+    text-overflow: ellipsis;
     &.ty_small {
         height: 33px;
         //line-height: 31px;
         padding: 0 8px;
         border-radius: 4px;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 500;
     }
     &.ty_mid {
         height: 40px;
         padding: 0 8px;
         border-radius: 7px;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 500;
+        padding-right: 26px;
     }
     &.ty_big {
         height: 50px;

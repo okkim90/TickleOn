@@ -8631,20 +8631,25 @@ input::-webkit-search-results-decoration {
 .f_select {
   border: 1px solid #e4e4e4;
   background-color: #fff;
+  background-image: url(../images/arrow_select2.svg);
+  background-position: right 6px center;
+  background-size: 18px 18px;
+  text-overflow: ellipsis;
 }
 .f_select.ty_small {
   height: 33px;
   padding: 0 8px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
 }
 .f_select.ty_mid {
   height: 40px;
   padding: 0 8px;
   border-radius: 7px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
+  padding-right: 26px;
 }
 .f_select.ty_big {
   height: 50px;
