@@ -663,8 +663,13 @@
 
 .monitoring_card {
     &_wrap {
-        @include flex_col(5, 16px, 16px);
-
+        @include flex_col(6, 16px, 16px);
+        @media (max-width: 1580px) {
+            @include flex_col(5, 16px, 16px);
+        }
+        @media (max-width: 1280px) {
+            @include flex_col(4, 16px, 16px);
+        }
         @include tablet {
             @include flex_col(3, 16px, 16px);
         }
@@ -678,7 +683,7 @@
     border-radius: 10px;
     background-color: #fff;
     padding: 12px;
-    min-width: 200px;
+    //min-width: 200px;
     
     &_top {
         display: flex;
@@ -717,7 +722,7 @@
         padding-top: 10px;
         border-top: 1px solid $c_line;
         overflow-y: auto;
-        max-height: 175px;
+        max-height: 108px;
 
         .work_item {
             display: block;
