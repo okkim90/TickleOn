@@ -194,602 +194,427 @@
         <main id="container" class="container">
             <div class="sub_tit">
                 <h1 class="title1"><i class="tit_ico ty_monitoring"></i>모니터링</h1>
+                <div class="btn_set ml_auto">
+                    <button class="f_btn ty_mid _blue">월간 수행작업 계획</button>
+                    <button class="f_btn ty_mid _blue">도면시설 실시간 모니터링</button>
+                </div>
             </div>
-            <div class="contents">
-                <div class="monitoring_sec sec1">
-                    <div class="d_flex fw_w _gap10 ai_c w100">
-                        <span class="fz_3">현재일시 2024.09.10(화) 23:00:00</span>
-                        <div class="ml_auto d_flex ai_c _gap8">
-                            <span class="fz_3">새로고침</span>
-                            <div class="select-box ty_mid2 w_80">
-                                <input type="text" class="select-input" value="10초" readonly>
-                                <div class="options">
-                                    <ul>
-                                        <li data-value="1" class="option">10초</li>
-                                        <li data-value="2" class="option">30초</li>
-                                        <li data-value="3" class="option">60초</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <button type="button" class="btn_reset"></button>
-                        </div>
-                    </div>
-                    <div class="bd_box ty_small d_flex ai_c fw_w _gapX32 _gapY10 w100">
-                        <div class="date_box d_flex _gap8 ai_c">
-                            <label>일자</label>
-                            <!-- <input type="date" class="f_input ty_mid bd_key w_150" data-placeholder='날짜를 선택해주세요.' value="2024-09-23"> -->
-                            <div class="date_set d_flex _gapX8 ai_c">
-                                <input type="text" class="f_input ty_mid datepicker w_150" value="2024-09-24(화)" readonly>
-                                <button type="button" class="f_btn ty_mid _blue" onclick="set_today(this)">오늘</button>
-                            </div>
-                        </div>
-                        <div class="d_flex _gapX8 ai_c">
-                            <label>시설선택</label>
-                            <div class="select-box ty_mid2 w_180">
-                                <input type="text" class="select-input" placeholder="선택" readonly>
-                                <div class="options">
-                                    <ul>
-                                        <li data-value="1" class="option">전체 시설</li>
-                                        <li data-value="2" class="option">정기작업시설</li>
-                                        <li data-value="3" class="option">고객이용시설</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bd_box ty_big q_box q_box1">
-                        <h2 class="title2">[시설관리] 정기작업시설</h2>                    
-                        <div class="q_box_cont">
-                            <div class="chart_box">
-                                <svg viewBox="0 0 100 100" class="chart_donut" data-value="[19, 40]" data-keyvalue="40"></svg>
-                                <!--[D]도넛그래프 생성 참고해주세요, [미수행, 수행] , 수행값(퍼센트 노출될 값) : data-keyvalue -->
-                            </div>
-                            <div class="data_list">
-                                <dl class="data_list_item">
-                                    <dt><i class="color_chip ty_total"></i>전체</dt>
-                                    <dd><b>59건</b></dd>
-                                </dl>
-                                <dl class="data_list_item">
-                                    <dt><i class="color_chip ty_blue"></i>수행</dt>
-                                    <dd><b class="fc_key">40건</b> <span class="fc_grey">(68%)</span></dd>
-                                </dl>
-                                <dl class="data_list_item">
-                                    <dt><i class="color_chip ty_red"></i>미수행</dt>
-                                    <dd><b class="fc_red2">19건</b> <span class="fc_grey">(32%)</span></dd>
-                                </dl>
-                            </div>
-                        </div>
-                        <script>
-                            const chart_donut = document.querySelectorAll('.chart_donut')
-                            chart_donut.forEach(e=>{
-                                const radius = 40; // 차트의 반지름
-                                const diameter = 2 * Math.PI * radius; // 차트의 둘레
-                                const colors = ['#FF5B5B','#0C59D8'];
-                                const dataset = JSON.parse(e.dataset.value);
-                                const keyvalue = e.dataset.keyvalue;
-                                // 전체 데이터셋의 총 합
-                                const total = dataset.reduce((r, v) => r + v, 0);
-
-                                // 데이터셋의 누적 값
-                                const acc = dataset.reduce((arr, v, i) => {
-                                    const last = arr[arr.length - 1];
-                                    return [...arr, last + v];
-                                }, [0]);
-                                // 프로퍼티 할당 노가다 시작...
-                                
-                                if(total > 0){
-                                    dataset.forEach((data, i) => {
-                                        const ratio = data / total;
-                                        const fillSpace = diameter * ratio;
-                                        const emptySpace = diameter - fillSpace;
-                                        const offset = (acc[i] / total) * diameter;
-                                        
-                                        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                                        circle.setAttribute('cx', '50');
-                                        circle.setAttribute('cy', '50');
-                                        circle.setAttribute('r', String(radius));
-                                        circle.setAttribute('fill', 'transparent');
-                                        circle.setAttribute('stroke', colors[i]);
-                                        circle.setAttribute('stroke-width', '15');
-                                        circle.setAttribute('stroke-dasharray', `${fillSpace} ${emptySpace}`);
-                                        circle.setAttribute('stroke-dashoffset', String(-offset));
-                                        
-                                        e.appendChild(circle);
-                                    });
-                                }else{
-                                    const circle_empty = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                                    circle_empty.setAttribute('cx', '50');
-                                    circle_empty.setAttribute('cy', '50');
-                                    circle_empty.setAttribute('r', String(radius));
-                                    circle_empty.setAttribute('fill', 'transparent');
-                                    circle_empty.setAttribute('stroke', '#F1F1F1');
-                                    circle_empty.setAttribute('stroke-width', '15');
-                                    e.appendChild(circle_empty);
-                                }
-                                
-
-                                const percentage = document.createTextNode(Math.round((keyvalue / total) * 100) + '%');
-                                const percentage_text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                                percentage_text.appendChild(percentage);
-                                percentage_text.setAttribute('x', '50');
-                                percentage_text.setAttribute('y', '50');
-                                percentage_text.setAttribute('fill', '#0C59D8');
-                                percentage_text.setAttribute('font-size', '1.4em');
-                                percentage_text.setAttribute('dominant-baseline', 'middle');
-                                percentage_text.setAttribute('text-anchor', 'middle');
-                                percentage_text.setAttribute('font-weight', 'bold');
-                                percentage_text.setAttribute('transform', 'translate(98 0) rotate(90)');
-                                if (total > 0){
-                                    e.appendChild(percentage_text)
-                                }
-                                
-                            });   
-                        </script>
-                    </div>
-                    <div class="bd_box ty_big q_box q_box2">
-                        <h2 class="title2">[긴급관리] 정기작업시설</h2>
-                        <div class="q_box_cont">
-                            <div class="data_list">
-                                <dl class="data_list_item">
-                                    <dt>전체</dt>
-                                    <dd><b>59건</b></dd>
-                                </dl>
-                                <dl class="data_list_item">
-                                    <dt>수행</dt>
-                                    <dd><b>40건</b> <span class="fc_grey">(68%)</span></dd>
-                                </dl>
-                                <dl class="data_list_item">
-                                    <dt>미수행</dt>
-                                    <dd><b>19건</b> <span class="fc_grey">(32%)</span></dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bd_box ty_big q_box q_box3">
-                        <h2 class="title2">[긴급관리] 고객이용시설</h2>
-                        <div class="q_box_cont">
-                            <div class="data_list">
-                                <dl class="data_list_item">
-                                    <dt>전체</dt>
-                                    <dd><b>59건</b></dd>
-                                </dl>
-                                <dl class="data_list_item">
-                                    <dt>수행</dt>
-                                    <dd><b>40건</b> <span class="fc_grey">(68%)</span></dd>
-                                </dl>
-                                <dl class="data_list_item">
-                                    <dt>미수행</dt>
-                                    <dd><b>19건</b> <span class="fc_grey">(32%)</span></dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
+            <div class="monitoring_sec">  
+                <div class="d_flex mb10 fw_w _gap10 ai_c w100">
+                    <span class="fz_3">현재일시 2024.09.10(화) 23:00:00</span>
+                    <button type="button" class="ml_auto f_btn _ico_b _reset2">새로고침</button>
                 </div>
-                <div class="monitoring_sec sec2">
-                    <div class="monitoring_sec_tit">
-                        <i class="tit_ico ty_facility"></i>
-                        <h2 class="title3">[시설관리] 정기작업시설</h2>
+                <div class="bd_box ty_small d_flex ai_c fw_w _gapX32 _gapY10 w100 bg_white">
+                    <div class="date_box d_flex _gap8 ai_c">
+                        <label>일자</label>
+                        <!-- <input type="date" class="f_input ty_mid bd_key w_150" data-placeholder='날짜를 선택해주세요.' value="2024-09-23"> -->
+                        <div class="date_set d_flex _gapX8 ai_c">
+                            <input type="text" class="f_input ty_mid datepicker w_150" value="2024-09-24(화)" readonly>
+                            <button type="button" class="f_btn ty_mid _blue" onclick="set_today(this)">오늘</button>
+                        </div>
                     </div>
-                    <div class="tbl_top d_flex ai_b">
-                        <span class="fc_font2">총 <b class="fc_key">10</b>건(<b class="fc_key">1</b>/2)페이지</span>
-                        <div class="hd_company_item select-box ty_mid2 w_120 ml_auto">
-                            <input type="text" class="select-input" value="10개씩 보기" readonly>
+                    <div class="d_flex _gapX8 ai_c">
+                        <label>공간구분</label>
+                        <div class="select-box ty_mid2 w_180">
+                            <input type="text" class="select-input" placeholder="전체 시설" readonly>
                             <div class="options">
                                 <ul>
-                                    <li data-value="1" class="option">10개씩 보기</li>
-                                    <li data-value="2" class="option">20개씩 보기</li>
-                                    <li data-value="3" class="option">30개씩 보기</li>
+                                    <li data-value="1" class="option">전체 시설</li>
+                                    <li data-value="2" class="option">정기작업시설</li>
+                                    <li data-value="3" class="option">고객이용시설</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="tbl_wrap" style="max-height: 500px;">
-                        <table class="tbl tl_fixed" style="min-width:900px">
-                            <colgroup>
-                                <col style="width:50px">
-                                <col>
-                                <col>
-                                <col style="width: 100px;">
-                                <col style="width: 100px;">
-                                <col style="width: 100px;">
-                                <col style="width: 100px;">
-                                <col style="width: 100px;">
-                            </colgroup>
-                            <caption></caption>
-                            <thead class="fixed_top">
-                                <tr>
-                                    <th rowspan="2">NO</th>
-                                    <th rowspan="2">시설명<button class="btn_sorting on"></button></th>
-                                    <th rowspan="2">수행작업</th>
-                                    <th rowspan="2">작업자</th>
-                                    <th rowspan="2">점검률<button class="btn_sorting"></button></th>
-                                    <th colspan="3">수행작업 상태</th>
-                                </tr>
-                                <tr>
-                                    <th>전체</th>
-                                    <th>수행</th>
-                                    <th>미수행<button class="btn_sorting"></button></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td class="taL">
-                                        <div class="d_flex _gap4 scroll_h">
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        </div>
-                                    </td>
-                                    <td>홍길동</td>
-                                    <td class="fc_red2">60%</td>
-                                    <td>5</td>
-                                    <td class="_blue">4</td>
-                                    <td class="_red">1</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td class="taL">
-                                        <div class="d_flex _gap4 scroll_h">
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        </div>
-                                    </td>
-                                    <td>홍길동</td>
-                                    <td class="fc_red2">60%</td>
-                                    <td>5</td>
-                                    <td class="_blue">4</td>
-                                    <td class="_red">1</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td class="taL">
-                                        <div class="d_flex _gap4 scroll_h">
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        </div>
-                                    </td>
-                                    <td>홍길동</td>
-                                    <td class="fc_red2">60%</td>
-                                    <td>5</td>
-                                    <td class="_blue">4</td>
-                                    <td class="_red">1</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td class="taL">
-                                        <div class="d_flex _gap4 scroll_h">
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        </div>
-                                    </td>
-                                    <td>홍길동</td>
-                                    <td class="fc_red2">60%</td>
-                                    <td>5</td>
-                                    <td class="_blue">4</td>
-                                    <td class="_red">1</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td class="taL">
-                                        <div class="d_flex _gap4 scroll_h">
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        </div>
-                                    </td>
-                                    <td>홍길동</td>
-                                    <td class="">100%</td>
-                                    <td>5</td>
-                                    <td class="_blue">4</td>
-                                    <td class="_red">1</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="paging_wrap">
-                        <button type="button" class="paging_btn ty_first paging_nav"></button>
-                        <button type="button" class="paging_btn ty_prev paging_nav"></button>
-                        <div class="paging_list">
-                            <button type="button" class="paging_btn current">1</button>
-                            <button type="button" class="paging_btn">2</button>
-                            <button type="button" class="paging_btn">3</button>
-                            <button type="button" class="paging_btn">4</button>
-                            <button type="button" class="paging_btn">5</button>                          
-                        </div>
-                        <button type="button" class="paging_btn ty_next paging_nav"></button>
-                        <button type="button" class="paging_btn ty_last paging_nav"></button>
-                    </div>
-                </div>
-                <div class="monitoring_sec sec3">
-                    <div class="monitoring_sec_tit">
-                        <i class="tit_ico ty_emergency"></i>
-                        <h2 class="title3">[긴급관리] 정기작업시설</h2>
-                    </div>
-                    <div class="tbl_top d_flex ai_b">
-                        <span class="fc_font2">총 <b class="fc_key">10</b>건(<b class="fc_key">1</b>/2)페이지</span>
-                        <div class="hd_company_item select-box ty_mid2 w_120 ml_auto">
-                            <input type="text" class="select-input" value="10개씩 보기" readonly>
+                    <div class="d_flex _gapX8 ai_c">
+                        <label>시설 관리유형</label>
+                        <div class="select-box ty_mid2 w_180">
+                            <input type="text" class="select-input" placeholder="전체 유형" readonly>
                             <div class="options">
                                 <ul>
-                                    <li data-value="1" class="option">10개씩 보기</li>
-                                    <li data-value="2" class="option">20개씩 보기</li>
-                                    <li data-value="3" class="option">30개씩 보기</li>
+                                    <li data-value="1" class="option">전체 유형</li>
+                                    <li data-value="2" class="option">유형1</li>
+                                    <li data-value="3" class="option">유형2</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="tbl_wrap" style="max-height: 500px;">
-                        <table class="tbl tl_fixed"  style="min-width:900px">
-                            <colgroup>
-                                <col style="width:50px">
-                                <col>
-                                <col style="width:100px">
-                                <col style="width:100px">
-                                <col style="width:160px">
-                                <col style="width:160px">
-                                <col style="width:120px">
-                            </colgroup>
-                            <caption></caption>
-                            <thead class="fixed_top">
-                                <tr>
-                                    <th>번호</th>
-                                    <th>시설명<button class="btn_sorting on"></button></th>
-                                    <th>요청자</th>
-                                    <th>작업자</th>
-                                    <th>요청 일시</th>
-                                    <th>작업 일시</th>
-                                    <th>이슈 상태<button class="btn_sorting"></button></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td>홍길동</td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_red">대기중</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td>홍길동</td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_red">대기중</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td>홍길동</td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_blue">해결완료</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td>홍길동</td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_blue">해결완료</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td>홍길동</td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_blue">해결완료</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td>홍길동</td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_blue">해결완료</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td>홍길동</td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_blue">해결완료</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                </div>     
+                <div class="monitoring_status mt20">
+                    
+                    <div class="monitoring_status_sec">
+                        <strong class="monitoring_status_sec_tit">[정기작업]</strong>
+                        <div class="ms_part_wrap">
+                            <div class="ms_part">
+                                <strong class="ms_part_tit">계획</strong>
+                                <span class="ms_part_desc fc_key">155</span>
+                                <span class="unit">건</span>
+                            </div>
+                            <div class="ms_part">
+                                <strong class="ms_part_tit">수행</strong>
+                                <span class="ms_part_desc fc_key">65</span>
+                                <span class="unit">건</span>
+                            </div>
+                            <div class="ms_part">
+                                <strong class="ms_part_tit">작업수행율</strong>
+                                <span class="ms_part_desc fc_key">59</span>
+                                <span class="unit">%</span>
+                            </div>
+                            <div class="ms_part">
+                                <strong class="ms_part_tit">수시작업</strong>
+                                <span class="ms_part_desc fc_key">5</span>
+                                <span class="unit">건</span>
+                            </div>
+                        </div>    
                     </div>
-                    <div class="paging_wrap">
-                        <button type="button" class="paging_btn ty_first paging_nav"></button>
-                        <button type="button" class="paging_btn ty_prev paging_nav"></button>
-                        <div class="paging_list">
-                            <button type="button" class="paging_btn current">1</button>
-                            <button type="button" class="paging_btn">2</button>
-                            <button type="button" class="paging_btn">3</button>
-                            <button type="button" class="paging_btn">4</button>
-                            <button type="button" class="paging_btn">5</button>                          
-                        </div>
-                        <button type="button" class="paging_btn ty_next paging_nav"></button>
-                        <button type="button" class="paging_btn ty_last paging_nav"></button>
-                    </div>
-                </div>
-                <div class="monitoring_sec sec4">
-                    <div class="monitoring_sec_tit">
-                        <i class="tit_ico ty_emergency"></i>
-                        <h2 class="title3">[긴급관리] 고객이용시설</h2>
-                    </div>
-                    <div class="tbl_top d_flex ai_b">
-                        <span class="fc_font2">총 <b class="fc_key">10</b>건(<b class="fc_key">1</b>/2)페이지</span>
-                        <div class="hd_company_item select-box ty_mid2 w_120 ml_auto">
-                            <input type="text" class="select-input" value="10개씩 보기" readonly>
-                            <div class="options">
-                                <ul>
-                                    <li data-value="1" class="option">10개씩 보기</li>
-                                    <li data-value="2" class="option">20개씩 보기</li>
-                                    <li data-value="3" class="option">30개씩 보기</li>
-                                </ul>
+                    <div class="monitoring_status_sec">
+                        <strong class="monitoring_status_sec_tit">[관리자 점검요청]</strong>
+                        <div class="ms_part_wrap">
+                            <div class="ms_part">
+                                <a href="" class="ms_part_link fc_red">5/6</a>
+                                <span class="unit">건</span>
+                            </div>
+                            <div class="ms_part">
+                                <strong class="ms_part_tit">긴급관리</strong>
+                                <a href="" class="ms_part_link fc_red">3/5</a>
+                                <span class="unit">건</span>
+                            </div>
+                            <div class="ms_part">
+                                <strong class="ms_part_tit">고객요청</strong>
+                                <a href="" class="ms_part_link fc_red">2/3</a>
+                                <span class="unit">건</span>
                             </div>
                         </div>
                     </div>
-                    <div class="tbl_wrap" style="max-height: 500px;">
-                        <table class="tbl tl_fixed"  style="min-width:1000px">
-                            <colgroup>
-                                <col style="width:60px">
-                                <col>
-                                <col>
-                                <col style="width:100px">
-                                <col style="width:160px">
-                                <col style="width:160px">
-                                <col style="width:120px">
-                            </colgroup>
-                            <caption></caption>
-                            <thead class="fixed_top">
-                                <tr>
-                                    <th>번호</th>
-                                    <th>시설명<button class="btn_sorting on"></button></th>
-                                    <th>수행 작업</th>
-                                    <th>작업자</th>
-                                    <th>요청 일시</th>
-                                    <th>작업 일시</th>
-                                    <th>이슈 상태<button class="btn_sorting"></button></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td class="taL">
-                                        <div class="d_flex _gap4 scroll_h">
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        </div>
-                                    </td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_red">대기중</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td class="taL">
-                                        <div class="d_flex _gap4 scroll_h">
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        </div>
-                                    </td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_red">대기중</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td class="taL">
-                                        <div class="d_flex _gap4 scroll_h">
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        </div>
-                                    </td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_blue">해결완료</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td class="taL">
-                                        <div class="d_flex _gap4 scroll_h">
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        </div>
-                                    </td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_blue">해결완료</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td class="taL">
-                                        <div class="d_flex _gap4 scroll_h">
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        </div>
-                                    </td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_blue">해결완료</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="taL">1층 남자 화장실</td>
-                                    <td class="taL">
-                                        <div class="d_flex _gap4 scroll_h">
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                            <span class="f_tag ty_small _grey">수행작업Group6</span>
-                                        </div>
-                                    </td>
-                                    <td>홍길동</td>
-                                    <td>2000-00-00 17:14</td>
-                                    <td>2024.09.10(화) 17:14</td>
-                                    <td class="_blue">해결완료</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="monitoring_status_toggle d_flex ai_c">
+                        <div class="fz_2 fw_5">미완료만 보기</div>
+                        <label class="f_toggle ty_mid ml4">
+                            <input type="checkbox" class="" onchange="f_alert_chk(this)" >
+                            <span class="slider">
+                                <div class="slider_txt false">꺼짐</div>
+                                <div class="slider_txt true">켜짐</div>
+                            </span>
+                        </label>
                     </div>
-                    <div class="paging_wrap">
-                        <button type="button" class="paging_btn ty_first paging_nav"></button>
-                        <button type="button" class="paging_btn ty_prev paging_nav"></button>
-                        <div class="paging_list">
-                            <button type="button" class="paging_btn current">1</button>
-                            <button type="button" class="paging_btn">2</button>
-                            <button type="button" class="paging_btn">3</button>
-                            <button type="button" class="paging_btn">4</button>
-                            <button type="button" class="paging_btn">5</button>                          
+                </div>
+            </div>
+            <div class="monitoring_sec">
+                <div class="monitoring_sec_tit">
+                    <h2 class="title3">B1F</h2>
+                </div>
+                <div class="monitoring_card_wrap">
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _complete">완료 (6/6)</span>
                         </div>
-                        <button type="button" class="paging_btn ty_next paging_nav"></button>
-                        <button type="button" class="paging_btn ty_last paging_nav"></button>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _complete">완료 (6/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _incomplete">미완료 (3/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _incomplete">미완료 (3/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _incomplete">미완료 (3/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _complete">완료 (6/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _incomplete">미완료 (3/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _complete">완료 (6/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _complete">완료 (6/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="monitoring_sec">
+                <div class="monitoring_sec_tit">
+                    <h2 class="title3">1F</h2>
+                </div>
+                <div class="monitoring_card_wrap">
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _complete">완료 (6/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _complete">완료 (6/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _incomplete">미완료 (3/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _incomplete">미완료 (3/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _incomplete">미완료 (3/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _complete">완료 (6/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _incomplete">미완료 (3/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _complete">완료 (6/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
+                    </div>
+                    <div class="monitoring_card col_item">
+                        <div class="monitoring_card_top">
+                            <div class="monitoring_card_tit">
+                                <strong class="tit">기계실A</strong>  
+                                <span class="type">시설</span>
+                            </div>
+                            <span class="monitoring_card_status _complete">완료 (6/6)</span>
+                        </div>
+                        <div class="monitoring_card_cont">
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">필수 체크(매일/3회) 10:00</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _complete">일반 관리 작업</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                            <button type="button" class="work_item _additional">추가작업A</button>
+                        </div>
                     </div>
                 </div>
             </div>

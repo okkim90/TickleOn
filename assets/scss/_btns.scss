@@ -212,6 +212,23 @@
             }
         }
     }
+    &._ico_b {
+        column-gap: 4px;
+        &::after {
+            content: '';
+            width: 25px;
+            height: 25px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        &._reset2 { 
+            &::after {
+                
+                background: url(../images/ico_reset.svg) center center no-repeat;
+            }
+            
+        }
+    }
 }
 
 .chk_btn {
