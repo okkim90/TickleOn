@@ -454,7 +454,7 @@
                             </div>
                             <div class="work_qr">
                                 <div class="btn_set d_flex fw_w _gap8">
-                                    <button type="button" class="f_btn ty_mid _line _ico _print">인쇄하기</button>
+                                    <button type="button" class="f_btn ty_mid _line _ico _print" onclick="window.print()">인쇄하기</button>
                                     <button type="button" class="f_btn ty_mid _line _ico _down">다운로드</button>
                                     <button type="button" class="f_btn ty_mid _line _ico _mView">모바일화면 미리보기</button>
                                 </div>
@@ -618,5 +618,28 @@
             </div>
         </div>
     </div>
+
+
+    <!--[D] QR print -->
+    <div class="qr_print" id="qr_print">
+        <img src="../assets/images/qr_bg.png" alt="" class="qr_print_bg">
+        <div class="qr_print_cont">
+            <div class="qr_print_head">
+                <span class="qr_print_pin">
+                    <img src="../assets/images/qr_pin.png" alt="">
+                </span>
+                <span class="qr_print_cate">공간구분</span>
+                <span class="qr_print_name">공간명</span>
+            </div>
+            <div class="qr_print_frame">
+                <span class="edge edge1"></span>
+                <span class="edge edge2"></span>
+                <span class="edge edge3"></span>
+                <span class="edge edge4"></span>
+                <img src="../assets/images/qr_sample.png" alt="" class="qr_print_code">
+            </div>
+        </div>
+    </div>
+   
 </body>
 </html>

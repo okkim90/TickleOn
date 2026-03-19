@@ -1,0 +1,150 @@
+.qr_print {
+    position: relative;
+    width: 10cm;
+    height: 7.5cm;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    display: none;
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    &_bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        z-index: 1;
+    }
+
+    &_cont {
+        position: absolute;
+        left: 0.6cm;
+        top: 1.96cm;
+        z-index: 2;
+        text-align: center;
+    }
+    &_head {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.08cm;
+        margin-bottom: 0.3cm;
+        white-space: nowrap;
+    }
+    &_pin {
+        width: 0.48cm;
+        height: 0.48cm;
+        flex: 0 0 auto;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+    }
+    &_cate {
+        font-size: 0.35cm;
+        font-weight: 700;
+        color: #2f72b8;
+        flex: 0 0 auto;
+        line-height: 1.1;
+    }
+    
+    &_name {
+        font-size: 0.35cm;
+        font-weight: 700;
+        color: #444;
+        line-height: 1.1;
+    }
+    &_frame {
+        position: relative;
+        width: 2.65cm;
+        height: 2.65cm;
+        padding: 0.2cm;
+        .edge {
+            position: absolute;
+            width: 0.4cm;
+            height: 0.4cm;
+            border: 0.05cm solid #2f72b8;
+        }
+        .edge1 {
+            border-right: none;
+            border-bottom: none;
+            left: 0;
+            top: 0;
+        }
+        .edge2 {
+            border-left: none;
+            border-bottom: none;
+            right: 0;
+            top: 0;
+        }
+        .edge3 {
+            border-top: none;
+            border-right: none;
+            left: 0;
+            bottom: 0;
+        }
+        .edge4 {
+            border-left: none;
+            border-top: none;
+            right: 0;
+            bottom: 0;
+        }
+    }
+    &_code {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    
+}
+
+
+@media print {
+    @page {
+        size: 10cm 7.5cm;
+        margin: 0;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        width: 10cm;
+        height: 7.5cm;
+        background: #fff;
+    }
+
+    body * {
+        visibility: hidden;
+    }
+    #wrap {
+        display: none;
+    }
+
+    #qr_print,
+    #qr_print * {
+        visibility: visible;
+    }
+
+    #qr_print {
+        display: block !important;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 10cm;
+        height: 7.5cm;
+        overflow: hidden;
+    }
+}
