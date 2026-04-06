@@ -1,0 +1,179 @@
+
+.cus_request_sec {
+    & + & {
+        padding-top: 32px;
+        margin-top: 32px;
+        border-top: 1px solid $c_line2;
+    }
+    @include mobile {
+        margin: 0 20px;
+    }
+    &_tit {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        margin-bottom: 10px;
+    }
+    
+}
+
+.cus_request_work {
+    & + & {
+        margin-top: 20px;
+    }
+    &_desc {
+        font-size: 20px;
+        @include mobile {
+            font-size: 18px;
+        }
+    }
+    &_status {
+        display: flex;
+        padding: 16px;
+        border-radius: 8px;
+        background-color: lighten($c_key, 50.5%);
+        flex-wrap: wrap;
+        gap: 10px 30px;
+        font-size: 14px;
+        position: relative;
+        margin-top: 16px;
+        
+        .status_item {
+            position: relative;
+            font-weight: 500;
+            &::after {
+                content: '';
+                width: 1px;
+                height: 14px;
+                background-color: #222;
+                position: absolute;
+                right: -15px;
+                top: 50%;
+                margin-top: -7px;
+            }
+            &:last-child {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+        @include mobile {
+            font-size: 14px;
+            padding-right: 14px;
+        }
+    }
+}
+
+
+.cus_request_cont {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 16px;
+    border: 1px solid $c_line;
+}
+
+
+.cus_request_tbl {
+    table {
+        thead {
+            th:last-child {
+                padding: 0 0 ;
+
+              .x-axis {
+                    display: flex;
+
+                    span {
+                        flex: 1;
+                        font-size: 11px;
+                        color: #aaa;
+                        font-weight: 400;
+                        text-align: center; // 레이블을 라인 바로 옆에
+                    }
+                }
+            }
+        }
+    }
+
+    .chart-cell {
+        position: relative;
+        padding: 0 0;
+        .chart-inner {
+            position: relative;
+            height: 100%;
+            padding: 0 calc(100% / 22); // div에서 % 패딩 계산
+        }
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            pointer-events: none;
+            padding: 0 0;
+
+            .grid-line {
+                flex: 1;
+                position: relative;
+                &::after {
+                    content: '';
+                    width: 1px;
+                    height: 100%;
+                    top: 0;
+                    left: 50%;
+                    background-color: #eee;
+                    position: absolute;
+                }
+            }
+        }
+        .bar-wrap {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .bar {
+            position: relative;
+            height: 28px;
+            background: #6876eb;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+            cursor: pointer;
+
+            &:hover {
+                background: #2b3696;
+                box-shadow: 2px 2px 4px rgba(#000, 0.2);
+            }
+            
+           
+        }
+    }
+}
+
+.cusChart_tooltip {
+    position: fixed;
+    background: #575387;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 9999;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 5px solid transparent;
+        border-top-color: #575387;
+    }
+}

@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TickleOn</title>
+    <!--[D] datepicker js&css-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            // datepicker
+            $.datepicker.regional['ko'] = {
+                closeText: '닫기',
+                prevText: '이전달',
+                nextText: '다음달',
+                currentText: '오늘',
+                monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                dayNames: ['일','월','화','수','목','금','토'],
+                dayNamesShort: ['일','월','화','수','목','금','토'],
+                dayNamesMin: ['일','월','화','수','목','금','토'],
+                weekHeader: 'Wk',
+                dateFormat: 'yy-mm-dd(D)',
+                firstDay: 0,
+                isRTL: false,
+                showMonthAfterYear: true,
+                changeMonth: true,
+                changeYear: true
+            };
+            $.datepicker.setDefaults($.datepicker.regional['ko']);
+            $(".datepicker").datepicker();
+        });
+        //오늘 선택
+        function set_today(target){
+            let date_set = $(target).parents('.date_set');
+            let datepicker = date_set.find('.datepicker'); 
+            datepicker.datepicker('setDate', 'today');
+        }
+    </script>
+    <!--//[D] datepicker js&css-->
+
+    <!--[D] chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!--[D] 공통척용 js&css-->
+    <link rel="stylesheet" href="../assets/css/common.min.css">
+    <script type="text/javascript" src="../assets/js/common.js"></script>
+</head>
+<body>
+    <div id="wrap" class="grid_wrap">
+        <header id="header" class="header">
+            <div class="m_header">
+                <h1><a href=""><img src="../assets/images/logo.svg" alt="TickleOn"></a> </h1>
+                <button type="button" class="btn_nav"></button>
+            </div>
+            <div class="header_cont">
+                <div class="breadcrumb">
+                    <div class="breadcrumb_item">통계</div>
+                    <div class="breadcrumb_item">고객요청 현황</div>
+                </div>
+                <div class="hd_company">
+                    <div class="hd_company_item dep1">회사명</div>
+                    <div class="hd_company_item select-box ty_mid ">
+                        <input type="text" class="select-input" value="서울지점" placeholder="매체를 선택해주세요" readonly>
+                        <div class="options">
+                            <ul>
+                                <li data-value="1" class="option">서울지점</li>
+                                <li data-value="2" class="option">경기지점</li>
+                                <li data-value="3" class="option">강원지점</li>
+                            </ul>
+                            <button type="button" class="f_btn ty_mid _key2 w100" onclick="event.stopPropagation();">지점 관리</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hd_user">
+                    <button type="button" class="hd_user_btn"></button>
+                    <div class="hd_user_menu"></div>
+                </div>
+            </div>
+        </header>
+        <aside class="nav fixed">
+            <div class="nav_top">
+                <a href="" class="nav_top_logo"></a>
+                <button type="button" class="nav_close" aria-label="close nav"></button>
+            </div>
+            <nav class="nav_wrap">
+                <ul class="nav_list dep1">
+                    <li class="nav_dep1"> <!--[DEV] 활성화 : 'on' class-->
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_monitoring"></i>
+                            <span class="txt">모니터링</span>
+                        </a>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_facility"></i>
+                            <span class="txt">시설관리</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">정기작업시설</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">고객이용시설</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_work"></i>
+                            <span class="txt">수행작업관리</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">정기작업관리</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">고객작업관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_emergency"></i>
+                            <span class="txt">긴급관리</span>
+                            <span class="tag_new">N</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">정기작업시설<span class="tag_new">10 New</span></a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">고객이용시설</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_account"></i>
+                            <span class="txt">계정관리</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">작업자 계정</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">지점 관리자 계정</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_material"></i>
+                            <span class="txt">소모품/장비관리</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">소모품 관리</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">장비 관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1 has_dep on">
+                        <a href="" class="nav_btn dep1 ">
+                            <i class="nav_ico ty_statistic"></i>
+                            <span class="txt">통계</span>
+                        </a>
+                        <ul class="nav_list dep2">
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">현황통계</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2 on">고객요청 현황</a>
+                            </li>
+                            <li class="nav_dep2">
+                                <a href="" class="nav_btn dep2">근태관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_notification"></i>
+                            <span class="txt">안내사항</span>
+                        </a>
+                    </li>
+                    <li class="nav_dep1">
+                        <a href="" class="nav_btn dep1">
+                            <i class="nav_ico ty_setting"></i>
+                            <span class="txt">설정</span>  
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <main id="container" class="container">
+            <div class="sub_tit">
+                <h1 class="title1 mr_auto"><i class="tit_ico ty_statistics"></i>고객요청 현황</h1>
+                <div class="btn_set">
+                    <button type="buttton" class="f_btn ty_mid _line _ico _excel">고객요청 현황 통계 다운로드</button>
+                </div> 
+            </div>
+            <div class="top_set">
+                
+                <div class="d_flex ai_c fw_w _gapX16 _gapY10 mw_max">
+                    <div class="d_flex _gapX8 ai_c mw_max">
+                        <div class="select-box ty_mid2 w_160 mw_max">
+                            <input type="text" class="select-input" value="지점 선택" readonly>
+                            <div class="options">
+                                <ul>
+                                    <li data-value="1" class="option">지점11111</li>
+                                    <li data-value="2" class="option">지점22222</li>
+                                    <li data-value="3" class="option">지점33333</li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="d_flex _gapX8 ai_c mw_max">
+                        <div class="select-box ty_mid2 w_160 mw_max">
+                            <input type="text" class="select-input" value="공간구분 선택" readonly>
+                            <div class="options">
+                                <ul>
+                                    <li data-value="1" class="option">공간11111</li>
+                                    <li data-value="2" class="option">공간22222</li>
+                                    <li data-value="3" class="option">공간33333</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d_flex _gapX8 ai_c mw_max">
+                        <div class="select-box ty_mid2 w_160 mw_max">
+                            <input type="text" class="select-input" value="시설 선택" readonly>
+                            <div class="options">
+                                <ul>
+                                    <li data-value="1" class="option">전체 시설</li>
+                                    <li data-value="2" class="option">정기작업시설</li>
+                                    <li data-value="3" class="option">고객이용시설</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="date_box d_flex fw_w _gap8 ai_c">
+                        <label>기간</label>
+                        <div class="date_set d_flex fw_w  ai_c">
+                            <input type="text" class="f_input ty_mid datepicker w_150" value="2024-09-24(화)" readonly>
+                            ~
+                            <input type="text" class="f_input ty_mid datepicker w_150" value="2024-09-24(화)" readonly>
+                        </div>
+                    </div>
+                    <button type="button" class="f_btn ty_mid _line _ico _search mw_max">검색</button>
+                </div>
+                
+            </div>
+            <div class="contents no_pd">
+                <!--경기지점-->
+                <div class="cus_request_sec">
+                    <div class="cus_request_sec_tit">
+                        <i class="tit_ico ty_facility"></i>
+                        <h2 class="title2">경기지점</h2>
+                    </div>
+
+                    <!--작업별-->
+                    <div class="cus_request_work">
+                        <div class="cus_request_work_desc">수행작업명 *화장실* 작업별 통계</div>
+                        <div class="cus_request_work_status">
+                            <span class="status_item">총 접수 건수 : 26건</span>
+                            <span class="status_item">처리율  91%</span>
+                            <span class="status_item">평균 처리시간 10분</span>
+                            <span class="status_item">미처리 건수 2건</span>
+                        </div>
+                        <div class="cus_request_cont">
+                            <div class="cus_request_tbl tbl_wrap">
+                                <table class="tbl tl_fixed" style="min-width:1000px">
+                                    <colgroup>
+                                        <col style="width:80px">
+                                        <col>
+                                        <col style="width:80px">
+                                        <col style="width:80px">
+                                        <col style="width:45%">
+                                    </colgroup>
+                                    <caption></caption>
+                                    <thead class="fixed_top">
+                                        <tr>
+                                            <th>구분</th>
+                                            <th>수행작업</th>
+                                            <th>접수건수</th>
+                                            <th>비율</th>
+                                            <th>
+                                                <div class="x-axis">
+                                                    <span>0</span>
+                                                    <span>10</span>
+                                                    <span>20</span>
+                                                    <span>30</span>
+                                                    <span>40</span>
+                                                    <span>50</span>
+                                                    <span>60</span>
+                                                    <span>70</span>
+                                                    <span>80</span>
+                                                    <span>90</span>
+                                                    <span>100</span>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="taL">-</td>
+                                            <td class="taL">정확한 위치를 입력해주세요.</td>
+                                            <td>15</td>
+                                            <td>40%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="40"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL" rowspan="2">고장</td>
+                                            <td class="taL">세면대가 고장났나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <!--[D] data-pct 로 width, 툴팁 적용 (하단 js)-->
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">변기가 파손되었나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL" rowspan="2">청소</td>
+                                            <td class="taL">바닥이 오염되어 있나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">휴지통이 가득차 있나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL" rowspan="3">소모품</td>
+                                            <td class="taL">휴지가 부족한가요?</td>
+                                            <td>25</td>
+                                            <td>91%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="91"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">핸드워시가 부족한가요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">핸드타올이 부족한가요?</td>
+                                            <td>1</td>
+                                            <td>7%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="7"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">-</td>
+                                            <td class="taL">상세 민원을 입력해주세요.</td>
+                                            <td>1</td>
+                                            <td>7%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="7"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--작업별-->
+                    <div class="cus_request_work">
+                        <div class="cus_request_work_desc">수행작업명 *탕비실* 작업별 통계</div>
+                        <div class="cus_request_work_status">
+                            <span class="status_item">총 접수 건수 : 26건</span>
+                            <span class="status_item">처리율  91%</span>
+                            <span class="status_item">평균 처리시간 10분</span>
+                            <span class="status_item">미처리 건수 2건</span>
+                        </div>
+                        <div class="cus_request_cont">
+                            <div class="cus_request_tbl tbl_wrap">
+                                <table class="tbl tl_fixed" style="min-width:1000px">
+                                    <colgroup>
+                                        <col style="width:80px">
+                                        <col>
+                                        <col style="width:80px">
+                                        <col style="width:80px">
+                                        <col style="width:45%">
+                                    </colgroup>
+                                    <caption></caption>
+                                    <thead class="fixed_top">
+                                        <tr>
+                                            <th>구분</th>
+                                            <th>수행작업</th>
+                                            <th>접수건수</th>
+                                            <th>비율</th>
+                                            <th>
+                                                <div class="x-axis">
+                                                    <span>0</span>
+                                                    <span>10</span>
+                                                    <span>20</span>
+                                                    <span>30</span>
+                                                    <span>40</span>
+                                                    <span>50</span>
+                                                    <span>60</span>
+                                                    <span>70</span>
+                                                    <span>80</span>
+                                                    <span>90</span>
+                                                    <span>100</span>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="taL">-</td>
+                                            <td class="taL">정확한 위치를 입력해주세요.</td>
+                                            <td>15</td>
+                                            <td>40%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="40"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL" rowspan="2">고장</td>
+                                            <td class="taL">세면대가 고장났나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">변기가 파손되었나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL" rowspan="2">청소</td>
+                                            <td class="taL">바닥이 오염되어 있나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">휴지통이 가득차 있나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL" rowspan="3">소모품</td>
+                                            <td class="taL">휴지가 부족한가요?</td>
+                                            <td>25</td>
+                                            <td>91%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="91"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">핸드워시가 부족한가요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">핸드타올이 부족한가요?</td>
+                                            <td>1</td>
+                                            <td>7%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="7"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">-</td>
+                                            <td class="taL">상세 민원을 입력해주세요.</td>
+                                            <td>1</td>
+                                            <td>7%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="7"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--// 경기지점-->
+
+                <!--충청지점-->
+                <div class="cus_request_sec">
+                    <div class="cus_request_sec_tit">
+                        <i class="tit_ico ty_facility"></i>
+                        <h2 class="title2">충청지점</h2>
+                    </div>
+                     
+                    <!--작업별-->
+                    <div class="cus_request_work">
+                        <div class="cus_request_work_desc">수행작업명 *화장실* 작업별 통계</div>
+                        <div class="cus_request_work_status">
+                            <span class="status_item">총 접수 건수 : 26건</span>
+                            <span class="status_item">처리율  91%</span>
+                            <span class="status_item">평균 처리시간 10분</span>
+                            <span class="status_item">미처리 건수 2건</span>
+                        </div>
+                        <div class="cus_request_cont">
+                            <div class="cus_request_tbl tbl_wrap">
+                                <table class="tbl tl_fixed" style="min-width:1000px">
+                                    <colgroup>
+                                        <col style="width:80px">
+                                        <col>
+                                        <col style="width:80px">
+                                        <col style="width:80px">
+                                        <col style="width:45%">
+                                    </colgroup>
+                                    <caption></caption>
+                                    <thead class="fixed_top">
+                                        <tr>
+                                            <th>구분</th>
+                                            <th>수행작업</th>
+                                            <th>접수건수</th>
+                                            <th>비율</th>
+                                            <th>
+                                                <div class="x-axis">
+                                                    <span>0</span>
+                                                    <span>10</span>
+                                                    <span>20</span>
+                                                    <span>30</span>
+                                                    <span>40</span>
+                                                    <span>50</span>
+                                                    <span>60</span>
+                                                    <span>70</span>
+                                                    <span>80</span>
+                                                    <span>90</span>
+                                                    <span>100</span>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="taL">-</td>
+                                            <td class="taL">정확한 위치를 입력해주세요.</td>
+                                            <td>15</td>
+                                            <td>40%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="40"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL" rowspan="2">고장</td>
+                                            <td class="taL">세면대가 고장났나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">변기가 파손되었나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL" rowspan="2">청소</td>
+                                            <td class="taL">바닥이 오염되어 있나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">휴지통이 가득차 있나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL" rowspan="3">소모품</td>
+                                            <td class="taL">휴지가 부족한가요?</td>
+                                            <td>25</td>
+                                            <td>91%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="91"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">핸드워시가 부족한가요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">핸드타올이 부족한가요?</td>
+                                            <td>1</td>
+                                            <td>7%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="7"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">-</td>
+                                            <td class="taL">상세 민원을 입력해주세요.</td>
+                                            <td>1</td>
+                                            <td>7%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="7"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--작업별-->
+                    <div class="cus_request_work">
+                        <div class="cus_request_work_desc">수행작업명 *탕비실* 작업별 통계</div>
+                        <div class="cus_request_work_status">
+                            <span class="status_item">총 접수 건수 : 26건</span>
+                            <span class="status_item">처리율  91%</span>
+                            <span class="status_item">평균 처리시간 10분</span>
+                            <span class="status_item">미처리 건수 2건</span>
+                        </div>
+                        <div class="cus_request_cont">
+                            <div class="cus_request_tbl tbl_wrap">
+                                <table class="tbl tl_fixed" style="min-width:1000px">
+                                    <colgroup>
+                                        <col style="width:80px">
+                                        <col>
+                                        <col style="width:80px">
+                                        <col style="width:80px">
+                                        <col style="width:45%">
+                                    </colgroup>
+                                    <caption></caption>
+                                    <thead class="fixed_top">
+                                        <tr>
+                                            <th>구분</th>
+                                            <th>수행작업</th>
+                                            <th>접수건수</th>
+                                            <th>비율</th>
+                                            <th>
+                                                <div class="x-axis">
+                                                    <span>0</span>
+                                                    <span>10</span>
+                                                    <span>20</span>
+                                                    <span>30</span>
+                                                    <span>40</span>
+                                                    <span>50</span>
+                                                    <span>60</span>
+                                                    <span>70</span>
+                                                    <span>80</span>
+                                                    <span>90</span>
+                                                    <span>100</span>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="taL">-</td>
+                                            <td class="taL">정확한 위치를 입력해주세요.</td>
+                                            <td>15</td>
+                                            <td>40%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="40"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL" rowspan="2">고장</td>
+                                            <td class="taL">세면대가 고장났나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">변기가 파손되었나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL" rowspan="2">청소</td>
+                                            <td class="taL">바닥이 오염되어 있나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">휴지통이 가득차 있나요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL" rowspan="3">소모품</td>
+                                            <td class="taL">휴지가 부족한가요?</td>
+                                            <td>25</td>
+                                            <td>91%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="91"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">핸드워시가 부족한가요?</td>
+                                            <td>3</td>
+                                            <td>20%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="20"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">핸드타올이 부족한가요?</td>
+                                            <td>1</td>
+                                            <td>7%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="7"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="taL">-</td>
+                                            <td class="taL">상세 민원을 입력해주세요.</td>
+                                            <td>1</td>
+                                            <td>7%</td>
+                                            <td class="chart-cell">
+                                                <div class="chart-inner">
+                                                    <div class="grid-lines">
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                        <div class="grid-line"></div>
+                                                    </div>
+                                                    <div class="bar-wrap">
+                                                        <div class="bar" data-pct="7"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--// 충청지점-->
+            </div>
+        </main>
+    </div>
+    <!--[D] 로딩 레이어 
+        활성화 : 'on' class
+    -->
+    <div class="loader_layer">
+        <span class="loader"></span>
+    </div>
+    <!--[D] 로딩 레이어 -->
+
+    <!-- 차트 bar &  툴팁 -->
+    <div class="cusChart_tooltip" id="cusChart_tooltip"></div>
+    <script>
+        const tooltip = document.getElementById('cusChart_tooltip');
+
+        document.querySelectorAll('.bar').forEach(bar => {
+            const pct = bar.dataset.pct;
+            bar.style.width = pct + '%';
+
+            bar.addEventListener('mouseenter', () => {
+                tooltip.textContent = pct + '%';
+                tooltip.style.opacity = '1';
+            });
+
+            bar.addEventListener('mousemove', (e) => {
+                tooltip.style.left = e.clientX - (tooltip.offsetWidth / 2) + 'px';
+                tooltip.style.top = e.clientY - 44 + 'px';
+            });
+
+            bar.addEventListener('mouseleave', () => {
+                tooltip.style.opacity = '0';
+            });
+        });
+    </script>
+</body>
+</html>
